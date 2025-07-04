@@ -1,4 +1,5 @@
 import AreaOfExpertise from "@/components/Home/AreaOfExpertise";
+import Blogs from "@/components/Home/Blogs";
 import Brand from "@/components/Home/Brand";
 import Experts from "@/components/Home/Experts";
 import HomeBanner from "@/components/Home/HomeBanner";
@@ -16,6 +17,7 @@ export default function Page() {
     <Experts />
     <Partnerships />
     <Testimonials />
+    <Blogs />
     </>
   );
 }

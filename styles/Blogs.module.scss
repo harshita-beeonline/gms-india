@@ -1,0 +1,105 @@
+.blog-page-contnet {
+  background: #f7f7fc;
+  width: 100%;
+  padding: 50px 0px 50px 80px;
+  h2 {
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 38px;
+    line-height: 54px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #1c1c1c;
+  }
+  .sliderWrapper {
+    width: 100%;
+  }
+  .card {
+    background: #fff;
+    box-shadow: 0px 10px 15px 0px #00000008;
+    display: flex;
+    flex-direction: column;
+    width: 394px;
+    height: 517.3900146484375px;
+    border-radius: 5px;
+    cursor: pointer;
+    .image {
+      width: 100%;
+      height: 236.38999938964844px;
+      object-fit: cover;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .cardText {
+      padding: 30px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .source {
+        font-family: font family/Font 1;
+        font-weight: font weight/400;
+        font-style: Regular;
+        font-size: 13.34px;
+        line-height: line height/20;
+        letter-spacing: 0%;
+        color: #14142b;
+        margin: 0;
+      }
+      h3 {
+        font-family: Instrument Sans;
+        font-weight: font weight/600;
+        font-style: SemiBold;
+        font-size: 19.53px;
+        line-height: line height/24;
+        letter-spacing: 0%;
+        color: #14142b;
+        margin: 0;
+        margin-top: 35px;
+        min-height: 80px;
+      }
+
+      .readMore {
+        margin-top: 40px;
+        height: 44px;
+        border-radius: 8px;
+        padding: 14px 22px;
+        background: #3b5ba6;
+        font-family: Instrument Sans;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 13px;
+        line-height: 13px;
+        letter-spacing: 0%;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        cursor: pointer;
+        width: 50%;
+      }
+    }
+  }
+
+  .arrowWrapper {
+    display: flex;
+    justify-content: start;
+    margin-top: 25px;
+    gap: 2px;
+    .navBtn {
+      width: 34.79999923706055px;
+      height: 36px;
+      border: 2px solid #e6ebf50a;
+      background: #eff0f7;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      &:hover {
+        background: #ddd;
+      }
+    }
+  }
+}
