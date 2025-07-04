@@ -1,0 +1,43 @@
+.experts-content {
+  width: 100%;
+  background-image: url("../public/images/expertimage.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0px;
+  h2 {
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #fcfcfc;
+    margin: 0;
+    width: 70%;
+  }
+  button {
+    height: 44px;
+    opacity: 1;
+    border-radius: 6px;
+    padding: 20px;
+    background: #ffffff;
+    font-family: Instrument Sans;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 13px;
+    letter-spacing: 0%;
+    color: #3b5ba6;
+    border: none;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

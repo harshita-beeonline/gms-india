@@ -1,0 +1,99 @@
+.world-class-page-content {
+  width: 100%;
+  padding: 50px 80px;
+  background: #fcfcfc;
+  .world-class-left-right-content {
+    display: flex;
+    gap: 80px;
+    .world-class-left-content {
+      img {
+        width: 558px;
+        height: 558px;
+        opacity: 1;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+    .world-class-right-content {
+      .world-detail-content {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        margin-top: 15px;
+        h2 {
+          font-family: Instrument Sans;
+          font-weight: 600;
+          font-style: SemiBold;
+          font-size: 38px;
+          line-height: 100%;
+          letter-spacing: 0%;
+          color: #1c1c1c;
+          margin: 0;
+          width: 90%;
+        }
+        p {
+          font-family: Instrument Sans;
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 16px;
+          line-height: 100%;
+          letter-spacing: 2%;
+          color: #717070;
+          margin: 0;
+          width: 80%;
+        }
+        button {
+          height: 44px;
+          opacity: 1;
+          border-radius: 8px;
+          padding: 14px 22px;
+          background: #3b5ba6;
+          font-family: Instrument Sans;
+          font-weight: 500;
+          font-style: Medium;
+          font-size: 13px;
+          line-height: 13px;
+          letter-spacing: 0%;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
+          border: none;
+          width: 22%;
+          cursor: pointer;
+        }
+      }
+      .world-first-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 48px;
+        .first-row-data {
+          border-left: 1px solid #3b5ba6;
+          padding: 15px 25px 5px 25px;
+          h1 {
+            font-family: Instrument Serif;
+            font-weight: 400;
+            font-style: Italic;
+            font-size: 60px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #000000;
+            margin: 0;
+          }
+          p {
+            font-family: Instrument Sans;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 2%;
+            color: #717070;
+            margin: 0;
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+  }
+}

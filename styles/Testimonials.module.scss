@@ -1,0 +1,20 @@
+.testimonial-page-content{
+  background-image: url("../public/images/testimonialbg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 50px 0px;
+  h2 {
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 38px;
+    line-height: 54px;
+    letter-spacing: 0%;
+    color: #1c1c1c;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
