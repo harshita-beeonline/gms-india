@@ -1,7 +1,7 @@
 .blog-page-contnet {
   background: #f7f7fc;
   width: 100%;
-  padding: 50px 0px 50px 80px;
+  padding: 30px 0px 50px 80px;
   h2 {
     font-family: Instrument Sans;
     font-weight: 600;
@@ -23,6 +23,7 @@
     width: 394px;
     height: 517.3900146484375px;
     border-radius: 5px;
+    overflow: hidden;
     cursor: pointer;
     .image {
       width: 100%;
@@ -30,6 +31,7 @@
       object-fit: cover;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
+      transition: transform 0.3s ease;
     }
     .cardText {
       padding: 30px 35px;
@@ -79,10 +81,22 @@
         border: none;
         cursor: pointer;
         width: 50%;
+        transition: all 0.3s ease;
+        svg {
+          transition: transform 0.3s ease;
+        }
+        &:hover svg {
+          transform: translateX(5px);
+        }
+      }
+    }
+    &:hover {
+      background-color: #eff0f6;
+      .image {
+        transform: scale(1.05);
       }
     }
   }
-
   .arrowWrapper {
     display: flex;
     justify-content: start;

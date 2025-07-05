@@ -13,6 +13,7 @@
     color: #1c1c1c;
     margin: 0;
   }
+
   .area-of-expertise-cards {
     display: flex;
     gap: 35px;
@@ -20,6 +21,7 @@
     justify-content: center;
     align-items: center;
     .expertise-card {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -31,6 +33,20 @@
       border-radius: 10px;
       padding: 45px 36px 55px 36px;
       cursor: pointer;
+      /* NEW: make every direct child animate smoothly */
+      > * {
+        transition: transform 0.3s ease;
+      }
+
+      /* NEW: when the card is hovered, move those children up a bit */
+      &:hover > * {
+        transform: translateY(-10px); // adjust -10px to taste
+      }
+      .image-div {
+        svg path{
+          fill: #3b5ba6;
+        }
+      }
       h5 {
         font-family: Instrument Sans;
         font-weight: font weight/400;
@@ -57,7 +73,90 @@
         background-color: transparent;
         text-align: left;
         margin-top: 30px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-family: Instrument Sans;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 16px;
+        line-height: 13px;
+        letter-spacing: 0%;
+        color: #ffffff;
+        .hover-text {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(-10px);
+          transition: all 0.3s ease;
+          color: #ffffff;
+          font-weight: 500;
+          font-size: 16px;
+          white-space: nowrap; // prevents line break
+        }
+
+        svg {
+          transition: transform 0.3s ease;
+          margin-right: auto; // pushes it right
+        }
+      }
+      &:hover {
+        button {
+          .hover-text {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            position: relative;
+          }
+          svg {
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+    .expertise-card:hover {
+      background-size: 100% 100%;
+      background-position: 0px 0px;
+      background-image: linear-gradient(90deg, #a100ffff 0%, #71c4ffff 100%);
+      .image-div {
+        svg path {
+          fill: #ffffff;
+        }
+      }
+      h5 {
+        font-weight: 600;
+        font-size: 27px;
+        color: #ffffff;
+      }
+      p {
+        font-weight: 500;
+        font-size: 16px;
+        color: #ffffff;
+      }
+      button {
+        svg path {
+          fill: #ffffff;
+        }
       }
     }
   }
 }
+.icon {
+  path {
+    stroke: #3b5ba6;
+    stroke-width: 2px;
+    fill: transparent;
+
+    /* start with a long dash so nothing is drawn */
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+}
+
+/* keyframes reused via JS on every hover */
+@keyframes draw-fill {
+  0%   { stroke-dashoffset: 1000; fill: transparent; }
+  80%  { stroke-dashoffset: 0;    fill: transparent; }
+  100% { stroke-dashoffset: 0;    fill: #3b5ba6; }
+}
+

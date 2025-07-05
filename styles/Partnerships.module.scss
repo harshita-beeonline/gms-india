@@ -29,6 +29,17 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+        img {
+        transition: transform 0.3s ease;
+      }
+  
+      &:hover img {
+        transform: scale(1.1);
+      }
     }
+    // .company-card:hover{
+    //     background-color: #eff0f6;
+    // }
   }
 }
+

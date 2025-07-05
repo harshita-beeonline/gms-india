@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules"; // ✅ Import Autoplay
 import "swiper/css";
 import "swiper/css/navigation";
 import styles from "../../styles/Blogs.module.scss";
@@ -43,6 +43,19 @@ const cardData = [
     date: "April 17, 2025",
     title: "Upgrade from Welding",
   },
+  {
+    img: blogone,
+    source: "Moneycontrol",
+    date: "April 23, 2025",
+    title: "Get the GMS Edge",
+  },
+  {
+    img: blogtwo,
+    source: "Business Standard",
+    date: "April 22, 2025",
+    title:
+      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+  },
 ];
 
 const Blogs = () => {
@@ -50,7 +63,6 @@ const Blogs = () => {
   const nextRef = useRef(null);
   const [navigationReady, setNavigationReady] = useState(false);
 
-  // Ensure refs are set before rendering Swiper
   useEffect(() => {
     setNavigationReady(true);
   }, []);
@@ -61,9 +73,13 @@ const Blogs = () => {
       <div className={styles.sliderWrapper}>
         {navigationReady && (
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]} // ✅ Include Autoplay module
             slidesPerView={3.5}
             spaceBetween={80}
+            autoplay={{
+              delay: 2000, // ✅ Auto slide every 3 seconds
+              disableOnInteraction: false, // ✅ Keeps autoplay on after manual navigation
+            }}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
@@ -88,9 +104,7 @@ const Blogs = () => {
                       {card.source} | {card.date}
                     </p>
                     <h3>{card.title}</h3>
-                    <button className={styles.readMore}>
-                      Read More →
-                    </button>
+                    <button className={styles.readMore}>Read More →</button>
                   </div>
                 </div>
               </SwiperSlide>
