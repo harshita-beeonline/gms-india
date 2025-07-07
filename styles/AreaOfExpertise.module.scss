@@ -43,7 +43,7 @@
         transform: translateY(-10px); // adjust -10px to taste
       }
       .image-div {
-        svg path{
+        svg path {
           fill: #3b5ba6;
         }
       }
@@ -141,22 +141,51 @@
     }
   }
 }
-.icon {
-  path {
-    stroke: #3b5ba6;
-    stroke-width: 2px;
-    fill: transparent;
-
-    /* start with a long dash so nothing is drawn */
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+@media (max-width: 435px) {
+  .area-of-expertise-content {
+    padding: 40px 15px;
+    h2 {
+      font-size: 24px;
+    }
+    .area-of-expertise-cards {
+      flex-direction: column;
+      margin-top: 10px;
+      gap: 0px;
+      .expertise-card {
+        gap: 15px;
+        width: 358px;
+        height: 315px;
+        padding: 36px;
+        margin-top: 25px;
+        .image-div {
+          svg {
+            width: 68px;
+            height: 68px;
+          }
+        }
+        h5 {
+          font-size: 22px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
   }
 }
-
-/* keyframes reused via JS on every hover */
-@keyframes draw-fill {
-  0%   { stroke-dashoffset: 1000; fill: transparent; }
-  80%  { stroke-dashoffset: 0;    fill: transparent; }
-  100% { stroke-dashoffset: 0;    fill: #3b5ba6; }
+@media (max-width: 361px) {
+  .area-of-expertise-content {
+    .area-of-expertise-cards {
+      .expertise-card {
+        gap: 12px;
+        padding: 30px;
+        .image-div {
+          svg {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
 }
-

@@ -2,17 +2,25 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FiSearch, FiShoppingCart, FiChevronDown } from "react-icons/fi"; // ➡ `npm i react‑icons`
 import styles from "../../styles/Header.module.scss";
 import footerlogo from "../../public/images/footerlogo.png";
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+ const [activeDropdown, setActiveDropdown] = useState(null); // ⬅️ single source of truth
+
+  const handleToggle = (name) =>
+    setActiveDropdown((prev) => (prev === name ? null : name));
   return (
     <header className={styles["header-section-div"]}>
       {/* ── left – logo ───────────────────────────────────── */}
       <div className={styles["hearder-logo"]}>
         <Link href="/">
-          <Image src={footerlogo} alt="Global Marketing Services logo" priority />
+          <Image
+            src={footerlogo}
+            alt="Global Marketing Services logo"
+            priority
+          />
         </Link>
       </div>
       {/* ── centre – primary nav ─────────────────────────── */}
@@ -26,10 +34,13 @@ const Header = () => {
           </li>
 
           {/* Solutions dropdown */}
-          <li>
+          <li onClick={() => handleToggle("solutions")}>
             <Link href="/">
               Solutions{" "}
               <svg
+                className={`${styles.arrowIcon} ${
+                  activeDropdown === "solutions" ? styles.rotate : ""
+                }`}
                 width="11"
                 height="11"
                 viewBox="0 0 11 11"
@@ -42,13 +53,23 @@ const Header = () => {
                 />
               </svg>
             </Link>
+            {activeDropdown === "solutions" && (
+              <div className={styles.dropdownMenu}>
+                <li>Solution 1</li>
+                <li>Solution 2</li>
+                <li>Solution 3</li>
+              </div>
+            )}
           </li>
 
           {/* Products dropdown */}
-          <li>
+          <li onClick={() => handleToggle("products")}>
             <Link href="/">
               Products{" "}
               <svg
+                  className={`${styles.arrowIcon} ${
+                  activeDropdown === "products" ? styles.rotate : ""
+                }`}
                 width="11"
                 height="11"
                 viewBox="0 0 11 11"
@@ -61,6 +82,13 @@ const Header = () => {
                 />
               </svg>
             </Link>
+               {activeDropdown === "products" && (
+              <div className={styles.dropdownMenu}>
+                <li>Products 1</li>
+                <li>Products 2</li>
+                <li>Products 3</li>
+              </div>
+            )}
           </li>
 
           <li>
@@ -134,7 +162,74 @@ const Header = () => {
             />
           </svg>
         </Link>
+        <button
+          className={styles.burger}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 6H20"
+              stroke="#3B5BA6"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4 12H20"
+              stroke="#3B5BA6"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4 18H20"
+              stroke="#3B5BA6"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
       </div>
+      {/* ─── MOBILE NAV MENU ─── */}
+      {isMobileMenuOpen && (
+        <div className={styles.mobileMenu}>
+          <ul>
+            <li>
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                Company
+              </Link>
+            </li>
+            <li>
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                Solutions
+              </Link>
+            </li>
+            <li>
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                Resources
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </header>
   );
 };

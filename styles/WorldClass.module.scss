@@ -19,7 +19,7 @@
         display: flex;
         flex-direction: column;
         gap: 35px;
-        margin-top: 15px;
+        margin-top: 5px;
         h2 {
           font-family: Instrument Sans;
           font-weight: 600;
@@ -98,6 +98,86 @@
             color: #717070;
             margin: 0;
             margin-top: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 435px) {
+  .world-class-page-content {
+    padding: 40px 15px;
+    .world-class-left-right-content {
+      display: block;
+      .world-class-left-content {
+        display: flex;
+        justify-content: center;
+          align-items: center;
+          text-align: center;
+        img {
+          width: 358px;
+          height: 358px;
+        }
+      }
+      .world-class-right-content {
+        .world-detail-content {
+          gap: 20px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin-top: 25px;
+          h2 {
+            font-size: 28px;
+            width: 100%;
+          }
+          p {
+            font-size: 14px;
+            line-height: 22px;
+            width: 100%;
+          }
+          button {
+            height: 42px;
+            font-size: 16px;
+            width: 60%;
+            margin-top: 15px;
+            white-space: nowrap;
+          }
+        }
+        .world-first-row {
+          margin-top: 0;
+          display: grid;
+          grid-template-columns: repeat(2, 2fr);
+          place-items: center;
+          .first-row-data {
+            border-left: 1px solid #3b5ba6;
+            padding: 15px 15px 5px 15px;
+            margin-top: 35px;
+            width: 160px;
+            h1 {
+              font-size: 52px;
+            }
+            p {
+              font-size: 14px;
+              margin-top: 18px;
+            }
+          }
+          /* ── NEW: if a 3rd card exists, centre it ───────────────── */
+          .first-row-data:nth-child(3) {
+            grid-column: 1 / -1; // span both columns
+            justify-self: center; // then centre itself
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 361px) {
+  .world-class-page-content {
+    .world-class-left-right-content {
+      .world-class-right-content {
+        .world-detail-content {
+          h2 {
+            font-size: 24px;
           }
         }
       }

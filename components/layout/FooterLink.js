@@ -247,7 +247,7 @@ const FooterLink = () => {
         </div>
       </div>
       <div className={styles["footer-copyright-left-right"]}>
-        <div>
+        <div className={styles["footer-copyright-left"]}>
           <p>
             Copyright © 2025-PRESENT Global Marketing Services, India. All
             rights reserved.

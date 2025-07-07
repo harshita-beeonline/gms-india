@@ -10,7 +10,7 @@ const AreaOfExpertise = () => {
     {
       icon: (
         <svg
-          className={styles.icon}
+           className={`draw-icon ${styles.icon}`}
           width="73"
           height="73"
           viewBox="0 0 73 73"

@@ -74,8 +74,23 @@ const Blogs = () => {
         {navigationReady && (
           <Swiper
             modules={[Navigation, Autoplay]} // ✅ Include Autoplay module
-            slidesPerView={3.5}
-            spaceBetween={80}
+            breakpoints={{
+              0: {
+                // 0 – 434 px  ➜  1 full + ½ next card
+                slidesPerView: 1.2,
+                spaceBetween: 16,
+              },
+              435: {
+                // ≥ 435 px   ➜  2 full + ½ next card
+                slidesPerView: 2.5,
+                spaceBetween: 28,
+              },
+              992: {
+                // ≥ 992 px   ➜  3 full + ½ next card (your old 3.5)
+                slidesPerView: 3.5,
+                spaceBetween: 40,
+              },
+            }}
             autoplay={{
               delay: 2000, // ✅ Auto slide every 3 seconds
               disableOnInteraction: false, // ✅ Keeps autoplay on after manual navigation
@@ -111,7 +126,6 @@ const Blogs = () => {
             ))}
           </Swiper>
         )}
-
         {/* ✅ Custom Arrows */}
         <div className={styles.arrowWrapper}>
           <button ref={prevRef} className={styles.navBtn}>

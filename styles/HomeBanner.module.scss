@@ -1,10 +1,10 @@
 .home-banner-content {
-  width: 100%;
+  max-width: 100%;
   background-image: url("../public/images/homebanner.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 85vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +15,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 60px;
     h2 {
       font-family: Instrument Sans;
       font-weight: 600;
@@ -56,6 +57,52 @@
       text-align: center;
       color: #3b5ba6;
       cursor: pointer;
+      transition: all 0.3s ease;
+      svg {
+        transition: transform 0.3s ease;
+      }
+      &:hover svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+@media (max-width: 435px) {
+  .home-banner-content {
+      background-image: url("../public/images/homebannerres.png");
+    .home-banner-details {
+      h2 {
+        font-family: Instrument Sans;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 28px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #ffffff;
+        margin: 0;
+      }
+      p {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0;
+        width: 80%;
+        margin-top: 20px;
+      }
+      button {
+        height: 42px;
+      }
+    }
+  }
+}
+@media (max-width: 361px) {
+  .home-banner-content {
+    .home-banner-details {
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        width: 95%;
+      }
     }
   }
 }

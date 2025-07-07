@@ -39,5 +39,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+  }
+}
+@media (max-width: 435px) {
+  .experts-content {
+    background-image: url("../public/images/homebannerres.png");
+    padding: 60px 20px;
+    h2 {
+      font-size: 20px;
+      width: 100%;
+      line-height: 26px;
+    }
+    @media (max-width: 345px) {
+      h2 {
+        font-size: 18px;
+      }
+    }
+    button {
+      height: 42px;
+      margin-top: 40px;
+    }
   }
 }
