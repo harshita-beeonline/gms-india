@@ -141,7 +141,38 @@
     }
   }
 }
-@media (max-width: 435px) {
+@media (max-width: 1024px) {
+  .area-of-expertise-content {
+    padding: 40px 15px;
+    h2 {
+      font-size: 24px;
+    }
+    .area-of-expertise-cards {
+      margin-top: 10px;
+      gap: 20px;
+      .expertise-card {
+        gap: 12px;
+        width: 300px;
+        height: 290px;
+        padding: 25px;
+        margin-top: 25px;
+        .image-div {
+          svg {
+            width: 68px;
+            height: 68px;
+          }
+        }
+        h5 {
+          font-size: 22px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
   .area-of-expertise-content {
     padding: 40px 15px;
     h2 {

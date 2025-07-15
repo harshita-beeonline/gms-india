@@ -67,6 +67,60 @@
     }
   }
 }
+@media (max-width: 1024px) {
+  .home-banner-content {
+      background-image: url("../public/images/homebannerres.png");
+    .home-banner-details {
+      h2 {
+        font-family: Instrument Sans;
+        font-weight: 700;
+        font-style: Bold;
+        font-size:48px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #ffffff;
+        margin: 0;
+      }
+      p {
+        font-size: 20px;
+        line-height: 22px;
+        margin: 0;
+        width: 85%;
+        margin-top: 20px;
+      }
+      button {
+        height: 42px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .home-banner-content {
+      background-image: url("../public/images/homebannerres.png");
+    .home-banner-details {
+      h2 {
+        font-family: Instrument Sans;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 35px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #ffffff;
+        margin: 0;
+      }
+      p {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0;
+        width: 80%;
+        margin-top: 20px;
+      }
+      button {
+        height: 42px;
+      }
+    }
+  }
+}
 @media (max-width: 435px) {
   .home-banner-content {
       background-image: url("../public/images/homebannerres.png");

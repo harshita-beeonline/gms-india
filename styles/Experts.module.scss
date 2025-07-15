@@ -21,6 +21,12 @@
     margin: 0;
     width: 70%;
   }
+  @media (max-width: 1024px) {
+    h2 {
+      width: 90%;
+      font-size: 24px;
+    }
+  }
   button {
     height: 44px;
     opacity: 1;
@@ -42,7 +48,7 @@
     cursor: pointer;
   }
 }
-@media (max-width: 435px) {
+@media (max-width: 768px) {
   .experts-content {
     background-image: url("../public/images/homebannerres.png");
     padding: 60px 20px;

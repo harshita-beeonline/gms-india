@@ -97,7 +97,26 @@
     }
   }
 }
-@media (max-width: 435px) {
+@media (max-width: 912px) {
+  .footer-all-content-box {
+    padding: 20px;
+    .footer-inputs-left-right-box {
+      display: flex;
+      flex-direction: column;
+      .footer-left-box {
+        width: 100%;
+      }
+      .footer-right-box {
+        width: 100%;
+        margin-top: 40px;
+        button {
+          padding: 14px 40px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
   .footer-all-content-box {
     padding: 20px 15px;
     .footer-inputs-left-right-box {

@@ -87,7 +87,46 @@
     }
   }
 }
-@media (max-width: 435px) {
+@media (max-width: 912px) {
+  .footer-links-content-box {
+    margin-top: 50px;
+    .footer-links-left-right-content {
+      display: flex;
+      flex-direction: column;
+      .footer-left-content {
+        width: 100%;
+      }
+      .footer-links-right-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        gap: 90px;
+      }
+    }
+    .footer-copyright-left-right {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      p {
+        font-family: Instrument Sans;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #919191;
+        margin: 0;
+      }
+      .footer-copyright-right {
+        display: flex;
+        gap: 20px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
   .footer-links-content-box {
     margin-top: 40px;
     .footer-links-left-right-content {

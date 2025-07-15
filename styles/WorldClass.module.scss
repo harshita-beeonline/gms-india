@@ -104,6 +104,145 @@
     }
   }
 }
+@media (max-width: 1024px) {
+  .world-class-page-content {
+    padding: 40px 25px;
+    .world-class-left-right-content {
+      display: block;
+      .world-class-left-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        img {
+          width: 100%;
+          height: 550px;
+          @media (max-width: 576px) {
+            // width: 500px;
+            height: 480px;
+          }
+        }
+      }
+      .world-class-right-content {
+        .world-detail-content {
+          gap: 20px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin-top: 25px;
+          h2 {
+            font-size: 28px;
+            width: 100%;
+          }
+          p {
+            font-size: 14px;
+            line-height: 22px;
+            width: 100%;
+          }
+          button {
+            height: 42px;
+            font-size: 16px;
+            width: 50%;
+            margin-top: 15px;
+            white-space: nowrap;
+          }
+        }
+        .world-first-row {
+          margin-top: 0;
+          display: grid;
+          grid-template-columns: repeat(3, 2fr);
+          place-items: center;
+          .first-row-data {
+            border-left: 1px solid #3b5ba6;
+            padding: 15px 15px 5px 15px;
+            margin-top: 35px;
+            width: 260px;
+            height: 115px;
+            h1 {
+              font-size: 52px;
+            }
+            p {
+              font-size: 14px;
+              margin-top: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .world-class-page-content {
+    padding: 40px 25px;
+    .world-class-left-right-content {
+      display: block;
+      .world-class-left-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        img {
+          width: 100%;
+          height: 100%;
+          @media (max-width: 576px) {
+            // width: 500px;
+            height: 480px;
+          }
+        }
+      }
+      .world-class-right-content {
+        .world-detail-content {
+          gap: 20px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin-top: 25px;
+          h2 {
+            font-size: 28px;
+            width: 100%;
+          }
+          p {
+            font-size: 14px;
+            line-height: 22px;
+            width: 100%;
+          }
+          button {
+            height: 42px;
+            font-size: 16px;
+            width: 50%;
+            margin-top: 15px;
+            white-space: nowrap;
+          }
+        }
+        .world-first-row {
+          margin-top: 0;
+          display: grid;
+          grid-template-columns: repeat(2, 2fr);
+          place-items: center;
+          .first-row-data {
+            border-left: 1px solid #3b5ba6;
+            padding: 15px 15px 5px 15px;
+            margin-top: 35px;
+            width: 260px;
+            height: 115px;
+            h1 {
+              font-size: 52px;
+            }
+            p {
+              font-size: 14px;
+              margin-top: 18px;
+            }
+          }
+          /* ── NEW: if a 3rd card exists, centre it ───────────────── */
+          .first-row-data:nth-child(3) {
+            grid-column: 1 / -1; // span both columns
+            justify-self: center; // then centre itself
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 435px) {
   .world-class-page-content {
     padding: 40px 15px;
@@ -112,8 +251,8 @@
       .world-class-left-content {
         display: flex;
         justify-content: center;
-          align-items: center;
-          text-align: center;
+        align-items: center;
+        text-align: center;
         img {
           width: 358px;
           height: 358px;

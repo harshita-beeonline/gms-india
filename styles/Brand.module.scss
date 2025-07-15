@@ -56,6 +56,45 @@
     }
   }
 }
+@media (max-width: 1024px) {
+  .brand-main-content {
+    padding: 40px 15px;
+    .brand-left-right-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      .brand-left-content {
+        width: 100%;
+        h2 {
+          font-size: 28px;
+          width: 100%;
+        }
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          margin-top: 15px;
+          width: 100%;
+        }
+      }
+      .brand-right-content {
+        width: 100%;
+        .image-content {
+          width: 100%; // take full width of the grid cell
+          height: 72px;
+          padding: 5px 10px;
+          img{
+            width: 100%;
+            height: 55px;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 435px) {
   .brand-main-content {
     padding: 40px 15px;
