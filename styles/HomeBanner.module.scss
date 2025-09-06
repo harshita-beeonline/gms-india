@@ -104,6 +104,8 @@
   .home-banner-content {
     background-image: url("../public/images/homebannerres.png");
     .home-banner-details {
+      width: 80%;
+      height: auto;
       h2 {
         font-family: Instrument Sans;
         font-weight: 700;
@@ -118,7 +120,7 @@
         font-size: 16px;
         line-height: 22px;
         margin: 0;
-        width: 80%;
+        width: 90%;
         margin-top: 20px;
       }
       button {
@@ -131,21 +133,16 @@
   .home-banner-content {
     background-image: url("../public/images/homebannerres.png");
     .home-banner-details {
+      width: 95%;
+      height: auto;
       h2 {
-        font-family: Instrument Sans;
-        font-weight: 700;
-        font-style: Bold;
-        font-size: 28px;
-        line-height: 100%;
-        letter-spacing: 0%;
-        color: #ffffff;
-        margin: 0;
+        font-size: 24px;
       }
       p {
         font-size: 14px;
         line-height: 22px;
         margin: 0;
-        width: 80%;
+        width: 100%;
         margin-top: 20px;
       }
       button {
@@ -158,10 +155,10 @@
   .home-banner-content {
     .home-banner-details {
       h2 {
-        font-size: 24px;
+        font-size: 20px;
       }
       p {
-        width: 95%;
+        width: 100%;
       }
     }
   }
