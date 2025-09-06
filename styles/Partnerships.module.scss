@@ -1,6 +1,6 @@
 .partnership-section-content {
   width: 100%;
-  padding: 50px 0px 50px 80px;
+  padding: 40px 80px 40px 80px;
   h2 {
     font-family: Instrument Sans;
     font-weight: 600;
@@ -14,7 +14,22 @@
   }
   .partnership-company-logo-cards {
     margin-top: 30px;
+    overflow: hidden;
+    width: 100%;
+    .scroll-container {
+      display: flex;
+    }
+    .scroll-content {
+      display: flex;
+      animation: scroll-left 40s linear infinite;
+      gap: 15px;
+    }
+    .reverse {
+      animation: scroll-right 40s linear infinite;
+      gap: 15px;
+    }
     .company-card {
+      flex: 0 0 auto;
       width: 275px;
       height: 150px;
       opacity: 1;
@@ -25,11 +40,15 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      img{
-        transition: transform 0.3s ease;
-      }
-      &:hover img {
-        transform: scale(1.1);
+      .main-image-box {
+        width: 252px;
+        height: 134px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -37,7 +56,7 @@
 @media (max-width: 1024px) {
   .partnership-section-content {
     width: 100%;
-    padding: 50px 0px 50px 20px;
+    padding: 50px 20px 50px 20px;
     h2 {
       font-size: 28px;
     }
@@ -68,24 +87,23 @@
 @media (max-width: 768px) {
   .partnership-section-content {
     width: 100%;
-    padding: 40px 0px 40px 15px;
+    padding: 40px 15px 40px 15px;
     h2 {
       font-size: 28px;
       line-height: 100%;
       text-align: center;
-      padding-right: 15px;
+      padding-right: 0px;
     }
     .partnership-company-logo-cards {
-      padding-bottom: 10px;
+      padding-bottom: 0px;
       .company-card {
-        min-width: 255px;
-        height: 150px;
+        width: 184px;
+        height: 100px;
         overflow: hidden;
         padding: 0px 10px;
-        img {
-          object-fit: contain;
-          width: 100%;
-          height: 100%;
+        .main-image-box {
+          width: 158px;
+          height: 90px;
         }
       }
     }
@@ -94,29 +112,48 @@
 @media (max-width: 435px) {
   .partnership-section-content {
     width: 100%;
-    padding: 40px 0px 40px 15px;
+    padding: 40px 15px 40px 15px;
     h2 {
-      font-size: 28px;
-      line-height: 100%;
-      text-align: center;
-      padding-right: 15px;
-      @media (max-width: 345px) {
+      @media (max-width: 360px) {
         font-size: 24px;
       }
     }
     .partnership-company-logo-cards {
-      padding-bottom: 10px;
+      padding-bottom: 0px;
+      .scroll-content {
+        animation: scroll-left 10s linear infinite;
+        gap: 10px;
+      }
+      .reverse {
+        animation: scroll-right 10s linear infinite;
+        gap: 10px;
+      }
       .company-card {
-        min-width: 230px;
-        height: 130px;
+        width: 184px;
+        height: 100px;
         overflow: hidden;
         padding: 0px 10px;
-        img {
-          object-fit: contain;
-          width: 100%;
-          height: 100%;
+        .main-image-box {
+          width: 158px;
+          height: 90px;
         }
       }
     }
+  }
+}
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
   }
 }

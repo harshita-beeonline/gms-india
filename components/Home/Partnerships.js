@@ -22,6 +22,28 @@ import partner18 from "../../public/images/partner18.png";
 import partner19 from "../../public/images/partner19.png";
 import partner20 from "../../public/images/partner20.png";
 import partner21 from "../../public/images/partner21.png";
+import partner22 from "../../public/images/partner22.png";
+import partner23 from "../../public/images/partner23.png";
+import partner24 from "../../public/images/partner24.png";
+import partner25 from "../../public/images/partner25.png";
+import partner26 from "../../public/images/partner26.png";
+import partner27 from "../../public/images/partner27.png";
+import partner28 from "../../public/images/partner28.png";
+import partner29 from "../../public/images/partner29.png";
+import partner30 from "../../public/images/partner30.png";
+import partner31 from "../../public/images/partner31.png";
+import partner32 from "../../public/images/partner32.png";
+import partner33 from "../../public/images/partner33.png";
+import partner34 from "../../public/images/partner34.png";
+import partner35 from "../../public/images/partner35.png";
+import partner36 from "../../public/images/partner36.png";
+import partner37 from "../../public/images/partner37.png";
+import partner38 from "../../public/images/partner38.png";
+import partner39 from "../../public/images/partner39.png";
+import partner40 from "../../public/images/partner40.png";
+import partner41 from "../../public/images/partner41.png";
+import partner42 from "../../public/images/partner42.png";
+import partner43 from "../../public/images/partner43.png";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules"; // ✅ import Autoplay module
@@ -52,26 +74,29 @@ const Partnerships = () => {
     partner20,
   ];
   const companyDataTwo = [
-    partner1,
-    partner2,
-    partner3,
-    partner4,
-    partner5,
-    partner6,
-    partner7,
-    partner8,
-    partner9,
-    partner10,
-    partner11,
-    partner12,
-    partner13,
-    partner14,
-    partner15,
-    partner16,
-    partner17,
-    partner18,
-    partner19,
-    partner20,
+    partner21,
+    partner22,
+    partner23,
+    partner24,
+    partner25,
+    partner26,
+    partner27,
+    partner28,
+    partner29,
+    partner30,
+    partner31,
+    partner32,
+    partner33,
+    partner34,
+    partner35,
+    partner36,
+    partner37,
+    partner38,
+    partner39,
+    partner40,
+    partner41,
+    partner42,
+    partner43,
   ];
   const swiperRef = useRef(null);
   const handlePause = () => {
@@ -88,6 +113,37 @@ const Partnerships = () => {
     <div className={styles["partnership-section-content"]}>
       <h2>Powered by Partnerships</h2>
       <div className={styles["partnership-company-logo-cards"]}>
+        <div className={styles["scroll-container"]}>
+          <div className={styles["scroll-content"]}>
+            {companyDataOne.map((item, index) => (
+              <div className={styles["company-card"]} key={index}>
+                <div className={styles["main-image-box"]}>
+                  <Image src={item} alt="image" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className={styles["partnership-company-logo-cards"]}>
+        <div className={styles["scroll-container"]}>
+          <div className={`${styles["scroll-content"]} ${styles["reverse"]}`}>
+            {companyDataTwo.map((item, index) => (
+              <div className={styles["company-card"]} key={index}>
+                <div className={styles["main-image-box"]}>
+                  <Image src={item} alt="image" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Partnerships;
+{
+  /* <div className={styles["partnership-company-logo-cards"]}>
         <Swiper
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
@@ -111,7 +167,9 @@ const Partnerships = () => {
               onClick={handlePause}
               onMouseLeave={handleResume}
             >
-              <Image src={item} alt="image" />
+              <div className={styles["main-image-box"]}>
+                <Image src={item} alt="image" />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -141,12 +199,11 @@ const Partnerships = () => {
               onClick={handlePause}
               onMouseLeave={handleResume}
             >
-              <Image src={item} alt="image" />
+              <div className={styles["main-image-box"]}>
+                <Image src={item} alt="image" />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-    </div>
-  );
-};
-export default Partnerships;
+      </div> */
+}

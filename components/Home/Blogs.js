@@ -9,7 +9,8 @@ import Image from "next/image";
 import blogone from "../../public/images/blogone.png";
 import blogtwo from "../../public/images/blogtwo.png";
 import blogthree from "../../public/images/blogthree.png";
-
+import "animate.css"; // ✅ Import animate.css
+import { useInView } from "react-intersection-observer"; 
 const cardData = [
   {
     img: blogone,
@@ -62,13 +63,16 @@ const Blogs = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [navigationReady, setNavigationReady] = useState(false);
-
+  const { ref, inView } = useInView({
+    triggerOnce: false, // animate each time
+    threshold: 0.2,
+  });
   useEffect(() => {
     setNavigationReady(true);
   }, []);
 
   return (
-    <div className={styles["blog-page-contnet"]}>
+    <div className={styles["blog-page-contnet"]} ref={ref}>
       <h2>Latest Blogs</h2>
       <div className={styles.sliderWrapper}>
         {navigationReady && (
@@ -108,7 +112,12 @@ const Blogs = () => {
           >
             {cardData.map((card, index) => (
               <SwiperSlide key={index}>
-                <div className={styles.card}>
+                <div     className={`${styles["card"]} ${
+                    inView ? "animate__animated animate__fadeInUp" : ""
+                  }`}
+                  style={{
+                    animationDelay: inView ? `${index * 0.5}s` : "0s",
+                  }}>
                   <Image
                     src={card.img}
                     alt="Card Image"

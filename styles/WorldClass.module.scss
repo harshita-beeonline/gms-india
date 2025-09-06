@@ -4,11 +4,12 @@
   background: #fcfcfc;
   .world-class-left-right-content {
     display: flex;
+    align-items: center;
     gap: 80px;
     .world-class-left-content {
       img {
         width: 558px;
-        height: 558px;
+        height: 373px;
         opacity: 1;
         object-fit: cover;
         border-radius: 8px;

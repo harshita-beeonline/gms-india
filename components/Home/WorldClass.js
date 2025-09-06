@@ -134,7 +134,7 @@ const WorldClass = () => {
                     <CountUp
                       start={0}
                       end={item.value}
-                      duration={8}
+                      duration={5}
                       suffix={item.suffix}
                     />
                   ) : (
@@ -155,7 +155,7 @@ const WorldClass = () => {
                     <CountUp
                       start={0}
                       end={item.value}
-                      duration={8}
+                      duration={5}
                       suffix={item.suffix}
                     />
                   ) : (

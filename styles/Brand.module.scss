@@ -1,12 +1,12 @@
 .brand-main-content {
   width: 100%;
-  padding: 60px 80px;
+  padding: 40px 80px;
   .brand-left-right-content {
     display: flex;
     gap: 50px;
     align-items: center;
     .brand-left-content {
-      width: 30%;
+      width: 25%;
       h2 {
         font-family: Instrument Sans;
         font-weight: 600;
@@ -31,12 +31,11 @@
       }
     }
     .brand-right-content {
-      width: 70%;
+      width: 75%;
       display: grid;
-      grid-template-columns: repeat(3, 1fr); // 3 columns
-      gap: 0; // no row or column gap
+      grid-template-columns: repeat(4, 2fr); // 3 columns
+      gap: 0;
       place-items: center;
-
       .image-content {
         width: 100%; // take full width of the grid cell
         height: 100px;
@@ -46,10 +45,10 @@
         border-bottom: 1px solid #c5c5c5;
         border-right: 1px solid #c5c5c5;
         opacity: 1;
-        &:nth-child(3n) {
+        &:nth-child(4n) {
           border-right: none;
         }
-        &:nth-last-child(-n + 3) {
+        &:nth-last-child(-n + 4) {
           border-bottom: none;
         }
       }
