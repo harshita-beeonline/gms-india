@@ -10,41 +10,47 @@
   justify-content: center;
   align-items: center;
   .home-banner-details {
+    background: #1c1c1cb2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 60px;
+    width: 844px;
+    height: 254px;
+    border-radius: 8px;
+    padding: 18px 26px;
     h2 {
       font-family: Instrument Sans;
       font-weight: 600;
-      font-size: 65px;
-      line-height: 84px;
+      font-style: SemiBold;
+      font-size: 62px;
+      line-height: 100%;
       letter-spacing: 0%;
-      vertical-align: middle;
       color: #ffffff;
       margin: 0;
     }
     p {
       font-family: Instrument Sans;
       font-weight: 400;
-      font-size: 28px;
+      font-style: Regular;
+      font-size: 22px;
       line-height: 100%;
-      letter-spacing: -0.5px;
+      letter-spacing: 0px;
       text-align: center;
-      vertical-align: middle;
       color: #f1f0f0;
       margin: 0;
-      width: 50%;
+      width: 90%;
       margin-top: 20px;
     }
     button {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      margin-top: 30px;
+      margin-top: 40px;
       background: #ffffff;
+      width: 160px;
       height: 44px;
       border-radius: 6px;
       padding: 20px;
@@ -69,13 +75,13 @@
 }
 @media (max-width: 1024px) {
   .home-banner-content {
-      background-image: url("../public/images/homebannerres.png");
+    background-image: url("../public/images/homebannerres.png");
     .home-banner-details {
       h2 {
         font-family: Instrument Sans;
         font-weight: 700;
         font-style: Bold;
-        font-size:48px;
+        font-size: 48px;
         line-height: 100%;
         letter-spacing: 0%;
         color: #ffffff;
@@ -96,7 +102,7 @@
 }
 @media (max-width: 768px) {
   .home-banner-content {
-      background-image: url("../public/images/homebannerres.png");
+    background-image: url("../public/images/homebannerres.png");
     .home-banner-details {
       h2 {
         font-family: Instrument Sans;
@@ -123,7 +129,7 @@
 }
 @media (max-width: 435px) {
   .home-banner-content {
-      background-image: url("../public/images/homebannerres.png");
+    background-image: url("../public/images/homebannerres.png");
     .home-banner-details {
       h2 {
         font-family: Instrument Sans;

@@ -119,7 +119,21 @@ const Blogs = () => {
                       {card.source} | {card.date}
                     </p>
                     <h3>{card.title}</h3>
-                    <button className={styles.readMore}>Read More →</button>
+                    <button className={styles.readMore}>
+                      Read More{" "}
+                      <svg
+                        width="13"
+                        height="14"
+                        viewBox="0 0 13 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.75977 2.88916C8.66667 2.79606 8.55664 2.74951 8.42969 2.74951C8.30273 2.74951 8.19271 2.79606 8.09961 2.88916C8.00651 2.9738 7.95996 3.07959 7.95996 3.20654C7.95996 3.3335 8.00651 3.44352 8.09961 3.53662L11.4258 6.86279H0.457031C0.330078 6.86279 0.222168 6.90723 0.133301 6.99609C0.0444336 7.08496 0 7.19287 0 7.31982C0 7.44678 0.0444336 7.55469 0.133301 7.64355C0.222168 7.73242 0.330078 7.77686 0.457031 7.77686H11.4258L8.09961 11.103C8.00651 11.1877 7.95996 11.2956 7.95996 11.4268C7.95996 11.5579 8.00651 11.6659 8.09961 11.7505C8.19271 11.8436 8.30273 11.8901 8.42969 11.8901C8.55664 11.8901 8.66667 11.8436 8.75977 11.7505L12.8604 7.6499C12.9535 7.5568 13 7.44678 13 7.31982C13 7.19287 12.9535 7.08285 12.8604 6.98975L8.75977 2.88916Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
@@ -129,10 +143,14 @@ const Blogs = () => {
         {/* ✅ Custom Arrows */}
         <div className={styles.arrowWrapper}>
           <button ref={prevRef} className={styles.navBtn}>
-            ←
+                <svg width="20" height="21" viewBox="0 0 20 21" fill="currentColor">
+              <path d="M3.58 10.32 10.66 3.05a.8.8 0 0 0-1.12-1.14L1.96 9.62a.76.76 0 0 0 0 1.07l7.58 7.71a.8.8 0 0 0 1.12-1.14L3.58 10.32Z" />
+            </svg>
           </button>
           <button ref={nextRef} className={styles.navBtn}>
-            →
+             <svg width="20" height="21" viewBox="0 0 20 21" fill="currentColor">
+              <path d="M16.42 10.32 9.34 18.03a.8.8 0 0 0 1.12 1.14l7.58-7.71a.76.76 0 0 0 0-1.07l-7.58-7.71a.8.8 0 1 0-1.12 1.14l7.08 7.5Z" />
+            </svg>
           </button>
         </div>
       </div>

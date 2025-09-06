@@ -5,12 +5,18 @@ import areaone from "../../public/images/areaone.svg";
 import areatwo from "../../public/images/areatwo.svg";
 import areathree from "../../public/images/areathree.svg";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import "animate.css";
 const AreaOfExpertise = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: false, // runs every time in view
+    threshold: 0.2, // trigger when 20% visible
+  });
   const cardData = [
     {
       icon: (
         <svg
-           className={`draw-icon ${styles.icon}`}
+          className={`draw-icon ${styles.icon}`}
           width="73"
           height="73"
           viewBox="0 0 73 73"
@@ -126,16 +132,25 @@ const AreaOfExpertise = () => {
     const paths = e.currentTarget.querySelectorAll(`.${styles.icon} path`);
     paths.forEach((p) => {
       p.style.animation = "none";
-      void p.offsetWidth;               // force reflow
+      void p.offsetWidth; // force reflow
       p.style.animation = "draw-fill 1s forwards";
     });
   };
   return (
     <div className={styles["area-of-expertise-content"]}>
       <h2>Our Area of Expertise</h2>
-      <div className={styles["area-of-expertise-cards"]}>
+      <div className={styles["area-of-expertise-cards"]} ref={ref}>
         {cardData.map((item, index) => (
-          <div className={styles["expertise-card"]} key={index} onMouseEnter={handleHover}  >
+          <div
+            className={`${styles["expertise-card"]} ${
+              inView ? "animate__animated animate__fadeInUp" : ""
+            }`}
+            style={{
+              animationDelay: inView ? `${index * 0.3}s` : "0s",
+            }}
+            key={index}
+            onMouseEnter={handleHover}
+          >
             <div className={styles["image-div"]}>{item.icon}</div>
             <h5>{item.title}</h5>
             <p>{item.details}</p>
