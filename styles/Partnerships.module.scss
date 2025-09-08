@@ -121,11 +121,11 @@
     .partnership-company-logo-cards {
       padding-bottom: 0px;
       .scroll-content {
-        animation: scroll-left 10s linear infinite;
+        // animation: scroll-left 10s linear infinite;
         gap: 10px;
       }
       .reverse {
-        animation: scroll-right 10s linear infinite;
+        // animation: scroll-right 10s linear infinite;
         gap: 10px;
       }
       .company-card {
@@ -157,3 +157,8 @@
     transform: translateX(0);
   }
 }
+// @media (min-width: 320px) and (max-width: 435px) {
+//   .partnership-section-content {
+//     overflow-x: visible;
+//   }
+// }
