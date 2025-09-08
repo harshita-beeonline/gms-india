@@ -115,20 +115,20 @@ const Partnerships = () => {
       <div className={styles["partnership-company-logo-cards"]}>
         <div className={styles["scroll-container"]}>
           <div className={styles["scroll-content"]}>
-            {companyDataOne.map((item, index) => (
-              <div className={styles["company-card"]} key={index}>
-                <div className={styles["main-image-box"]}>
-                  <Image src={item} alt="image" />
-                </div>
+          {companyDataOne.concat(companyDataOne).map((item, index) => (
+            <div className={styles["company-card"]} key={index}>
+              <div className={styles["main-image-box"]}>
+                <Image src={item} alt="image" />
               </div>
-            ))}
+            </div>
+          ))}
           </div>
         </div>
       </div>
       <div className={styles["partnership-company-logo-cards"]}>
         <div className={styles["scroll-container"]}>
           <div className={`${styles["scroll-content"]} ${styles["reverse"]}`}>
-            {companyDataTwo.map((item, index) => (
+            {companyDataTwo.concat(companyDataTwo).map((item, index) => (
               <div className={styles["company-card"]} key={index}>
                 <div className={styles["main-image-box"]}>
                   <Image src={item} alt="image" />
