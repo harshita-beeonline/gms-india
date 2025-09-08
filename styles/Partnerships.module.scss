@@ -1,5 +1,5 @@
 .partnership-section-content {
-  padding: 40px 80px 60px 80px;
+  padding: 40px 80px 40px 80px;
   max-width: none !important;
   width: 100%;
   h2 {
@@ -15,10 +15,10 @@
   }
   .partnership-company-logo-cards {
     margin-top: 30px;
-    overflow: hidden;
     width: 100%;
     .scroll-container {
       display: flex;
+      overflow: hidden;
     }
     .scroll-content {
       display: flex;

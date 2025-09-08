@@ -157,7 +157,7 @@
   }
   .slider-window {
     width: 700px;
-    @media (max-width:576px) {
+    @media (max-width: 576px) {
       width: 500px;
     }
   }
@@ -230,8 +230,11 @@
   }
   .slider-window {
     width: 350px;
-    @media (max-width:360px) {
-      width: 320px;
+    @media (max-width: 360px) {
+      width: 330px;
+    }
+    @media (max-width: 345px) {
+      width: 300px;
     }
   }
   .testinomial-card-content {
@@ -244,6 +247,9 @@
     }
     @media (max-width: 360px) {
       padding: 20px;
+    }
+    @media (max-width: 345px) {
+      padding: 15px;
     }
     .dr-image-details {
       .dr-image {
