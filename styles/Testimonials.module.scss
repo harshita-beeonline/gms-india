@@ -229,17 +229,20 @@
     }
   }
   .slider-window {
-    width: 360px;
+    width: 350px;
+    @media (max-width:360px) {
+      width: 320px;
+    }
   }
   .testinomial-card-content {
-    padding: 35px;
+    padding: 30px;
     h5 {
       font-size: 14px;
       span {
         font-size: 14px;
       }
     }
-    @media (max-width: 345px) {
+    @media (max-width: 360px) {
       padding: 20px;
     }
     .dr-image-details {
