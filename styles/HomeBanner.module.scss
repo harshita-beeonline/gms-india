@@ -1,14 +1,21 @@
 .home-banner-content {
-  max-width: 100%;
-  background-image: url("../public/images/homebanner.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 80vh;
+  margin-top: 80px;
+  position: relative;
+  width: 100%;
+  height: 70vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // keeps video covering like background
+    z-index: -1; // behind content
+  }
   .home-banner-details {
     background: #1c1c1cb2;
     display: flex;
@@ -20,6 +27,8 @@
     height: 254px;
     border-radius: 8px;
     padding: 18px 26px;
+    position: relative;
+    z-index: 1;
     h2 {
       font-family: Instrument Sans;
       font-weight: 600;
@@ -75,7 +84,7 @@
 }
 @media (max-width: 1024px) {
   .home-banner-content {
-    background-image: url("../public/images/homebannerres.png");
+    margin-top: 70px;
     .home-banner-details {
       h2 {
         font-family: Instrument Sans;
@@ -102,7 +111,6 @@
 }
 @media (max-width: 768px) {
   .home-banner-content {
-    background-image: url("../public/images/homebannerres.png");
     .home-banner-details {
       width: 80%;
       height: auto;
@@ -131,7 +139,6 @@
 }
 @media (max-width: 435px) {
   .home-banner-content {
-    background-image: url("../public/images/homebannerres.png");
     .home-banner-details {
       width: 95%;
       height: auto;
