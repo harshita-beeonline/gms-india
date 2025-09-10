@@ -28,11 +28,23 @@ const WorldClass = () => {
       <div className={styles["world-class-left-right-content"]}>
         {/* left image */}
         <div className={styles["world-class-left-content"]}>
-          <Image src={worldimage} alt="image" />
+         <div className={styles["world-image"]}>
+           <Image src={worldimage} alt="image" />
+         </div>
         </div>
 
         {/* right content */}
         <div className={styles["world-class-right-content"]}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={styles["world-class-bg-video"]}
+          >
+            <source src="/images/worldvideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className={styles["world-detail-content"]}>
             <h2>World-Class Research & Manufacturing Solutions</h2>
             <p>
