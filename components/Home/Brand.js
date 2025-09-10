@@ -4,41 +4,41 @@ import { useInView } from "react-intersection-observer";
 import "animate.css";
 import styles from "../../styles/Brand.module.scss";
 import brandone from "../../public/images/brandone.png";
-import brandtwo from "../../public/images/brandtwo.png";
+import brand2 from "../../public/images/brand2.png";
 import brandthree from "../../public/images/brandthree.jpg";
 import brandfour from "../../public/images/brandfour.jpg";
 import brandfive from "../../public/images/brandfive.jpg";
 import brandsix from "../../public/images/brandsix.jpg";
-import brandseven from "../../public/images/brandseven.jpg";
+import brand7 from "../../public/images/brand7.png";
 import brandeight from "../../public/images/brandeight.png";
-import brandnine from "../../public/images/brandnine.jpg";
-import brandten from "../../public/images/brandten.jpg";
-import brandeleven from "../../public/images/brandeleven.jpg";
-import brandtuwel from "../../public/images/brandtuwel.png";
+import brand9 from "../../public/images/brand9.png";
 import brand13 from "../../public/images/brand13.png";
 import brand14 from "../../public/images/brand14.png";
 import brand15 from "../../public/images/brand15.png";
 import brand16 from "../../public/images/brand16.png";
+import brand21 from "../../public/images/brand21.png";
+import brand18 from "../../public/images/brand18.png";
+import brand19 from "../../public/images/brand19.png";
 import Image from "next/image";
 const text1 = `Over the years, we’ve earned the trust of brands that value innovation, creativity, and results that speak for themselves.`;
 const Brand = () => {
   const imageData = [
     brandone,
-    brandtwo,
+    brand2,
     brand13,
     brandthree,
     brandfour,
     brandfive,
     brand14,
     brandsix,
-    brandseven,
+    brand7,
     brandeight,
     brand15,
-    brandnine,
-    brandten,
-    brandeleven,
+    brand9,
+    brand21,
+    brand18,
     brand16,
-    brandtuwel,
+    brand19,
   ];
   const { ref, inView } = useInView({
     triggerOnce: false, // run every time

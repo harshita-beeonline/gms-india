@@ -1,7 +1,8 @@
 .world-class-page-content {
   width: 100%;
   padding: 50px 80px;
-  background: #fcfcfc;
+background: #0A2D4F;
+
   .world-class-left-right-content {
     display: flex;
     align-items: center;
@@ -28,7 +29,7 @@
           font-size: 38px;
           line-height: 100%;
           letter-spacing: 0%;
-          color: #1c1c1c;
+          color: #FFFFFF;
           margin: 0;
           width: 90%;
         }
@@ -39,7 +40,7 @@
           font-size: 16px;
           line-height: 100%;
           letter-spacing: 2%;
-          color: #717070;
+          color: #C5C5C5;
           margin: 0;
           width: 80%;
         }
@@ -48,7 +49,7 @@
           opacity: 1;
           border-radius: 8px;
           padding: 14px 22px;
-          background: #3b5ba6;
+          background: #FFFFFF;
           font-family: Instrument Sans;
           font-weight: 500;
           font-style: Medium;
@@ -59,7 +60,7 @@
           gap: 10px;
           align-items: center;
           justify-content: center;
-          color: #ffffff;
+          color: #3B5BA6;
           border: none;
           width: 22%;
           cursor: pointer;
@@ -77,7 +78,7 @@
         justify-content: space-between;
         margin-top: 48px;
         .first-row-data {
-          border-left: 1px solid #3b5ba6;
+          border-left: 1px solid #7DC1D6;
           padding: 15px 25px 5px 25px;
           h1 {
             font-family: Instrument Serif;
@@ -86,7 +87,7 @@
             font-size: 60px;
             line-height: 100%;
             letter-spacing: 0%;
-            color: #000000;
+            color: #FCFCFC;
             margin: 0;
           }
           p {
@@ -96,7 +97,7 @@
             font-size: 16px;
             line-height: 100%;
             letter-spacing: 2%;
-            color: #717070;
+            color: #BDBBBB;
             margin: 0;
             margin-top: 16px;
           }
