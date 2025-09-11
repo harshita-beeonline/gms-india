@@ -1,27 +1,16 @@
 .world-class-page-content {
   width: 100%;
-  padding: 50px 40px 50px 40px;
-  background: #0a2d4f;
+  padding: 0px 40px 0px 0px;
+  background: #010304;
   opacity: 98%;
   .world-class-left-right-content {
     display: flex;
     align-items: center;
     gap: 40px;
     .world-class-left-content {
-      .world-image {
-        width: 698px;
-        height: 467px;
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-    }
-    .world-class-right-content {
+      width: 798px;
+      height: 600px;
       position: relative;
-      width: 65%;
       overflow: hidden;
       background: transparent;
       .world-class-bg-video {
@@ -32,13 +21,10 @@
         height: 100%;
         object-fit: cover;
         z-index: -1;
-        opacity: 25%;
       }
-      .world-detail-content,
-      .world-first-row {
-        position: relative; // 👈 keep content above video
-        z-index: 1;
-      }
+    }
+    .world-class-right-content {
+      width: 55%;
       .world-detail-content {
         display: flex;
         flex-direction: column;
@@ -126,14 +112,11 @@
         }
       }
     }
-    .world-class-bg-video {
-      z-index: -1;
-    }
   }
 }
 @media (max-width: 1024px) {
   .world-class-page-content {
-    padding: 40px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
     .world-class-left-right-content {
       display: block;
       .world-class-left-content {
@@ -141,14 +124,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        .world-image {
-          width: 598px;
-          height: 367px;
-          overflow: hidden;
-          img {
-            object-fit: contain;
-          }
-        }
+        width: 100%;
       }
       .world-class-right-content {
         width: 100%;
@@ -202,22 +178,15 @@
 }
 @media (max-width: 768px) {
   .world-class-page-content {
-    padding: 40px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
     .world-class-left-right-content {
       display: block;
       .world-class-left-content {
         display: flex;
-        justify-content: center;
         align-items: center;
-        text-align: center;
-        img {
-          width: 100%;
-          height: 100%;
-          @media (max-width: 576px) {
-            // width: 500px;
-            height: 480px;
-          }
-        }
+        justify-content: center;
+        width: 100%;
+        height: 458px;
       }
       .world-class-right-content {
         padding: 0px 25px 25px 25px;
@@ -275,18 +244,16 @@
 }
 @media (max-width: 435px) {
   .world-class-page-content {
-    padding: 20px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
     .world-class-left-right-content {
       display: block;
       gap: 20px;
       .world-class-left-content {
-        .world-image {
-          width: 358px;
-          height: 358px;
-        }
+        width: 100%;
+        height: 358px;
       }
       .world-class-right-content {
-        padding: 0px 15px;
+        padding: 0px 15px 15px 15px;
         .world-detail-content {
           gap: 20px;
           justify-content: center;
