@@ -1,5 +1,5 @@
 .partnership-section-content {
-  padding: 40px 80px 40px 80px;
+  padding: 40px 0px 40px 0px;
   max-width: none !important;
   width: 100%;
   h2 {
@@ -57,7 +57,7 @@
 @media (max-width: 1024px) {
   .partnership-section-content {
     width: 100%;
-    padding: 50px 20px 50px 20px;
+    padding: 50px 0px 50px 0px;
     h2 {
       font-size: 28px;
     }
@@ -88,7 +88,7 @@
 @media (max-width: 768px) {
   .partnership-section-content {
     width: 100%;
-    padding: 40px 15px 40px 15px;
+    padding: 40px 0px 40px 0px;
     h2 {
       font-size: 28px;
       line-height: 100%;
@@ -113,7 +113,7 @@
 @media (max-width: 435px) {
   .partnership-section-content {
     width: 100%;
-    padding: 40px 15px 40px 15px;
+    padding: 40px 0px 40px 0px;
     h2 {
       @media (max-width: 360px) {
         font-size: 24px;
