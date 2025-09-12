@@ -76,8 +76,19 @@
           svg {
             transition: transform 0.3s ease;
           }
-          &:hover svg {
-            transform: translateX(5px);
+          &:hover {
+            background-image: linear-gradient(
+              90deg,
+              #a100ffff 0%,
+              #71c4ffff 100%
+            );
+            color: #ffffff;
+            svg {
+              transform: translateX(5px);
+            }
+            svg path {
+              fill: #ffffff;
+            }
           }
         }
       }

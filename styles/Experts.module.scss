@@ -46,6 +46,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    &:hover {
+      background-image: linear-gradient(90deg, #a100ffff 0%, #71c4ffff 100%);
+      color: #ffffff;
+    }
   }
 }
 @media (max-width: 768px) {
