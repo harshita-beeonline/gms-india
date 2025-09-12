@@ -64,7 +64,7 @@ const Blogs = () => {
   const nextRef = useRef(null);
   const [navigationReady, setNavigationReady] = useState(false);
   const { ref, inView } = useInView({
-    triggerOnce: false, // animate each time
+    triggerOnce: true, // animate each time
     threshold: 0.2,
   });
   useEffect(() => {

@@ -41,7 +41,7 @@ const Brand = () => {
     brand19,
   ];
   const { ref, inView } = useInView({
-    triggerOnce: false, // run every time
+    triggerOnce: true, // run every time
     threshold: 0.2, // 20% visible
   });
   return (

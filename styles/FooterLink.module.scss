@@ -25,6 +25,9 @@
         letter-spacing: 0%;
         color: #828282;
         margin-top: 20px;
+        &:hover {
+          color: #3b5ba6;
+        }
       }
     }
     .footer-links-right-content {
@@ -43,6 +46,9 @@
           margin: 0;
           color: #717070;
           white-space: nowrap;
+          &:hover {
+            color: #3b5ba6;
+          }
         }
         .details-list {
           margin-top: 30px;
@@ -61,6 +67,9 @@
               margin: 0;
               color: #828282;
               width: 100%;
+              &:hover {
+                color: #3b5ba6;
+              }
             }
           }
         }
@@ -81,6 +90,9 @@
       letter-spacing: 0%;
       color: #919191;
       margin: 0;
+      &:hover {
+        color: #3b5ba6;
+      }
     }
     .footer-copyright-right {
       display: flex;

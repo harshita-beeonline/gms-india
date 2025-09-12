@@ -9,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 import "animate.css";
 const AreaOfExpertise = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false, // runs every time in view
+    triggerOnce: true, // runs every time in view
     threshold: 0.2, // trigger when 20% visible
   });
   const cardData = [

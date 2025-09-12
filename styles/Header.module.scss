@@ -26,7 +26,8 @@
     ul {
       list-style: none;
       display: flex;
-      gap: 60px;
+      align-items: center;
+      gap: 30px;
       li {
         font-family: Instrument Sans;
         font-weight: 400;
@@ -35,6 +36,21 @@
         letter-spacing: 0%;
         color: #1c1c1c;
         position: relative;
+        padding: 29px 16px; // so the hover bg looks better
+        transition: all 0.3s ease;
+        &:hover {
+          background: #EDEDED;
+
+        }
+        &:hover::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2.8px;
+          background: #3B5BA6 // blue border (change color as per your theme)
+        }
         a {
           text-decoration: none;
           color: #1c1c1c;
@@ -52,11 +68,9 @@
         .arrowIcon {
           transition: transform 0.3s ease;
         }
-
         .rotate {
           transform: rotate(180deg);
         }
-
         .dropdownMenu {
           position: absolute;
           top: 100%;
@@ -117,6 +131,11 @@
       display: none;
     }
   }
+}
+@media (max-width:1280px) {
+.header-section-div {
+  padding: 0px 20px;
+}
 }
 @media (max-width: 1024px) {
   .header-section-div {

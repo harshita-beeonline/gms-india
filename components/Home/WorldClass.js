@@ -19,7 +19,7 @@ const WorldClass = () => {
 
   // 👇 observe the section
   const { ref, inView } = useInView({
-    triggerOnce: false, // run only once
+    triggerOnce: true, // run only once
     threshold: 0.2, // 20% of section visible
   });
 
