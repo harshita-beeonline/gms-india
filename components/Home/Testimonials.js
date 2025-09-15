@@ -10,35 +10,18 @@ import dot from "../../public/images/dot.png";
 const testimonials = [
   {
     icon: dot,
-    spanp: "“Having a partner in a fast‑changing environment who keeps their promises even though there’s major disruption is super valuable,",
-    normal: "and HCLTech always stood up to their promises and played a major role for us.",
-    name: "Dr. Victoria Ossadnik",
-    title: "COO, Digital and Member of the Board of Management of E.ON",
-    image: drimage,
+    spanp: "Long time interaction (~10 years) with this firm. It is a very good company and provide excellent services on reasonable rates. Best wishes to GMS.",
+    name: "Jitendra Singh",
   },
   {
     icon: dot,
-    spanp: "“Having a partner in a fast‑changing environment who keeps their promises even though there’s major disruption is super valuable,",
-    normal: "and HCLTech always stood up to their promises and played a major role for us.",
-    name: "Dr. Victoria Ossadnik",
-    title: "COO, Digital and Member of the Board of Management of E.ON",
-    image: drimage,
+    spanp: "We from F&S Bondtec are very pleased of our mutual relationship with Mr. MMC Kishore and its company Global Marketing Services. Mr. Kishore is working with us on a high engineering level in the Semiconductor market since many years where we look to a bright future.",
+    name: "Stefan Berger",
   },
   {
     icon: dot,
-    spanp: "“Having a partner in a fast‑changing environment who keeps their promises even though there’s major disruption is super valuable,",
-    normal: "and HCLTech always stood up to their promises and played a major role for us.",
-    name: "Dr. Victoria Ossadnik",
-    title: "COO, Digital and Member of the Board of Management of E.ON",
-    image: drimage,
-  },
-  {
-    icon: dot,
-    spanp: "“Having a partner in a fast‑changing environment who keeps their promises even though there’s major disruption is super valuable,",
-    normal: "and HCLTech always stood up to their promises and played a major role for us.",
-    name: "Dr. Victoria Ossadnik",
-    title: "COO, Digital and Member of the Board of Management of E.ON",
-    image: drimage,
+    spanp: "Kishore as the owner of Global Marketing Services is working as the sole sales agent of Plan Optik AG in India. He and his staff are always very supportive in terms of business relations but additionally Kishore is a nice guy to deal with.",
+    name: "Carsten Wesselkamp",
   },
 ];
 
@@ -95,15 +78,11 @@ export default function Testimonials() {
             <div className={styles["testinomial-card-content"]} key={i}>
               <Image src={t.icon} alt="dot" className={styles.dot} />
               <h5>
-                <span>{t.spanp}</span> {t.normal}
+                <span>{t.spanp}</span>
               </h5>
               <div className={styles["dr-image-details"]}>
-                <div className={styles["dr-image"]}>
-                  <Image src={t.image} alt={t.name} />
-                </div>
                 <div className={styles["details-dr"]}>
                   <h6>{t.name}</h6>
-                  <p>{t.title}</p>
                 </div>
               </div>
             </div>
