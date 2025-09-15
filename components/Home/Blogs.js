@@ -6,52 +6,109 @@ import "swiper/css";
 import "swiper/css/navigation";
 import styles from "../../styles/Blogs.module.scss";
 import Image from "next/image";
-import blogone from "../../public/images/blogone.png";
-import blogtwo from "../../public/images/blogtwo.png";
-import blogthree from "../../public/images/blogthree.png";
+import blog1 from "../../public/images/blog1.png";
+import blog2 from "../../public/images/blog2.png";
+import blog3 from "../../public/images/blog3.png";
+import blog4 from "../../public/images/blog4.png";
+import blog5 from "../../public/images/blog5.png";
+import blog6 from "../../public/images/blog6.png";
+import blog7 from "../../public/images/blog7.png";
+import blog8 from "../../public/images/blog8.png";
+import blog9 from "../../public/images/blog9.png";
+import blog10 from "../../public/images/blog10.png";
+import blog11 from "../../public/images/blog11.png";
+import blog12 from "../../public/images/blog12.png";
+import blog13 from "../../public/images/blog13.png";
+import blog14 from "../../public/images/blog14.png";
 import "animate.css"; // ✅ Import animate.css
-import { useInView } from "react-intersection-observer"; 
+import { useInView } from "react-intersection-observer";
 const cardData = [
   {
-    img: blogone,
+    img: blog1,
     source: "Moneycontrol",
     date: "April 23, 2025",
     title: "Get the GMS Edge",
   },
   {
-    img: blogtwo,
+    img: blog2,
     source: "Business Standard",
     date: "April 22, 2025",
     title:
       "How to effectively adapt your manufacturing process to a new battery bonding energy?",
   },
   {
-    img: blogthree,
+    img: blog3,
     source: "Economic Times",
     date: "April 17, 2025",
     title: "Upgrade from Welding",
   },
   {
-    img: blogtwo,
+    img: blog4,
     source: "Business Standard",
     date: "April 22, 2025",
     title:
       "How to effectively adapt your manufacturing process to a new battery bonding energy?",
   },
   {
-    img: blogthree,
+    img: blog5,
     source: "Economic Times",
     date: "April 17, 2025",
     title: "Upgrade from Welding",
   },
   {
-    img: blogone,
+    img: blog6,
     source: "Moneycontrol",
     date: "April 23, 2025",
     title: "Get the GMS Edge",
   },
   {
-    img: blogtwo,
+    img: blog7,
+    source: "Business Standard",
+    date: "April 22, 2025",
+    title:
+      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+  },
+  {
+    img: blog8,
+    source: "Business Standard",
+    date: "April 22, 2025",
+    title:
+      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+  },
+    {
+    img: blog9,
+    source: "Economic Times",
+    date: "April 17, 2025",
+    title: "Upgrade from Welding",
+  },
+  {
+    img: blog10,
+    source: "Business Standard",
+    date: "April 22, 2025",
+    title:
+      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+  },
+  {
+    img: blog11,
+    source: "Economic Times",
+    date: "April 17, 2025",
+    title: "Upgrade from Welding",
+  },
+  {
+    img: blog12,
+    source: "Moneycontrol",
+    date: "April 23, 2025",
+    title: "Get the GMS Edge",
+  },
+  {
+    img: blog13,
+    source: "Business Standard",
+    date: "April 22, 2025",
+    title:
+      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+  },
+  {
+    img: blog14,
     source: "Business Standard",
     date: "April 22, 2025",
     title:
@@ -112,12 +169,14 @@ const Blogs = () => {
           >
             {cardData.map((card, index) => (
               <SwiperSlide key={index}>
-                <div     className={`${styles["card"]} ${
+                <div
+                  className={`${styles["card"]} ${
                     inView ? "animate__animated animate__fadeInUp" : ""
                   }`}
                   style={{
                     animationDelay: inView ? `${index * 0.5}s` : "0s",
-                  }}>
+                  }}
+                >
                   <Image
                     src={card.img}
                     alt="Card Image"
@@ -152,12 +211,12 @@ const Blogs = () => {
         {/* ✅ Custom Arrows */}
         <div className={styles.arrowWrapper}>
           <button ref={prevRef} className={styles.navBtn}>
-                <svg width="20" height="21" viewBox="0 0 20 21" fill="currentColor">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="currentColor">
               <path d="M3.58 10.32 10.66 3.05a.8.8 0 0 0-1.12-1.14L1.96 9.62a.76.76 0 0 0 0 1.07l7.58 7.71a.8.8 0 0 0 1.12-1.14L3.58 10.32Z" />
             </svg>
           </button>
           <button ref={nextRef} className={styles.navBtn}>
-             <svg width="20" height="21" viewBox="0 0 20 21" fill="currentColor">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="currentColor">
               <path d="M16.42 10.32 9.34 18.03a.8.8 0 0 0 1.12 1.14l7.58-7.71a.76.76 0 0 0 0-1.07l-7.58-7.71a.8.8 0 1 0-1.12 1.14l7.08 7.5Z" />
             </svg>
           </button>
