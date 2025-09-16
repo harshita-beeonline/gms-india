@@ -14,105 +14,45 @@ import blog5 from "../../public/images/blog5.png";
 import blog6 from "../../public/images/blog6.png";
 import blog7 from "../../public/images/blog7.png";
 import blog8 from "../../public/images/blog8.png";
-import blog9 from "../../public/images/blog9.png";
-import blog10 from "../../public/images/blog10.png";
-import blog11 from "../../public/images/blog11.png";
-import blog12 from "../../public/images/blog12.png";
-import blog13 from "../../public/images/blog13.png";
-import blog14 from "../../public/images/blog14.png";
 import "animate.css"; // ✅ Import animate.css
 import { useInView } from "react-intersection-observer";
 const cardData = [
   {
-    img: blog1,
-    source: "Moneycontrol",
-    date: "April 23, 2025",
-    title: "Get the GMS Edge",
+    img: blog7,
+    title:
+      "Tools and Technologies Required to Setup a University-Level 2-inch Fabrication Facility",
   },
   {
     img: blog2,
-    source: "Business Standard",
-    date: "April 22, 2025",
+    title: "Setting Up a Mini OSAT: Essential Tools and Technologies",
+  },
+  {
+    img: blog1,
     title:
-      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+      "Semiconductor Wafer Types and Strategic Manufacturing Opportunities for India",
   },
   {
     img: blog3,
-    source: "Economic Times",
-    date: "April 17, 2025",
-    title: "Upgrade from Welding",
+    title: "The Semiconductor Talent Demand In India: A Critical Junction",
   },
   {
     img: blog4,
-    source: "Business Standard",
-    date: "April 22, 2025",
     title:
-      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+      "Why Work Area and Wire Diameter Matter More Than You Think in Wire Bonding",
   },
   {
     img: blog5,
-    source: "Economic Times",
-    date: "April 17, 2025",
-    title: "Upgrade from Welding",
-  },
-  {
-    img: blog6,
-    source: "Moneycontrol",
-    date: "April 23, 2025",
-    title: "Get the GMS Edge",
-  },
-  {
-    img: blog7,
-    source: "Business Standard",
-    date: "April 22, 2025",
     title:
-      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+      "How the DIE Transfer Film (DTF) Process Elevates Sinter Bonding Efficiency",
   },
   {
     img: blog8,
-    source: "Business Standard",
-    date: "April 22, 2025",
     title:
-      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
-  },
-    {
-    img: blog9,
-    source: "Economic Times",
-    date: "April 17, 2025",
-    title: "Upgrade from Welding",
+      "BAMFIT: The Future of Bond Wire Reliability Testing – Fast, Accurate, and Predictive",
   },
   {
-    img: blog10,
-    source: "Business Standard",
-    date: "April 22, 2025",
-    title:
-      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
-  },
-  {
-    img: blog11,
-    source: "Economic Times",
-    date: "April 17, 2025",
-    title: "Upgrade from Welding",
-  },
-  {
-    img: blog12,
-    source: "Moneycontrol",
-    date: "April 23, 2025",
-    title: "Get the GMS Edge",
-  },
-  {
-    img: blog13,
-    source: "Business Standard",
-    date: "April 22, 2025",
-    title:
-      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
-  },
-  {
-    img: blog14,
-    source: "Business Standard",
-    date: "April 22, 2025",
-    title:
-      "How to effectively adapt your manufacturing process to a new battery bonding energy?",
+    img: blog6,
+    title: "The Evolution of Semiconductor Design: Embracing 3D Chip Stacking and Heterogeneous Integration ",
   },
 ];
 
@@ -183,9 +123,6 @@ const Blogs = () => {
                     className={styles.image}
                   />
                   <div className={styles.cardText}>
-                    <p className={styles.source}>
-                      {card.source} | {card.date}
-                    </p>
                     <h3>{card.title}</h3>
                     <button className={styles.readMore}>
                       Read More{" "}
