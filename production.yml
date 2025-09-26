@@ -35,8 +35,13 @@ services:
       STORAGE_LOCATIONS: "s3"
       STORAGE_S3_DRIVER: "s3"
       STORAGE_S3_ROOT: "static"
+<<<<<<< HEAD
+      STORAGE_S3_KEY: "${STORAGE_S3_KEY}"
+      STORAGE_S3_SECRET: "${STORAGE_S3_SECRET}"
+=======
       STORAGE_S3_KEY: "AKIA4ZS3MONX3L6MMJ66"
       STORAGE_S3_SECRET: "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"
+>>>>>>> f1a4a9c (new changes)
       STORAGE_S3_BUCKET: "gms-44a3"
       STORAGE_S3_REGION: "ap-south-1"
       STORAGE_S3_ACL: "public-read"
