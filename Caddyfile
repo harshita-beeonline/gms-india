@@ -1,0 +1,7 @@
+{
+    debug
+}
+directus.poorna.dev {
+    encode gzip
+    reverse_proxy http://directus:8055
+}

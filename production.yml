@@ -1,0 +1,50 @@
+version: '3'
+services:
+
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+
+  directus:
+    container_name: directus
+    image: directus/directus:9
+    ports:
+      - 8055:8055
+    environment:
+      KEY: 'b77aa6b5-b87d-43a0-972c-7b58afd4cb83'
+      SECRET: '966edd46-7c10-4a18-a18e-43e371ea77c2'
+
+      DB_CLIENT: 'pg'
+      DB_HOST: 'gms-db.c9g8bkzulc9z.ap-south-1.rds.amazonaws.com'
+      DB_PORT: '5432'
+      DB_DATABASE: 'directus'
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'gmsdbpass'
+
+      ADMIN_EMAIL: 'directus@poorna.dev'
+      ADMIN_PASSWORD: 'gms-directus-pass'
+
+      CORS_ENABLED: 'true'
+      CORS_ORIGIN: '*'
+
+
+      STORAGE_LOCATIONS: "s3"
+      STORAGE_S3_DRIVER: "s3"
+      STORAGE_S3_ROOT: "static"
+      STORAGE_S3_KEY: "AKIA4ZS3MONX3L6MMJ66"
+      STORAGE_S3_SECRET: "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"
+      STORAGE_S3_BUCKET: "gms-44a3"
+      STORAGE_S3_REGION: "ap-south-1"
+      STORAGE_S3_ACL: "public-read"
+      STORAGE_S3_ENDPOINT: "s3.ap-south-1.amazonaws.com"
+
+      # Make sure to set this in production
+      # (see https://docs.directus.io/self-hosted/config-options#general)
+      # PUBLIC_URL: 'https://directus.example.com'
+
+      #etworks:
+      #directus

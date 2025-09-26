@@ -17,7 +17,7 @@ const HomeBanner = () => {
           Accelerate your Next-Gen Product needs with our Time-tested And Proven
           Microelectronics And Semiconductor Solutions.
         </p>
-        <button>
+        {/* <button>
           Learn More{" "}
           <svg
             width="13"
@@ -31,7 +31,7 @@ const HomeBanner = () => {
               fill="#3B5BA6"
             />
           </svg>
-        </button>
+        </button> */}
       </div>
     </div>
   );

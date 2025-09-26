@@ -5,8 +5,10 @@ import worldimage from "../../public/images/worldimage.png";
 import Image from "next/image";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { useRouter } from "next/navigation";
 
 const WorldClass = () => {
+  const router = useRouter()
   const statsData = [
     { value: 20, label: "Years of Experience", suffix: "+" },
     { value: 300, label: "Loyal Customers Across the Globe", suffix: "+" },
@@ -46,7 +48,7 @@ const WorldClass = () => {
               focus on quality, speed, and precision. Trusted by global clients
               across diverse industries.
             </p>
-            <button>
+            <button onClick={() =>router.push("/company")}>
               Learn More{" "}
               <svg
                 width="13"

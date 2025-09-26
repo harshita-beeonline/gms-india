@@ -7,7 +7,11 @@
   background: #ffffff;
   padding: 0px 80px;
   border-bottom: 1px solid #f8f6f514;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   /* ── logo ───────────────────── */
   .hearder-logo {
@@ -30,17 +34,16 @@
       gap: 30px;
       li {
         font-family: Instrument Sans;
-        font-weight: 400;
         font-size: 16px;
         line-height: 22.4px;
-        letter-spacing: 0%;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
         color: #1c1c1c;
         position: relative;
         padding: 29px 16px; // so the hover bg looks better
         transition: all 0.3s ease;
         &:hover {
-          background: #EDEDED;
-
+          background: #ededed;
         }
         &:hover::after {
           content: "";
@@ -49,14 +52,16 @@
           left: 0;
           width: 100%;
           height: 2.8px;
-          background: #3B5BA6 // blue border (change color as per your theme)
+          background: #3b5ba6;
         }
-        a {
+        a,
+        .menuTrigger {
           text-decoration: none;
           color: #1c1c1c;
         }
         a,
-        button {
+        button,
+        .menuTrigger {
           background: none;
           border: none;
           font: inherit;
@@ -90,6 +95,9 @@
             width: 100%;
             margin: 0;
             padding: 10px 0px;
+            font-size: 15px;
+            letter-spacing: 0;
+            text-transform: none;
             cursor: pointer;
             &:hover {
               background: #f5f5f5;
@@ -104,30 +112,49 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    .searchBox {
-      display: flex;
+    .searchIcon {
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
+      width: 32px;
       height: 32px;
-      width: 225px;
-      padding: 6px 8px;
-      gap: 8px;
-      border-radius: 4px;
-      background: #ebebeb;
-      input {
-        border: none;
-        background: transparent;
-        font-family: Instrument Sans;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 100%;
-        letter-spacing: 0%;
-        color: #626a6d;
-        &:focus {
-          outline: none;
-        }
+      border-radius: 9999px;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #ebebeb;
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
       }
     }
-    button {
+    .cart {
+      position: relative;
+
+      .badge {
+        position: absolute;
+        top: -6px;
+        right: -10px;
+        min-width: 18px;
+        height: 18px;
+        border-radius: 9999px;
+        background: #3b5ba6;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+        transition: transform 0.2s ease;
+      }
+      &:hover .badge {
+        transform: translateY(-1px);
+      }
+    }
+    .burger {
       display: none;
     }
   }
@@ -156,37 +183,19 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      button {
-        display: block;
+
+      .searchIcon {
+        width: 28px;
+        height: 28px;
+
+        // svg {
+        //   width: 18px;
+        //   height: 18px;
+        // }
       }
-      .searchBox {
-        display: flex;
-        align-items: center;
-        height: auto;
-        width: 25px;
-        padding: 0px 0px;
-        gap: 0px;
-        border-radius: 0px;
-        background: transparent;
-        cursor: pointer;
-        svg {
-          width: 24px;
-          height: 24px;
-        }
-        input {
-          &:focus {
-            outline: none;
-          }
-          display: none;
-        }
-      }
-      .cartIcon {
-        svg {
-          width: 24px;
-          height: 24px;
-        }
-      }
+
       .burger {
+        display: block;
         background: none;
         border: none;
         margin-top: 5px;
@@ -215,6 +224,40 @@
         color: #1c1c1c;
         text-decoration: none;
         font-size: 16px;
+      }
+
+      .mobileSection {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: none;
+          border: none;
+          font-size: 16px;
+          font-family: inherit;
+          color: #1c1c1c;
+          cursor: pointer;
+
+          span {
+            display: inline-flex;
+            transition: transform 0.3s ease;
+          }
+
+          .rotate {
+            transform: rotate(180deg);
+          }
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding-left: 12px;
+        }
       }
     }
   }

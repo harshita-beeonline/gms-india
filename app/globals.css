@@ -1,30 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Montserrat:wght@400;700&display=swap");
-/* *{
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face{
+    font-family:"chianti-bt";
+    src: url("https://gms-44a3.s3.ap-south-1.amazonaws.com/tt1212m_.ttf") format("truetype");
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}  */
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap");
-
-* {
-  box-sizing: border-box;
+@font-face{
+    font-family:"Bahnschrift Regular";
+    src: url("/bs-r.ttf") format("truetype");
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Instrument Sans", sans-serif;
-  overflow-x: hidden;
-  width: 100%;
-  /* max-width: 100%; */
+:root {
+    --header-height-desktop: 80px;
+    --header-height-mobile: 70px;
 }
 
-@media (min-width: 320px) and (max-width: 435px) {
-  * {
-    max-width: 100%;
-  }
+.page-content {
+    padding-top: var(--header-height-desktop);
+}
+
+@media (max-width: 1024px) {
+    .page-content {
+        padding-top: var(--header-height-mobile);
+    }
 }

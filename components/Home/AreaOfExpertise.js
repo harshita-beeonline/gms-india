@@ -6,12 +6,14 @@ import areatwo from "../../public/images/areatwo.svg";
 import areathree from "../../public/images/areathree.svg";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import { useRouter } from "next/navigation";
 import "animate.css";
 const AreaOfExpertise = () => {
   const { ref, inView } = useInView({
     triggerOnce: true, // runs every time in view
     threshold: 0.2, // trigger when 20% visible
   });
+  const router = useRouter();
   const cardData = [
     {
       icon: (
@@ -37,6 +39,7 @@ const AreaOfExpertise = () => {
       details:
         "Precision-engineered components for high-performance EVs, semiconductors, MEMS, and microelectronics applications.",
       tag: "Learn More",
+      href: "/category/components",
     },
     {
       icon: (
@@ -62,6 +65,7 @@ const AreaOfExpertise = () => {
       details:
         "Advanced manufacturing and testing equipment tailored for research labs and industrial-scale production in cutting-edge tech domains.",
       tag: "Learn More",
+      href: "/category/equipment",
     },
     {
       icon: (
@@ -73,7 +77,7 @@ const AreaOfExpertise = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_89_687)">
+          <g clipPath="url(#clip0_89_687)">
             <path
               d="M67.8596 27.723L65.4256 26.3178L67.8596 24.9125C70.7101 23.2668 70.7138 19.1514 67.8596 17.5036L38.5338 0.571178C37.2145 -0.190474 35.5754 -0.190474 34.2565 0.571178L5.14029 17.3824C2.28958 19.0282 2.28616 23.1436 5.14029 24.7914L7.57424 26.1967L5.14029 27.6021C3.80105 28.3753 3.00162 29.7602 3.00162 31.3065V43.2983C3.00162 44.8447 3.80105 46.2295 5.14029 47.0027L6.07988 47.5452L5.14029 48.0878C2.28958 49.7335 2.28616 53.8489 5.14029 55.4967L34.4662 72.4288C35.7853 73.1903 37.4243 73.1906 38.7435 72.4288L67.8597 55.6177C70.7104 53.972 70.7138 49.8566 67.8597 48.2088L66.9201 47.6663L67.8597 47.1238C69.1989 46.3506 69.9984 44.9657 69.9984 43.4193V31.4275C69.9984 31.4274 69.9984 31.4274 69.9984 31.4272C69.9981 29.881 69.1986 28.4962 67.8596 27.723ZM38.6386 59.0562V51.999C38.6735 51.9801 38.709 51.9629 38.7434 51.9431L65.7205 36.3671L65.7199 43.42L38.6386 59.0562ZM7.27896 43.2974V36.2457L34.3612 51.8825V58.935L7.27896 43.2974ZM36.3951 4.27579L65.721 21.2079L36.6051 38.0192L36.6049 38.019L7.27896 21.0867L36.3951 4.27579ZM11.8516 28.6662L34.4662 41.7235C35.7853 42.485 37.4243 42.4853 38.7435 41.7235L61.1484 28.7874L65.721 31.4275L36.6047 48.2386L7.27953 31.306L11.8516 28.6662ZM65.7209 51.9131L36.6047 68.7242L7.27953 51.7917L10.3572 50.0147L34.4663 63.9349C35.7855 64.6963 37.4243 64.6965 38.7435 63.9347L62.6429 50.1358L65.7209 51.9131Z"
               fill="#3B5BA6"
@@ -126,6 +130,7 @@ const AreaOfExpertise = () => {
       details:
         "High-purity, application-specific materials that drive innovation across solar, LED, thin films, and semiconductor industries.",
       tag: "Learn More",
+      href: "/category/materials",
     },
   ];
   const handleHover = (e) => {
@@ -135,6 +140,20 @@ const AreaOfExpertise = () => {
       void p.offsetWidth; // force reflow
       p.style.animation = "draw-fill 1s forwards";
     });
+  };
+
+  const handleCardClick = (href) => {
+    if (!href) {
+      return;
+    }
+    router.push(href);
+  };
+
+  const handleKeyDown = (event, href) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleCardClick(href);
+    }
   };
   return (
     <div className={styles["area-of-expertise-content"]}>
@@ -150,6 +169,10 @@ const AreaOfExpertise = () => {
             }}
             key={index}
             onMouseEnter={handleHover}
+            onClick={() => handleCardClick(item.href)}
+            onKeyDown={(event) => handleKeyDown(event, item.href)}
+            role="button"
+            tabIndex={0}
           >
             <div className={styles["image-div"]}>{item.icon}</div>
             <h5>{item.title}</h5>
@@ -163,8 +186,8 @@ const AreaOfExpertise = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_89_658)">
-                  <g clip-path="url(#clip1_89_658)">
+                <g clipPath="url(#clip0_89_658)">
+                  <g clipPath="url(#clip1_89_658)">
                     <path
                       d="M16.7977 5.77622L11.6551 0.633667L10.1858 2.08002L12.8489 4.74311L1.00366 4.76608V6.83227L12.8489 6.80933L10.1858 9.47243L11.6551 10.9417L16.7977 5.77622Z"
                       fill="#3B5BA6"
