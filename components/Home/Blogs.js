@@ -52,7 +52,8 @@ const cardData = [
   },
   {
     img: blog6,
-    title: "The Evolution of Semiconductor Design: Embracing 3D Chip Stacking and Heterogeneous Integration ",
+    title:
+      "The Evolution of Semiconductor Design: Embracing 3D Chip Stacking and Heterogeneous Integration ",
   },
 ];
 
@@ -74,27 +75,28 @@ const Blogs = () => {
       <div className={styles.sliderWrapper}>
         {navigationReady && (
           <Swiper
-            modules={[Navigation, Autoplay]} // ✅ Include Autoplay module
+            modules={[Navigation, Autoplay]}
             breakpoints={{
               0: {
-                // 0 – 434 px  ➜  1 full + ½ next card
                 slidesPerView: 1.2,
                 spaceBetween: 16,
               },
               435: {
-                // ≥ 435 px   ➜  2 full + ½ next card
                 slidesPerView: 2.5,
                 spaceBetween: 28,
               },
-              992: {
-                // ≥ 992 px   ➜  3 full + ½ next card (your old 3.5)
+              1180: {
+                slidesPerView: 3.1,
+                spaceBetween: 30,
+              },
+              1380: {
                 slidesPerView: 3.5,
-                spaceBetween: 40,
+                spaceBetween: 30,
               },
             }}
             autoplay={{
-              delay: 2000, // ✅ Auto slide every 3 seconds
-              disableOnInteraction: false, // ✅ Keeps autoplay on after manual navigation
+              delay: 2000, 
+              disableOnInteraction: false, 
             }}
             navigation={{
               prevEl: prevRef.current,

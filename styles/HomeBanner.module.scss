@@ -113,6 +113,9 @@
       button {
         height: 42px;
       }
+      @media (max-width:912px) {
+        width: 88%;
+      }
     }
   }
 }
