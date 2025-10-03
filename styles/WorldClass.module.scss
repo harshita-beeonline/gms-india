@@ -3,6 +3,9 @@
   padding: 0px 40px 0px 0px;
   background: #010304;
   opacity: 98%;
+  @media (max-width:1450px) {
+    padding: 0px 20px 0px 0px;
+  }
   .world-class-left-right-content {
     display: flex;
     align-items: center;

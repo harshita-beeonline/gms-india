@@ -89,7 +89,7 @@ const Blogs = () => {
                 slidesPerView: 3.1,
                 spaceBetween: 30,
               },
-              1380: {
+              1390: {
                 slidesPerView: 3.5,
                 spaceBetween: 30,
               },
