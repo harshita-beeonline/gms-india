@@ -9,9 +9,9 @@ import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
- const [activeDropdown, setActiveDropdown] = useState(null); // ⬅️ single source of truth
+  const [activeDropdown, setActiveDropdown] = useState(null); // ⬅️ single source of truth
   const cartCount = useAppStore((state) => state.cartItems.length);
-const router = useRouter()
+  const router = useRouter();
   const handleToggle = (name) =>
     setActiveDropdown((prev) => (prev === name ? null : name));
 
@@ -37,12 +37,13 @@ const router = useRouter()
           <li>
             <Link href="/">Home</Link>
           </li>
-        <li>
+          <li>
             <span
               className={styles.menuTrigger}
               role="button"
               tabIndex={0}
-              onClick={() => handleToggle("company")}
+              // onClick={() => handleToggle("company")}
+              onMouseEnter={() => setActiveDropdown("company")}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
@@ -68,9 +69,14 @@ const router = useRouter()
               </svg>
             </span>
             {activeDropdown === "company" && (
-              <div className={styles.dropdownMenu}>
+              <div
+                className={styles.dropdownMenu}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
                 <li onClick={() => router.push("/company")}>ABOUT US</li>
-                <li onClick={() => router.push("/accelerate")}>GMS ACCELERATE</li>
+                <li onClick={() => router.push("/accelerate")}>
+                  GMS ACCELERATE
+                </li>
               </div>
             )}
           </li>
@@ -81,7 +87,8 @@ const router = useRouter()
               className={styles.menuTrigger}
               role="button"
               tabIndex={0}
-              onClick={() => handleToggle("solutions")}
+              // onClick={() => handleToggle("solutions")}
+              onMouseEnter={() => setActiveDropdown("solutions")}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
@@ -107,9 +114,16 @@ const router = useRouter()
               </svg>
             </span>
             {activeDropdown === "solutions" && (
-              <div className={styles.dropdownMenu}>
-                <li onClick={() => router.push("/semiconductors")}>SEMICONDUCTORS</li>
-                <li onClick={() => router.push("/microelectronics")}>MICROELECTRONICS</li>
+              <div
+                className={styles.dropdownMenu}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <li onClick={() => router.push("/semiconductors")}>
+                  SEMICONDUCTORS
+                </li>
+                <li onClick={() => router.push("/microelectronics")}>
+                  MICROELECTRONICS
+                </li>
                 <li onClick={() => router.push("/ev")}>EV</li>
                 <li onClick={() => router.push("/space-solar")}>SPACE SOLAR</li>
               </div>
@@ -122,7 +136,8 @@ const router = useRouter()
               className={styles.menuTrigger}
               role="button"
               tabIndex={0}
-              onClick={() => handleToggle("products")}
+              // onClick={() => handleToggle("products")}
+               onMouseEnter={() => setActiveDropdown("products")}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
@@ -132,7 +147,7 @@ const router = useRouter()
             >
               Products{" "}
               <svg
-                  className={`${styles.arrowIcon} ${
+                className={`${styles.arrowIcon} ${
                   activeDropdown === "products" ? styles.rotate : ""
                 }`}
                 width="11"
@@ -147,11 +162,17 @@ const router = useRouter()
                 />
               </svg>
             </span>
-               {activeDropdown === "products" && (
-              <div className={styles.dropdownMenu}>
-                <li onClick={() => router.push("/category/components")}>COMPONENTS</li>
-                <li onClick={() => router.push("/category/equipment")}>EQUIPMENTS</li>
-                <li onClick={() => router.push("/category/materials")}>MATERIALS</li>
+            {activeDropdown === "products" && (
+              <div className={styles.dropdownMenu} onMouseLeave={() => setActiveDropdown(null)}>
+                <li onClick={() => router.push("/category/components")}>
+                  COMPONENTS
+                </li>
+                <li onClick={() => router.push("/category/equipment")}>
+                  EQUIPMENTS
+                </li>
+                <li onClick={() => router.push("/category/materials")}>
+                  MATERIALS
+                </li>
               </div>
             )}
           </li>
@@ -278,9 +299,11 @@ const router = useRouter()
                 onClick={() => handleToggle("mobile-company")}
               >
                 Company
-                <span className={
-                  activeDropdown === "mobile-company" ? styles.rotate : ""
-                }>
+                <span
+                  className={
+                    activeDropdown === "mobile-company" ? styles.rotate : ""
+                  }
+                >
                   <svg
                     width="10"
                     height="6"
@@ -319,9 +342,11 @@ const router = useRouter()
                 onClick={() => handleToggle("mobile-solutions")}
               >
                 Solutions
-                <span className={
-                  activeDropdown === "mobile-solutions" ? styles.rotate : ""
-                }>
+                <span
+                  className={
+                    activeDropdown === "mobile-solutions" ? styles.rotate : ""
+                  }
+                >
                   <svg
                     width="10"
                     height="6"
@@ -370,9 +395,11 @@ const router = useRouter()
                 onClick={() => handleToggle("mobile-products")}
               >
                 Products
-                <span className={
-                  activeDropdown === "mobile-products" ? styles.rotate : ""
-                }>
+                <span
+                  className={
+                    activeDropdown === "mobile-products" ? styles.rotate : ""
+                  }
+                >
                   <svg
                     width="10"
                     height="6"
@@ -393,26 +420,17 @@ const router = useRouter()
               {activeDropdown === "mobile-products" && (
                 <ul>
                   <li>
-                    <Link
-                      href="/category/components"
-                      onClick={closeMobileMenu}
-                    >
+                    <Link href="/category/components" onClick={closeMobileMenu}>
                       Components
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/category/equipment"
-                      onClick={closeMobileMenu}
-                    >
+                    <Link href="/category/equipment" onClick={closeMobileMenu}>
                       Equipments
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/category/materials"
-                      onClick={closeMobileMenu}
-                    >
+                    <Link href="/category/materials" onClick={closeMobileMenu}>
                       Materials
                     </Link>
                   </li>
