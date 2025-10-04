@@ -1,17 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face{
+/* @font-face{
     font-family:"chianti-bt";
     src: url("https://gms-44a3.s3.ap-south-1.amazonaws.com/tt1212m_.ttf") format("truetype");
 }
-
 @font-face{
     font-family:"Bahnschrift Regular";
     src: url("/bs-r.ttf") format("truetype");
-}
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap");
+} */
+
 :root {
     --header-height-desktop: 80px;
     --header-height-mobile: 70px;
@@ -24,6 +25,7 @@
 @media (max-width: 1024px) {
     .page-content {
         padding-top: var(--header-height-mobile);
+        font-family: "Instrument Sans", sans-serif;
     }
 }
 * {

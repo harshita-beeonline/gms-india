@@ -73,9 +73,9 @@ const Header = () => {
                 className={styles.dropdownMenu}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <li onClick={() => router.push("/company")}>ABOUT US</li>
+                <li onClick={() => router.push("/company")}>About Us</li>
                 <li onClick={() => router.push("/accelerate")}>
-                  GMS ACCELERATE
+                  GMS Accelerate
                 </li>
               </div>
             )}
@@ -119,13 +119,13 @@ const Header = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <li onClick={() => router.push("/semiconductors")}>
-                  SEMICONDUCTORS
+                  Semiconductors
                 </li>
                 <li onClick={() => router.push("/microelectronics")}>
-                  MICROELECTRONICS
+                  Microelectronics
                 </li>
-                <li onClick={() => router.push("/ev")}>EV</li>
-                <li onClick={() => router.push("/space-solar")}>SPACE SOLAR</li>
+                <li onClick={() => router.push("/ev")}>Ev</li>
+                <li onClick={() => router.push("/space-solar")}>Space Solar</li>
               </div>
             )}
           </li>
@@ -165,13 +165,13 @@ const Header = () => {
             {activeDropdown === "products" && (
               <div className={styles.dropdownMenu} onMouseLeave={() => setActiveDropdown(null)}>
                 <li onClick={() => router.push("/category/components")}>
-                  COMPONENTS
+                  Components
                 </li>
                 <li onClick={() => router.push("/category/equipment")}>
-                  EQUIPMENTS
+                  Equipments
                 </li>
                 <li onClick={() => router.push("/category/materials")}>
-                  MATERIALS
+                 Materials
                 </li>
               </div>
             )}
