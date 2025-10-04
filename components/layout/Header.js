@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../../styles/Header.module.scss";
-import footerlogo from "../../public/images/footerlogo.png";
+import newlogo from "../../public/images/newlogo.jpg";
 import { useAppStore } from "../../store";
 import { useRouter } from "next/navigation";
 
@@ -25,7 +25,7 @@ const Header = () => {
       <div className={styles["hearder-logo"]}>
         <Link href="/">
           <Image
-            src={footerlogo}
+            src={newlogo}
             alt="Global Marketing Services logo"
             priority
           />
@@ -137,7 +137,7 @@ const Header = () => {
               role="button"
               tabIndex={0}
               // onClick={() => handleToggle("products")}
-               onMouseEnter={() => setActiveDropdown("products")}
+              onMouseEnter={() => setActiveDropdown("products")}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
@@ -163,7 +163,10 @@ const Header = () => {
               </svg>
             </span>
             {activeDropdown === "products" && (
-              <div className={styles.dropdownMenu} onMouseLeave={() => setActiveDropdown(null)}>
+              <div
+                className={styles.dropdownMenu}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
                 <li onClick={() => router.push("/category/components")}>
                   Components
                 </li>
@@ -171,7 +174,7 @@ const Header = () => {
                   Equipments
                 </li>
                 <li onClick={() => router.push("/category/materials")}>
-                 Materials
+                  Materials
                 </li>
               </div>
             )}
@@ -299,27 +302,21 @@ const Header = () => {
                 onClick={() => handleToggle("mobile-company")}
               >
                 Company
-                <span
-                  className={
+                <svg
+                  className={`${styles.arrowIcon} ${
                     activeDropdown === "mobile-company" ? styles.rotate : ""
-                  }
+                  }`}
+                  width="11"
+                  height="11"
+                  viewBox="0 0 11 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1 1L5 5L9 1"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M10.3778 3.15625C10.2867 3.05859 10.1744 3.00814 10.0409 3.00488C9.90747 3.00163 9.79517 3.04557 9.70402 3.13672L5.5048 7.11133L1.30558 3.13672C1.21444 3.04557 1.10213 3.00163 0.968669 3.00488C0.835205 3.00814 0.7229 3.05859 0.631755 3.15625C0.540609 3.25391 0.498291 3.36784 0.504801 3.49805C0.511312 3.62826 0.56014 3.73893 0.651286 3.83008L5.17277 8.11719C5.21834 8.15625 5.27043 8.18717 5.32902 8.20996C5.38761 8.23275 5.44621 8.24414 5.5048 8.24414C5.5634 8.24414 5.62036 8.23275 5.6757 8.20996C5.73104 8.18717 5.78475 8.15625 5.83683 8.11719L10.3583 3.83008C10.4495 3.73893 10.4983 3.62826 10.5048 3.49805C10.5113 3.36784 10.469 3.25391 10.3778 3.15625Z"
+                    fill="#3B5BA6"
+                  />
+                </svg>
               </button>
               {activeDropdown === "mobile-company" && (
                 <ul>
@@ -342,27 +339,21 @@ const Header = () => {
                 onClick={() => handleToggle("mobile-solutions")}
               >
                 Solutions
-                <span
-                  className={
+                <svg
+                  className={`${styles.arrowIcon} ${
                     activeDropdown === "mobile-solutions" ? styles.rotate : ""
-                  }
+                  }`}
+                  width="11"
+                  height="11"
+                  viewBox="0 0 11 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1 1L5 5L9 1"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M10.3778 3.15625C10.2867 3.05859 10.1744 3.00814 10.0409 3.00488C9.90747 3.00163 9.79517 3.04557 9.70402 3.13672L5.5048 7.11133L1.30558 3.13672C1.21444 3.04557 1.10213 3.00163 0.968669 3.00488C0.835205 3.00814 0.7229 3.05859 0.631755 3.15625C0.540609 3.25391 0.498291 3.36784 0.504801 3.49805C0.511312 3.62826 0.56014 3.73893 0.651286 3.83008L5.17277 8.11719C5.21834 8.15625 5.27043 8.18717 5.32902 8.20996C5.38761 8.23275 5.44621 8.24414 5.5048 8.24414C5.5634 8.24414 5.62036 8.23275 5.6757 8.20996C5.73104 8.18717 5.78475 8.15625 5.83683 8.11719L10.3583 3.83008C10.4495 3.73893 10.4983 3.62826 10.5048 3.49805C10.5113 3.36784 10.469 3.25391 10.3778 3.15625Z"
+                    fill="#3B5BA6"
+                  />
+                </svg>
               </button>
               {activeDropdown === "mobile-solutions" && (
                 <ul>
@@ -395,7 +386,7 @@ const Header = () => {
                 onClick={() => handleToggle("mobile-products")}
               >
                 Products
-                <span
+                {/* <span
                   className={
                     activeDropdown === "mobile-products" ? styles.rotate : ""
                   }
@@ -415,7 +406,22 @@ const Header = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </span>
+                </span> */}
+                <svg
+                  className={`${styles.arrowIcon} ${
+                    activeDropdown === "mobile-products" ? styles.rotate : ""
+                  }`}
+                  width="11"
+                  height="11"
+                  viewBox="0 0 11 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.3778 3.15625C10.2867 3.05859 10.1744 3.00814 10.0409 3.00488C9.90747 3.00163 9.79517 3.04557 9.70402 3.13672L5.5048 7.11133L1.30558 3.13672C1.21444 3.04557 1.10213 3.00163 0.968669 3.00488C0.835205 3.00814 0.7229 3.05859 0.631755 3.15625C0.540609 3.25391 0.498291 3.36784 0.504801 3.49805C0.511312 3.62826 0.56014 3.73893 0.651286 3.83008L5.17277 8.11719C5.21834 8.15625 5.27043 8.18717 5.32902 8.20996C5.38761 8.23275 5.44621 8.24414 5.5048 8.24414C5.5634 8.24414 5.62036 8.23275 5.6757 8.20996C5.73104 8.18717 5.78475 8.15625 5.83683 8.11719L10.3583 3.83008C10.4495 3.73893 10.4983 3.62826 10.5048 3.49805C10.5113 3.36784 10.469 3.25391 10.3778 3.15625Z"
+                    fill="#3B5BA6"
+                  />
+                </svg>
               </button>
               {activeDropdown === "mobile-products" && (
                 <ul>
