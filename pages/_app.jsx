@@ -2,7 +2,7 @@ import "../app/globals.css";
 
 import AnalyticsScript from "../components/AnalyticsScript";
 import AppInitializer from "../components/AppInitializer";
-import Footer from "../components/Footer";
+import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import ProgressBar from "../components/ProgressBar";
 import { useRouter } from "next/router";
