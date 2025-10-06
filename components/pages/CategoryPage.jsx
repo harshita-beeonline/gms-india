@@ -9,6 +9,46 @@ import CategoryTree from "../CategoryTree";
 import MiniSearch from "../MiniSearch";
 import ProductSkeleton from "../ProductSkeleton";
 import { frontendClient } from "../../lib/graphql-clients";
+import { useAppStore } from "../../store";
+
+const MASTER_CATEGORY_SLUGS = new Set(["equipment", "components", "materials"]);
+
+const deriveMasterSlug = (categoryTree, category) => {
+  if (!category) {
+    return undefined;
+  }
+
+  if (MASTER_CATEGORY_SLUGS.has(category.slug)) {
+    return category.slug;
+  }
+
+  const parentMap = new Map();
+
+  if (Array.isArray(categoryTree)) {
+    categoryTree.forEach((cat) => {
+      if (cat?.slug && cat.cat_rel_key?.slug) {
+        parentMap.set(cat.slug, cat.cat_rel_key.slug);
+      }
+    });
+  }
+
+  if (category.cat_rel_key?.slug) {
+    parentMap.set(category.slug, category.cat_rel_key.slug);
+  }
+
+  let current = category.slug;
+  const visited = new Set();
+
+  while (current && !MASTER_CATEGORY_SLUGS.has(current)) {
+    if (visited.has(current)) {
+      return undefined;
+    }
+    visited.add(current);
+    current = parentMap.get(current);
+  }
+
+  return current;
+};
 
 const getSuperCategory = (slug) => {
   let restrictedSlug = [slug];
@@ -75,6 +115,12 @@ const CategoryPage = ({ slug }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState();
   const [category, setCategory] = useState();
+  const { categoryTree, categoryTreeDisplay, categoryTreeDisplayChange } =
+    useAppStore((state) => ({
+      categoryTree: state.categoryTree,
+      categoryTreeDisplay: state.categoryTreeDisplay,
+      categoryTreeDisplayChange: state.categoryTreeDisplayChange,
+    }));
 
   const fetchProducts = async (categorySlug) => {
     setLoading(true);
@@ -99,6 +145,17 @@ const CategoryPage = ({ slug }) => {
   useEffect(() => {
     fetchProducts(slug);
   }, [slug]);
+
+  useEffect(() => {
+    if (!category) {
+      return;
+    }
+
+    const masterSlug = deriveMasterSlug(categoryTree, category);
+    if (masterSlug && masterSlug !== categoryTreeDisplay) {
+      categoryTreeDisplayChange(masterSlug);
+    }
+  }, [category, categoryTree, categoryTreeDisplay, categoryTreeDisplayChange]);
 
   const toggleTreeOpen = () => setTreeOpen((t) => !t);
 
