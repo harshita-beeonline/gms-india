@@ -1,0 +1,40 @@
+.category-header-section {
+  width: 100%;
+  background: #3b5ba6;
+  height: 81px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .all-category-headings {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .icon-and-text {
+      width: 196px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      padding-bottom: 10px;
+      img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+      h5 {
+        margin: 0px;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        color: #ffffff;
+      }
+      &.active {
+        border-bottom: 3px solid #ffffff;
+      }
+    }
+  }
+}
