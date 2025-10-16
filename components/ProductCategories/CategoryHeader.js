@@ -27,6 +27,7 @@ const CategoryHeader = () => {
       <div className={styles["all-category-headings"]}>
         {categoryData.map((item, index) => (
           <div
+            key={index}
             className={`${styles["icon-and-text"]} ${
               activeIndex === index ? styles.active : ""
             }`}
