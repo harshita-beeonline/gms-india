@@ -92,7 +92,7 @@ const CategoryHeader = () => {
                   openDropdown === category.name ? styles.active : ""
                 }`}
                 
-                onMouseEnter={() => toggleDropdown(category.name)}
+                onClick={() => toggleDropdown(category.name)}
               >
                 <Image src={category.icon} alt={category.name} />
                 <h5>{category.name}</h5>

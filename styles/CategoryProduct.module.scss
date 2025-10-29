@@ -40,11 +40,14 @@
     .category-main-cards-sections {
       display: grid;
       grid-template-columns: repeat(4, 2fr);
-      justify-self: center;
       place-items: center;
+      justify-self: center;
       gap: 55px;
       margin-top: 30px;
-      a{
+      @media (max-width:1380px) {
+        gap: 40px;
+      }
+      a {
         text-decoration: none;
       }
       .product-card {
@@ -119,6 +122,93 @@
           color: #3b5ba6;
           background-color: transparent;
           margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+@media (max-width:1380px) {
+.all-category-product-section {
+  padding: 30px 20px 60px 20px;
+}
+}
+@media (max-width:1280px) {
+.all-category-product-section {
+  .category-text-and-cards {
+    .category-main-cards-sections {
+      grid-template-columns: repeat(3, 2fr);
+      gap: 40px;
+    }
+  }
+}
+}
+@media (max-width:938px) {
+.all-category-product-section {
+  .category-text-and-cards {
+    .category-main-cards-sections {
+      grid-template-columns: repeat(2, 2fr);
+      gap: 40px;
+    }
+  }
+}
+}
+@media (max-width: 768px) {
+  .all-category-product-section {
+    padding: 25px 15px 40px 15px;
+    .category-text-and-cards {
+      h2 {
+        font-size: 24px;
+        span {
+          font-size: 16px;
+          padding-left: 6px;
+        }
+      }
+      p {
+        font-size: 14px;
+      }
+      .category-main-cards-sections {
+        grid-template-columns: repeat(2, 2fr);
+        gap: 20px 15px;
+        .product-card {
+          width: 180px;
+          height: 293px;
+          padding: 10px;
+          @media (max-width: 435px) {
+            width: 100%;
+          }
+          .product-image {
+            height: 121px;
+          }
+          h5 {
+            font-size: 12px;
+            margin-top: 8px;
+            min-height: 25px;
+          }
+          p {
+            font-size: 10px;
+            line-height: 12px;
+            margin-top: 8px;
+            min-height: 25px;
+          }
+          @media (max-width: 360px) {
+            height: 320px;
+            h5 {
+              min-height:35px;
+            }
+            p {
+              min-height: 35px;
+            }
+          }
+          button {
+            height: 30px;
+            font-size: 12px;
+          }
+          .view-product-btn {
+            margin-top: 8px;
+          }
+          .add-cart-btn {
+            margin-top: 6px;
+          }
         }
       }
     }
