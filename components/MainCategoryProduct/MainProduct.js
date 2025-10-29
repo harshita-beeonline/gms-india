@@ -83,7 +83,7 @@ const MainProduct = () => {
           </div>
           <div
             className={styles["application-technical-dropdown"]}
-            onMouseLeave={() => toggleInfoDropdown(false)}
+            // onMouseLeave={() => toggleInfoDropdown(false)}
           >
             <div className={styles["dropdown-content"]}>
               {dropdownData.map((data) => (
