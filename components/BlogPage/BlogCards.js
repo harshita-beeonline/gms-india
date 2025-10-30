@@ -13,47 +13,47 @@ import Link from "next/link";
 const BlogCards = () => {
   const cardData = [
     { 
-      link:"/",
+      link:"/individual-blog",
       img: blog7,
       title:
         "Tools and Technologies Required to Setup a University-Level 2-inch Fabrication Facility",
     },
     { 
-      link:"/",
+      link:"/individual-blog",
       img: blog2,
       title: "Setting Up a Mini OSAT: Essential Tools and Technologies",
     },
     { 
-      link:"/",
+      link:"/individual-blog",
       img: blog1,
       title:
         "Semiconductor Wafer Types and Strategic Manufacturing Opportunities for India",
     },
     {
-      link:"/",
+      link:"/individual-blog",
       img: blog3,
       title: "The Semiconductor Talent Demand In India: A Critical Junction",
     },
     { 
-      link:"/",
+      link:"/individual-blog",
       img: blog4,
       title:
         "Why Work Area and Wire Diameter Matter More Than You Think in Wire Bonding",
     },
     { 
-      link:"/",
+      link:"/individual-blog",
       img: blog5,
       title:
         "How the DIE Transfer Film (DTF) Process Elevates Sinter Bonding Efficiency",
     },
     {
-      link:"/",
+      link:"/individual-blog",
       img: blog8,
       title:
         "BAMFIT: The Future of Bond Wire Reliability Testing – Fast, Accurate, and Predictive",
     },
     { 
-      link:"/",
+      link:"/individual-blog",
       img: blog6,
       title:
         "The Evolution of Semiconductor Design: Embracing 3D Chip Stacking and Heterogeneous Integration ",
