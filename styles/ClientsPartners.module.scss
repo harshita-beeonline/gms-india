@@ -1,0 +1,168 @@
+.clients-partners-section-content{
+  padding: 0px 0px 40px 0px;
+  max-width: none !important;
+  width: 100%;
+  h2 {
+    font-family: Instrument Sans;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 42px;
+    line-height: 54px;
+    letter-spacing: 0%;
+    text-align: center;
+    margin: 0;
+    color: #1c1c1c;
+    margin-top: 40px;
+  }
+  .partnership-company-logo-cards {
+    margin-top: 30px;
+    width: 100%;
+    .scroll-container {
+      display: flex;
+      overflow: hidden;
+    }
+    .scroll-content {
+      display: flex;
+      animation: scroll-left 20s linear infinite;
+      gap: 0px;
+    }
+    .reverse {
+      animation: scroll-right 20s linear infinite;
+      gap: 0px;
+    }
+    .company-card {
+      flex: 0 0 auto;
+      width: 240px;
+      height: 88px;
+      opacity: 1;
+      border: 1px solid #c5c5c5;
+      box-shadow: 0px 2px 4px 0px #00000014;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      .main-image-box {
+        width: 183px;
+        height: 60px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+// @media (max-width: 1024px) {
+//   .clients-partners-section-content{
+//     width: 100%;
+//     padding: 0px 0px 50px 0px;
+//     h2 {
+//       font-size: 28px;
+//     }
+//     .partnership-company-logo-cards {
+//       margin-top: 30px;
+//       .company-card {
+//         width: 275px;
+//         height: 150px;
+//         opacity: 1;
+//         border-radius: 4px;
+//         border: 1px solid #c5c5c5;
+//         box-shadow: 0px 2px 4px 0px #00000014;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         cursor: pointer;
+//         img {
+//           transition: transform 0.3s ease;
+//         }
+
+//         &:hover img {
+//           transform: scale(1.1);
+//         }
+//       }
+//     }
+//   }
+// }
+// @media (max-width: 768px) {
+//   .clients-partners-section-content{
+//     width: 100%;
+//     padding: 0px 0px 30px 0px;
+//     h2 {
+//       font-size: 28px;
+//       line-height: 100%;
+//       text-align: center;
+//       padding-right: 0px;
+//       margin-top: 20x;
+//     }
+//     .partnership-company-logo-cards {
+//       padding-bottom: 0px;
+//       .company-card {
+//         width: 184px;
+//         height: 100px;
+//         overflow: hidden;
+//         padding: 0px 10px;
+//         .main-image-box {
+//           width: 158px;
+//           height: 90px;
+//         }
+//       }
+//     }
+//   }
+// }
+// @media (max-width: 435px) {
+//   .clients-partners-section-content{
+//     width: 100%;
+//     padding: 0px 0px 30px 0px;
+//     h2 {
+//       @media (max-width: 360px) {
+//         font-size: 24px;
+//       }
+//     }
+//     .partnership-company-logo-cards {
+//       padding-bottom: 0px;
+//       margin-top: 20px;
+//       .scroll-content {
+//         // animation: scroll-left 10s linear infinite;
+//         gap: 10px;
+//       }
+//       .reverse {
+//         // animation: scroll-right 10s linear infinite;
+//         gap: 10px;
+//       }
+//       .company-card {
+//         width: 184px;
+//         height: 100px;
+//         overflow: hidden;
+//         padding: 0px 10px;
+//         .main-image-box {
+//           width: 158px;
+//           height: 90px;
+//         }
+//       }
+//     }
+//   }
+// }
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@media (min-width: 320px) and (max-width: 435px) {
+  .clients-partners-section-content,
+  .clients-partners-section-content * {
+    max-width: none !important;
+  }
+}

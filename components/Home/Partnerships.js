@@ -45,10 +45,6 @@ import partner41 from "../../public/images/partner41.png";
 import partner42 from "../../public/images/partner42.png";
 import partner43 from "../../public/images/partner43.png";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules"; // ✅ import Autoplay module
-import "swiper/css";
-import "swiper/css/autoplay";
 
 const Partnerships = () => {
   const companyDataOne = [

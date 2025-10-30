@@ -1,0 +1,122 @@
+.semiconductor-page-banner-section {
+  background: linear-gradient(
+    270deg,
+    #84a1c1 0%,
+    #7391b3 5.02%,
+    #6281a4 16.27%,
+    #2a4d75 48.5%,
+    #133861 65.55%,
+    #052b55 100%
+  );
+  width: 100%;
+  padding: 50px 80px;
+  .semiconductor-left-right-content {
+    display: flex;
+    justify-content: space-between;
+    .semiconductor-left-content {
+      h2,
+      h3 {
+        margin: 0px;
+      }
+      h2 {
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 32px;
+        line-height: 42px;
+        letter-spacing: 0%;
+        color: #ffffff;
+        width: 70%;
+      }
+      h3 {
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #ffffff;
+        margin-top: 15px;
+      }
+      button {
+        background: #ffffff;
+        width: 210px;
+        height: 44px;
+        border-radius: 6px;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 16px;
+        letter-spacing: 0%;
+        color: #3b5ba6;
+        border: none;
+        cursor: pointer;
+        margin-top: 40px;
+      }
+    }
+    .semiconductor-right-content {
+      .solution-semiconductor {
+        display: flex;
+        align-items: center;
+        h5 {
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 14px;
+          margin: 0px;
+          line-height: 100%;
+          letter-spacing: 0%;
+          color: #c5c5c5;
+          padding: 0px 18px;
+        }
+        .have-divider {
+          color: #ffffff;
+          border-left: 1px solid #ffffff;
+        }
+      }
+    }
+  }
+}
+.semiconductor-text-cards-section {
+  width: 100%;
+  padding: 40px 80px;
+  h4 {
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #3b5ba6;
+  }
+  .semiconductor-all-cards-section {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 50px;
+    margin-top: 30px;
+    place-items: center;
+    justify-self: center;
+    .semiconductor-product-card {
+      box-shadow: 0px 4px 8px 0px #3b5ba629;
+      background: #ffffff;
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 25px 12px ;
+      h5,
+      p {
+        margin: 0px;
+        font-weight: 400;
+        font-style: Regular;
+        letter-spacing: 0%;
+        color: #14142b;
+      }
+      h5 {
+        font-size: 26px;
+        line-height: 31px;
+      }
+      p {
+        font-size: 15.5px;
+        line-height: 24px;
+        margin-top: 20px;
+        min-height: 180px;
+      }
+    }
+  }
+}
