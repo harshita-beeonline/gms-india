@@ -34,7 +34,9 @@ const SemiconductorBanner = () => {
               Opportunities for India
             </h2>
             <h3>Custom Crafted Solutions to Meet All Your Product Needs</h3>
-            <button>Let’s Work Together</button>
+            <div className={styles["button-div"]}>
+              <button>Let’s Work Together</button>
+            </div>
           </div>
           <div className={styles["semiconductor-right-content"]}>
             <div className={styles["solution-semiconductor"]}>

@@ -131,3 +131,120 @@
     }
   }
 }
+@media (max-width:1280px) {
+.india-first-exclusive-section {
+  height: auto;
+  .india-first-exclusive-content {
+    padding: 80px 20px;
+    h2 {
+      font-size: 42px;
+    }
+    h4 {
+      font-size: 26px;
+    }
+    p {
+      font-size: 20px;
+      line-height: 28px;
+      width: 95%;
+    }
+  }
+}
+.getin-touch-section {
+  .getin-touch-left-right-part {
+    gap: 40px;
+    padding: 30px 20px;
+    .getin-touch-left-part {
+      h2 {
+        font-size: 32px;
+      }
+      .details-and-button {
+        width: 765px;
+        padding: 20px;
+      }
+    }
+    .getin-touch-right-part{
+        .experts-image{
+            width: 350px;
+            height: 450px;
+        }
+    }
+  }
+}
+}
+@media (max-width:1180px) {
+.getin-touch-section {
+  .getin-touch-left-right-part {
+    gap: 30px;
+    .getin-touch-left-part {
+      .details-and-button {
+        width: 565px;
+        padding: 20px;
+      }
+    }
+  }
+}
+}
+@media (max-width:1000px) {
+.getin-touch-section {
+  .getin-touch-left-right-part {
+    flex-direction: column;
+    gap: 30px;
+    .getin-touch-left-part {
+      .details-and-button {
+        width: 100%;
+      }
+    }
+  }
+}
+}
+@media (max-width:768px) {
+.india-first-exclusive-section {
+  height: auto;
+  .india-first-exclusive-content {
+    padding: 40px 20px;
+    gap: 30px;
+    h2 {
+      font-size: 20px;
+    }
+    h4 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 22px;
+      width: 100%;
+    }
+    button {
+      width: 217px;
+      margin-top: 0px;
+    }
+  }
+}
+.getin-touch-section {
+  .getin-touch-left-right-part {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+    .getin-touch-left-part {
+      h2 {
+        font-size: 20px;
+        line-height: 24px;
+      }
+      .details-and-button {
+        width: 100%;
+        padding: 20px;
+        p {
+          font-size: 14px;
+          line-height:22px;
+        }
+      }
+    }
+    .getin-touch-right-part{
+        .experts-image{
+            width: 354px;
+            height: 400px;
+        }
+    }
+  }
+} 
+}

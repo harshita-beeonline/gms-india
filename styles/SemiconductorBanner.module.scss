@@ -36,19 +36,21 @@
         color: #ffffff;
         margin-top: 15px;
       }
-      button {
-        background: #ffffff;
-        width: 210px;
-        height: 44px;
-        border-radius: 6px;
-        font-weight: 500;
-        font-style: Medium;
-        font-size: 16px;
-        letter-spacing: 0%;
-        color: #3b5ba6;
-        border: none;
-        cursor: pointer;
-        margin-top: 40px;
+      .button-div {
+        button {
+          background: #ffffff;
+          width: 210px;
+          height: 44px;
+          border-radius: 6px;
+          font-weight: 500;
+          font-style: Medium;
+          font-size: 16px;
+          letter-spacing: 0%;
+          color: #3b5ba6;
+          border: none;
+          cursor: pointer;
+          margin-top: 40px;
+        }
       }
     }
     .semiconductor-right-content {
@@ -98,7 +100,7 @@
       height: auto;
       border-radius: 10px;
       cursor: pointer;
-      padding: 25px 12px ;
+      padding: 25px 12px;
       h5,
       p {
         margin: 0px;
@@ -117,8 +119,112 @@
         margin-top: 20px;
         min-height: 180px;
       }
-      svg{
+      svg {
         margin-top: 10px;
+      }
+    }
+  }
+}
+@media (max-width:1280px) {
+.semiconductor-page-banner-section {
+  padding: 50px 20px;
+  .semiconductor-left-right-content {
+    .semiconductor-left-content {
+      h2 {
+        font-size: 28px;
+        width: 80%;
+      }
+      h3 {
+        font-size: 20px;
+        width: 85%;
+      }
+    }
+    .semiconductor-right-content {
+      .solution-semiconductor {
+        h5 {
+          padding: 0px 8px;
+        }
+      }
+    }
+  }
+}
+.semiconductor-text-cards-section {
+  padding: 40px 20px;
+  h4 {
+    font-size: 28px;
+    text-align: center;
+  }
+  .semiconductor-all-cards-section {
+    grid-template-columns: repeat(2, 2fr);
+    gap: 40px;
+  }
+}
+}
+@media (max-width: 768px) {
+  .semiconductor-page-banner-section {
+    padding: 30px 20px;
+    .semiconductor-left-right-content {
+      flex-direction: column;
+      .semiconductor-left-content {
+        order: 2;
+        h2 {
+          font-size: 24px;
+          line-height: 100%;
+          width: 100%;
+          margin-top: 35px;
+        }
+        h3 {
+          font-size: 16px;
+          margin-top: 25px;
+          width: 100%;
+        }
+        .button-div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: 60px;
+          button {
+            margin-top: 80px;
+          }
+        }
+      }
+      .semiconductor-right-content {
+        order: 1;
+        .solution-semiconductor {
+          margin-left: -6px;
+          h5 {
+            font-size: 12px;
+            padding: 0px 8px;
+          }
+        }
+      }
+    }
+  }
+  .semiconductor-text-cards-section {
+    padding: 40px 20px;
+    h4 {
+      font-size: 20px;
+      text-align: center;
+    }
+    .semiconductor-all-cards-section {
+      grid-template-columns: repeat(2, 1fr);
+      @media (max-width: 650px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      gap: 20px;
+      .semiconductor-product-card {
+        width: 300px;
+        @media (max-width: 340px) {
+          width: 100%;
+        }
+        h5 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          min-height: 150px;
+        }
       }
     }
   }

@@ -33,7 +33,9 @@ const MicroelectronicBanner = () => {
               Bridging Decades of MICROELECTRONICS Expertise with Our Global
               Network of Partners To Bring Success for Our Customers
             </h2>
+            <div className={styles["button-div"]}>
             <button>Get Quote</button>
+            </div>
           </div>
           <div className={styles["semiconductor-right-content"]}>
             <div className={styles["solution-semiconductor"]}>
