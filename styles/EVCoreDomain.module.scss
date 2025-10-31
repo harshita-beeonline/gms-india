@@ -1,0 +1,131 @@
+.ev-core-domain-section {
+  width: 100%;
+  background-image: url("../public/images/evcoredomainbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .ev-core-domain-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px;
+    h2 {
+      margin: 0;
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 42px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-transform: capitalize;
+      color: #1c1c1c;
+    }
+    .ev-core-domain-details-tab {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-top: 60px;
+      button {
+        border: none;
+        cursor: pointer;
+        width: 350px;
+        height: 56px;
+        border-radius: 10px;
+        background: #f4f4f4;
+        box-shadow: 0px 4px 8px 0px #3b5ba629;
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 2%;
+        vertical-align: middle;
+        text-transform: capitalize;
+        color: #949494;
+        &.active {
+          background: #3b5ba6;
+          color: #ffffff;
+        }
+      }
+    }
+    .tab-content {
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: 0%;
+      margin: 0px;
+      color: #403f3f;
+      margin-top: 40px;
+      width: 80%;
+      min-height: 110px;
+    }
+  }
+}
+@media (max-width: 1280px) {
+  .ev-core-domain-section {
+    .ev-core-domain-content {
+      padding: 60px 20px;
+      h2 {
+        font-size: 36px;
+        text-align: center;
+      }
+      .ev-core-domain-details-tab {
+        gap: 20px;
+        button {
+          width: 300px;
+          height: 50px;
+          font-size: 18px;
+        }
+        @media (max-width: 938px) {
+          gap: 15px;
+          button {
+            width: 240px;
+          }
+        }
+      }
+      .tab-content {
+        font-size: 16px;
+        width: 90%;
+        min-height: 110px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .ev-core-domain-section {
+    .ev-core-domain-content {
+      padding: 40px 0px 40px 20px;
+      h2 {
+        font-size: 20px;
+        text-align: center;
+      }
+      .ev-core-domain-details-tab {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 30px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        button {
+          flex: 0 0 auto;
+          width: 179px;
+          height: 40px;
+          font-size: 12px;
+        }
+      }
+      .tab-content {
+        font-size: 14px;
+        line-height: 22px;
+        margin-top: 40px;
+        width: 96%;
+      }
+    }
+  }
+}

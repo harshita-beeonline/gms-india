@@ -1,19 +1,11 @@
-.semiconductor-page-banner-section {
-  background: linear-gradient(
-    270deg,
-    #84a1c1 0%,
-    #7391b3 5.02%,
-    #6281a4 16.27%,
-    #2a4d75 48.5%,
-    #133861 65.55%,
-    #052b55 100%
-  );
+.ev-page-banner-section {
+  background: linear-gradient(90deg, #005f13 0%, #9fe3a2 100%);
   width: 100%;
   padding: 50px 80px;
-  .semiconductor-left-right-content {
+  .ev-left-right-content {
     display: flex;
     justify-content: space-between;
-    .semiconductor-left-content {
+    .ev-left-content {
       h2,
       h3 {
         margin: 0px;
@@ -53,8 +45,8 @@
         }
       }
     }
-    .semiconductor-right-content {
-      .solution-semiconductor {
+    .ev-right-content {
+      .solution-ev {
         display: flex;
         align-items: center;
         h5 {
@@ -64,7 +56,7 @@
           margin: 0px;
           line-height: 100%;
           letter-spacing: 0%;
-          color: #c5c5c5;
+          color: #ffffff;
           padding: 0px 18px;
           white-space: nowrap;
         }
@@ -76,7 +68,7 @@
     }
   }
 }
-.semiconductor-text-cards-section {
+.ev-text-cards-section {
   width: 100%;
   padding: 40px 80px;
   h4 {
@@ -87,17 +79,17 @@
     letter-spacing: 0%;
     color: #3b5ba6;
   }
-  .semiconductor-all-cards-section {
+  .ev-all-cards-section {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
     gap: 50px;
     margin-top: 30px;
     place-items: center;
     justify-self: center;
-    @media (max-width:1380px) {
+    @media (max-width: 1380px) {
       gap: 30px;
     }
-    .semiconductor-product-card {
+    .ev-product-card {
       box-shadow: 0px 4px 8px 0px #3b5ba629;
       background: #ffffff;
       width: 300px;
@@ -129,47 +121,47 @@
     }
   }
 }
-@media (max-width:1280px) {
-.semiconductor-page-banner-section {
-  padding: 50px 20px;
-  .semiconductor-left-right-content {
-    .semiconductor-left-content {
-      h2 {
-        font-size: 28px;
-        width: 80%;
+@media (max-width: 1280px) {
+  .ev-page-banner-section {
+    padding: 50px 20px;
+    .ev-left-right-content {
+      .ev-left-content {
+        h2 {
+          font-size: 28px;
+          width: 80%;
+        }
+        h3 {
+          font-size: 20px;
+          width: 85%;
+        }
       }
-      h3 {
-        font-size: 20px;
-        width: 85%;
-      }
-    }
-    .semiconductor-right-content {
-      .solution-semiconductor {
-        h5 {
-          padding: 0px 8px;
+      .ev-right-content {
+        .solution-ev {
+          h5 {
+            padding: 0px 8px;
+          }
         }
       }
     }
   }
-}
-.semiconductor-text-cards-section {
-  padding: 40px 20px;
-  h4 {
-    font-size: 28px;
-    text-align: center;
+  .ev-text-cards-section {
+    padding: 40px 20px;
+    h4 {
+      font-size: 28px;
+      text-align: center;
+    }
+    .ev-all-cards-section {
+      grid-template-columns: repeat(2, 2fr);
+      gap: 40px;
+    }
   }
-  .semiconductor-all-cards-section {
-    grid-template-columns: repeat(2, 2fr);
-    gap: 40px;
-  }
-}
 }
 @media (max-width: 768px) {
-  .semiconductor-page-banner-section {
+  .ev-page-banner-section {
     padding: 30px 20px;
-    .semiconductor-left-right-content {
+    .ev-left-right-content {
       flex-direction: column;
-      .semiconductor-left-content {
+      .ev-left-content {
         order: 2;
         h2 {
           font-size: 24px;
@@ -192,9 +184,9 @@
           }
         }
       }
-      .semiconductor-right-content {
+      .ev-right-content {
         order: 1;
-        .solution-semiconductor {
+        .solution-ev {
           margin-left: -6px;
           h5 {
             font-size: 12px;
@@ -204,19 +196,19 @@
       }
     }
   }
-  .semiconductor-text-cards-section {
+  .ev-text-cards-section {
     padding: 40px 20px;
     h4 {
       font-size: 20px;
       text-align: center;
     }
-    .semiconductor-all-cards-section {
+    .ev-all-cards-section {
       grid-template-columns: repeat(2, 1fr);
       @media (max-width: 650px) {
         grid-template-columns: repeat(1, 1fr);
       }
       gap: 20px;
-      .semiconductor-product-card {
+      .ev-product-card {
         width: 300px;
         @media (max-width: 340px) {
           width: 100%;

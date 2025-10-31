@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import styles from "../../styles/CoreDomain.module.scss";
+import styles from "../../styles/EVCoreDomain.module.scss";
 
-const CoreDomain = () => {
+const EVCoreDomain = () => {
   const tabs = [
     {
       id: "efficiency",
@@ -23,12 +23,12 @@ const CoreDomain = () => {
         "We are stepping up to meet the market's pressing need for trustworthy suppliers and work diligently to provide solutions that satisfy your needs and, on occasions, even maximize them.",
     },
   ];
-  const [activeTab, setActiveTab] = useState(tabs[0].id); 
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
   return (
-    <div className={styles["core-domain-section"]}>
-      <div className={styles["core-domain-content"]}>
+    <div className={styles["ev-core-domain-section"]}>
+      <div className={styles["ev-core-domain-content"]}>
         <h2>our core domain experience advantage</h2>
-        <div className={styles["core-domain-details-tab"]}>
+        <div className={styles["ev-core-domain-details-tab"]}>
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -52,4 +52,4 @@ const CoreDomain = () => {
   );
 };
 
-export default CoreDomain;
+export default EVCoreDomain;

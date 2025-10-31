@@ -1,0 +1,100 @@
+.ev-startup-section {
+  width: 100%;
+  background-image: url("../public/images/evstartupbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    padding: 0px 80px;
+    h2 {
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 50px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: center;
+      text-transform: capitalize;
+      color: #ffffff;
+      margin: 0px;
+      width: 90%;
+    }
+    @media (max-width: 1280px) {
+      h2 {
+        font-size: 42px;
+      }
+    }
+    @media (max-width: 938px) {
+      h2 {
+        font-size: 36px;
+      }
+    }
+    .ev-startup-all-cards {
+      margin-top: 60px;
+      overflow: hidden;
+      max-width: 1275px;
+      .evstartup-card {
+        width: 300px;
+        height: auto;
+        background: #fbfbfb;
+        box-shadow: 0px 4px 8px 0px #3b5ba629;
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 30px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        h4,
+        p {
+          margin: 0px;
+        }
+        h4 {
+          font-weight: 600;
+          font-style: SemiBold;
+          font-size: 26px;
+          line-height: 32px;
+          letter-spacing: 0%;
+          text-transform: capitalize;
+          color: #3b5ba6;
+        }
+        p {
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 15.5px;
+          line-height: 24px;
+          letter-spacing: 0%;
+          color: #14142b;
+          margin-top: 20px;
+          min-height: 130px;
+        }
+      }
+    }
+}
+@media (max-width: 768px) {
+  .ev-startup-section {
+    height: 450px;
+      padding: 0px;
+      h2 {
+        font-size: 20px;
+        width: 100%;
+      }
+      .ev-startup-all-cards {
+        width: 100%;
+        .evstartup-card {
+          h4 {
+            font-size: 18px;
+          }
+          p {
+            font-size: 14px;
+            line-height: 22px;
+            min-height: 100px;
+          }
+        }
+      }
+  }
+}
