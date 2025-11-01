@@ -1,0 +1,49 @@
+.aboutus-youtube-section {
+  width: 100%;
+  padding: 40px 80px 60px 80px;
+  h2 {
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 38px;
+    line-height: 130%;
+    margin: 0px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #1c1c1c;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+  .aboutus-left-right-content-part {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 12px;
+    .aboutus-left-content-part {
+      p {
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 18px;
+        line-height: 152%;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        color: #403f3f;
+        margin: 0px;
+        width: 95%;
+      }
+    }
+    .aboutus-right-content-part {
+      .video-wrapper {
+        width: 481px;
+        height: 344px;
+        position: relative;
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

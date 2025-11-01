@@ -1,0 +1,46 @@
+.bannerSlider {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  .slide {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .textBox {
+      position: absolute;
+      color: #fff;
+      z-index: 2;
+      transform: translateY(-50%);
+       max-width: 600px;
+      h2 {
+        font-weight: 600;
+        font-style: SemiBold;
+        font-size: 52px;
+        line-height: 58px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        color: #ffffff;
+        text-align: left;
+      }
+    }
+    &.imageSlide {
+      .leftText {
+        top: 50%;
+        left: 80px;
+      }
+    }
+    &.videoSlide {
+      .rightText {
+        top: 20%;
+        right: 140px;
+      }
+    }
+  }
+}
