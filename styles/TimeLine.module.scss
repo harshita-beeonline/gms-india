@@ -1,0 +1,112 @@
+.timelineSection {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.timelineContainer {
+  max-width: 1100px;
+  width: 100%;
+}
+.timelineWrapper {
+  position: relative;
+  margin-bottom: 3rem;
+}
+.timelineLine {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #cbd5e1;
+  transform: translateY(-50%);
+}
+.timelineDots {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.timelineItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timelineDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #94a3b8;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background: #64748b;
+  }
+}
+.timelineDot.active {
+  width: 24px;
+  height: 24px;
+  background: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.3);
+}
+.timelineText {
+  text-align: center;
+  margin-top: 10px;
+}
+.timelineYear {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+.timelineTitle {
+  font-size: 12px;
+  color: #64748b;
+  max-width: 100px;
+}
+.cardContainer {
+  display: flex;
+  justify-content: center;
+}
+.timelineCard {
+  background: linear-gradient(to bottom right, #2563eb, #1e3a8a);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.3);
+  transition: all 0.3s ease;
+}
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.iconBackground {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.cardDescription {
+  font-size: 15px;
+  color: #bfdbfe;
+  margin-bottom: 1rem;
+}
+.cardYear {
+  font-size: 14px;
+  color: #c7d2fe;
+}
