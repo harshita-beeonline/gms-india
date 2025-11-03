@@ -1,0 +1,120 @@
+.why-chooseus-section {
+  width: 100%;
+  background-image: url("../public/images/whychoosebgimage.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 60px 80px;
+  h2 {
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 42px;
+    line-height: 145%;
+    letter-spacing: 0%;
+    color: #1c1c1c;
+    padding-left: 35px;
+  }
+  .tab-container-left-right-part {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    .tab-container-left-part {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      .tab {
+        position: relative;
+        background: #ffffff;
+        width: 256px;
+        height: 137px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 30px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        h5 {
+          font-weight: 600;
+          font-style: SemiBold;
+          font-size: 24px;
+          line-height: 130%;
+          letter-spacing: 0%;
+          color: #1c1c1c;
+          margin-top: 15px;
+        }
+      }
+      .active {
+        .icon {
+          svg path {
+            fill: #3b5ba6;
+          }
+        }
+        h5 {
+          color: #3b5ba6;
+        }
+        .arrow {
+          position: absolute;
+          top: 50%;
+          right: -18px;
+          transform: translateY(-50%);
+          width: 0;
+          height: 0;
+          border-top: 15px solid transparent;
+          border-bottom: 15px solid transparent;
+          border-left: 20px solid #fff;
+        }
+      }
+    }
+    .tab-container-right-part {
+      background: #fcfcfc;
+      width: 989px;
+      height: 449px;
+      border-radius: 10px;
+      padding: 80px 100px;
+      .content-area {
+        .tab-content {
+          h3 {
+            font-weight: 600;
+            font-style: SemiBold;
+            font-size: 28px;
+            line-height: 130%;
+            letter-spacing: 0%;
+            color: #3b5ba6;
+            margin: 0;
+          }
+          .tab-text-image {
+            display: flex;
+            gap: 60px;
+            margin-top: 60px;
+            p {
+              font-weight: 400;
+              font-style: Regular;
+              font-size: 16px;
+              line-height: 145%;
+              letter-spacing: 0%;
+              color: #1c1c1c;
+              margin: 0;
+              width: 95%;
+            }
+            .tab-image-box {
+              .tab-image {
+                width: 315px;
+                height: 184px;
+                overflow: hidden;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
