@@ -3,6 +3,7 @@ import AboutUsBanner from '../../components/AboutUs/AboutUsBanner';
 import AboutusYoutube from '../../components/AboutUs/AboutusYoutube';
 import DonutChart from '../../components/AboutUs/DonutChart';
 import AboutusWorldClass from '../../components/AboutUs/AboutusWorldCalss';
+import OurMissionVision from '../../components/AboutUs/OurMissionVision';
 const page = () => {
   return (
     <>
@@ -10,6 +11,7 @@ const page = () => {
     <AboutusYoutube/>
     <AboutusWorldClass />
     <DonutChart />
+    <OurMissionVision />
     </>
   )
 }
