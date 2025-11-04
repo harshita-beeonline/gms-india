@@ -5,7 +5,7 @@ import DonutChart from '../../components/AboutUs/DonutChart';
 import AboutusWorldClass from '../../components/AboutUs/AboutusWorldCalss';
 import OurMissionVision from '../../components/AboutUs/OurMissionVision';
 import WhyChooseUs from '../../components/AboutUs/WhyChooseUs';
-// import TimeLine from '../../components/AboutUs/TimeLine';
+import TimeLine from '../../components/AboutUs/TimeLine';
 const page = () => {
   return (
     <>
@@ -15,7 +15,7 @@ const page = () => {
     <DonutChart />
     <OurMissionVision />
     <WhyChooseUs />
-    {/* <TimeLine /> */}
+    <TimeLine />
     </>
   )
 }
