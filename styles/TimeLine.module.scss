@@ -1,11 +1,10 @@
 /* ===============================
-   Shared variables & container
+   Shared variables
    =============================== */
 .timelineContainer {
-  /* Desktop defaults */
-  --labelW: 140px;                      /* max width of title+year block */
-  --labelH: clamp(38px, 6vw, 54px);     /* reserved height for title+year */
-  --gap: clamp(8px, 1.2vw, 20px);       /* gap between labels and the line */
+  --labelW: 130px;
+  --labelH: 52px;
+  --gap: 16px;
   --lineY: calc(var(--labelH) + var(--gap));
 
   position: relative;
@@ -14,7 +13,9 @@
   margin: 0 auto;
 }
 
-/* Page padding (responsive top/bottom, steady sides) */
+/* ===============================
+   Wrapper
+   =============================== */
 .timelineSection {
   width: 100%;
   padding: clamp(64px, 8vw, 100px) clamp(16px, 3vw, 50px);
@@ -23,194 +24,164 @@
 }
 
 /* ===============================
-   Track line (behind dots)
+   Track line
    =============================== */
 .track {
   position: absolute;
   left: 0;
   right: 0;
-  top: var(--lineY); /* same Y as dot center */
+  top: var(--lineY);
   height: 2px;
   background: #3b5ba6;
   z-index: 1;
 }
 
 /* ===============================
-   Dots + labels scroller
+   Dots + labels
    =============================== */
 .scroller {
   position: relative;
-  z-index: 2; /* above line so labels stay clickable */
+  z-index: 2;
   display: flex;
   align-items: flex-start;
-  gap: clamp(40px, 7vw, 50px);
-
-  /* breathing room under the row (for centered card) */
-  padding: 0 clamp(8px, 1.2vw, 16px) clamp(28px, 4vw, 60px);
-
-  overflow-x: auto;
-  overflow-y: visible; /* allow labels to render above line */
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar { display: none; }
+  justify-content: space-between; /* ✅ evenly spaced across full width */
+  gap: 0;
+  padding: 0 0 clamp(28px, 4vw, 60px);
+  overflow: hidden;
 }
 
-/* Each item uses shared width so wrapping is predictable */
+/* Each dot item */
 .item {
   position: relative;
-  min-width: var(--labelW);
-  scroll-snap-align: center;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: var(--labelW);
 }
 
-/* Labels above the line (consistent gap & reserved space) */
 .labels {
-  max-width: var(--labelW);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   min-height: var(--labelH);
   margin-bottom: var(--gap);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  text-align: center;
 }
 
-/* Title + year styles */
 .title {
-  font-family: "Instrument Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size: clamp(12px, 1.4vw, 16px);
   font-weight: 600;
+  font-size: clamp(12px, 1.3vw, 15px);
   color: #1c1c1c;
-  line-height: 1.15;
-  margin-bottom: 25px;
+  line-height: 1.3;
+  margin-bottom: 6px;
   white-space: nowrap;
-  
 }
 
 .year {
-  font-family: "Instrument Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size: clamp(16px, 2.2vw, 20px);
   font-weight: 600;
+  font-size: clamp(16px, 1.8vw, 20px);
   color: #1c1c1c;
   line-height: 1;
-  white-space: nowrap;
 }
 
-/* Dot perfectly centered on the line */
+/* Dot */
 .dot {
   position: absolute;
+  top: var(--lineY);
   left: 50%;
-  top: var(--lineY);                   /* EXACT same Y as track */
-  transform: translate(-50%, -50%);   /* center on the line */
+  transform: translate(-50%, -50%);
   width: 12px;
   height: 12px;
-  border-radius: 999px;
+  border-radius: 50%;
   background: #1c1c1c;
-  border: 0;
-  padding: 0;
-  display: block;
+  border: none;
   cursor: pointer;
-
-  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  transition: 0.3s ease;
 }
-.dot:hover { transform: translate(-50%, -50%) scale(1.05); }
-.dot:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(9, 82, 255, 0.35);
+.dot:hover {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 .dotActive {
   background: #0952ff;
   width: 14px;
   height: 14px;
-  box-shadow: 0 0 0 2px rgba(9, 82, 255, 0.15);
+  box-shadow: 0 0 0 4px rgba(9, 82, 255, 0.15);
 }
 
 /* ===============================
-   Centered Card (fixed position)
+   Card
    =============================== */
 .card {
-  margin-top: clamp(24px, 4.8vw, 0px);
+  margin-top: 40px;
   display: flex;
   justify-content: center;
 }
 .cardInner {
-  width: min(500px, 92vw);
+  width: min(480px, 90vw);
   min-height: 210px;
-  padding: clamp(20px, 3.6vw, 40px);
+  padding: clamp(20px, 3vw, 40px);
   color: #fff;
-  text-align: center;
   background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+  text-align: center;
 }
-.iconWrap { display: flex; justify-content: center; margin-bottom: 12px; }
+.iconWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
 .cardTitle {
-  font-family: "Instrument Sans", system-ui,  sans-serif;
-  font-size: clamp(20px, 2.4vw, 32px);
   font-weight: 600;
-  margin-bottom: 6px;
+  font-size: clamp(20px, 2vw, 32px);
+  margin-bottom: 8px;
 }
 .cardDesc {
-  font-size: clamp(14px, 1.6vw, 20px);
+  font-size: clamp(14px, 1.3vw, 18px);
+  line-height: 1.4;
   font-weight: 400;
-  line-height: 100%;
 }
 
 /* ===============================
-   Mobile / Tablet tuning (<= 768px)
+   Mobile / Tablet
    =============================== */
 @media (max-width: 768px) {
-  /* Make room for multi-line titles and push the line lower */
-  .timelineContainer {
-    --labelW: 132px;   /* slightly narrower item so more items fit onscreen */
-    --labelH: 74px;    /* room for up to ~3 lines + year */
-    --gap: 8px;        /* tighter but still breathable */
-    /* lineY automatically updates via calc(var(--labelH)+var(--gap)) */
+  .track {
+    left: 0;
+    right: 0;
   }
-
-  .scroller { gap: 28px; }
-
-  .labels {
-    /* allow wrapping cleanly within the fixed width */
-    max-width: var(--labelW);
+  .scroller {
+    justify-content: flex-start;
+    gap: 28px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 40px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
-
+  .item {
+    scroll-snap-align: center;
+    flex: none;
+  }
   .title {
+    white-space: normal;
+    word-break: break-word;
     font-size: 12px;
-    white-space: normal;         /* ✅ wrap long titles */
-    word-break: break-word;      /* handle very long words */
-    overflow-wrap: anywhere;     /* extra safety for narrow screens */
-    line-height: 1.2;
-    margin-bottom: 4px;
   }
-
   .year {
-    font-size: 16px;
+    font-size: 15px;
   }
-
-  .dot { width: 11px; height: 11px; }
 }
 
-/* Narrow phones where titles can be 3–4 lines */
+/* Small phones */
 @media (max-width: 420px) {
   .timelineContainer {
     --labelW: 120px;
-    --labelH: 88px;  /* more room for extra lines */
-    --gap: 8px;
+    --labelH: 86px;
+    --gap: 10px;
   }
-
-  .scroller { gap: 24px; }
-
-  .title { font-size: 11.5px; }
-  .year  { font-size: 15px; }
-}
-
-/* ===============================
-   Motion preferences
-   =============================== */
-@media (prefers-reduced-motion: reduce) {
-  .dot, .cardInner { transition: none !important; }
+  .scroller {
+    gap: 24px;
+  }
 }

@@ -20,7 +20,7 @@ export default function Timeline() {
   const scrollerRef = useRef(null);
   const itemRefs = useRef([]);
 
-  // Center active item in the horizontal scroller
+  // Center active item for mobile/tablet view
   const centerActive = (i) => {
     const scroller = scrollerRef.current;
     const node = itemRefs.current[i];
@@ -29,18 +29,15 @@ export default function Timeline() {
     scroller.scrollTo({ left, behavior: "smooth" });
   };
 
-  // Initial center
+  // Center on mount and when active changes
   useLayoutEffect(() => {
     centerActive(active);
   }, []);
-
-  // Recenter when active changes
   useEffect(() => {
     centerActive(active);
   }, [active]);
 
-  // Optional autoplay (disable by commenting out)
-  // Respects reduced motion preference
+  // Auto-cycle (optional)
   useEffect(() => {
     const prefersReduced =
       typeof window !== "undefined" &&
@@ -53,15 +50,14 @@ export default function Timeline() {
     const id = setInterval(() => {
       i = (i + 1) % timelineEvents.length;
       setActive(i);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const selected = timelineEvents[active];
   const Icon = selected.icon;
 
-  // Keyboard nav (left/right arrows) for accessibility
+  // Keyboard nav
   const onKeyNav = (e) => {
     if (e.key === "ArrowRight") setActive((a) => (a + 1) % timelineEvents.length);
     if (e.key === "ArrowLeft")
@@ -71,7 +67,7 @@ export default function Timeline() {
   return (
     <section className={styles.timelineSection}>
       <div className={styles.timelineContainer}>
-        {/* Blue track line (absolute, behind dots) */}
+        {/* Blue track line (behind dots) */}
         <div className={styles.track} aria-hidden />
 
         {/* Dots + labels */}
@@ -86,14 +82,16 @@ export default function Timeline() {
             <div
               key={e.year}
               ref={(el) => (itemRefs.current[i] = el)}
-              className={styles.item}
+              className={`${styles.item} ${
+                active === i ? styles.itemActive : ""
+              }`}
             >
               <div className={styles.labels}>
                 <div className={styles.title}>{e.title}</div>
                 <div className={styles.year}>{e.year}</div>
               </div>
 
-              {/* Dot perfectly centered on the line */}
+              {/* Dot */}
               <button
                 type="button"
                 role="tab"
@@ -107,14 +105,12 @@ export default function Timeline() {
           ))}
         </div>
 
-        {/* Centered card (fixed under the line) */}
+        {/* Centered card (below timeline) */}
         <motion.div
           key={selected.year}
           id={`timeline-panel-${selected.year}`}
-          role="tabpanel"
-          aria-labelledby=""
           className={styles.card}
-          initial={{ opacity: 0, y: 22 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
