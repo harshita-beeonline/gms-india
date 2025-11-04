@@ -75,3 +75,138 @@
     }
   }
 }
+
+
+/* ============================
+   Responsive Only Adjustments
+============================ */
+
+/* For large tablets and below (≤1200px) */
+@media (max-width: 1200px) {
+  .our-mission-vision-section {
+    padding: 0px 60px 40px 60px;
+
+    .our-mission-vision-text-card {
+      h2 {
+        font-size: 38px;
+        width: 22%;
+      }
+
+      .mission-card,
+      .vision-card {
+        width: 580px;
+        gap: 20px;
+        .mission-card-text {
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* For tablets (≤992px) */
+@media (max-width: 992px) {
+  .our-mission-vision-section {
+    padding: 0px 40px 40px 40px;
+
+    .our-mission-vision-text-card {
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 34px;
+      }
+
+      .mission-card,
+      .vision-card {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        gap: 25px;
+        // padding: 20px;
+        .mission-card-image {
+          width: 160px;
+          height: 160px;
+        }
+      }
+    }
+  }
+}
+
+/* For mobile devices (≤768px) */
+@media (max-width: 768px) {
+  .our-mission-vision-section {
+    padding: 0px 20px 40px 20px;
+
+    .our-mission-vision-text-card {
+      margin-top: 30px;
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .mission-card,
+      .vision-card {
+        width: 100%;
+        // flex-direction: column;
+        align-items: center;
+        text-align: center;
+        // gap: 15px;
+        height: auto;
+
+        .mission-card-image {
+          width: 130px;
+          height: 130px;
+        }
+
+        .mission-card-text {
+          h6 {
+            font-size: 18px;
+          }
+          p {
+            font-size: 14px;
+            line-height: 130%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* For very small screens (≤480px) */
+@media (max-width: 480px) {
+  .our-mission-vision-section {
+    padding: 0px 15px 30px 15px;
+
+    .our-mission-vision-text-card {
+      h2 {
+        font-size: 24px;
+      }
+
+      .mission-card,
+      .vision-card {
+        gap: 12px;
+        padding: 10px;
+
+        .mission-card-image {
+          width: 110px;
+          height: 110px;
+        }
+
+        .mission-card-text {
+          h6 {
+            font-size: 16px;
+          }
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}

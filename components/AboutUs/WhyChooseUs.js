@@ -166,7 +166,7 @@ const WhyChooseUs = () => {
 
   return (
     <div className={styles["why-chooseus-section"]}>
-        <h2>Why Choose Us ?</h2>
+      <h2>Why Choose Us ?</h2>
       <div className={styles["tab-container-left-right-part"]}>
         <div className={styles["tab-container-left-part"]}>
           {tabs.map((tab) => (
