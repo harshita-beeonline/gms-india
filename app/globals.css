@@ -14,26 +14,42 @@
 } */
 
 :root {
-    --header-height-desktop: 80px;
-    --header-height-mobile: 70px;
+  --header-height-desktop: 80px;
+  --header-height-mobile: 70px;
+
+  --bg: #2d6aaf;
+  --baseline: rgba(255, 255, 255, 0.35);
+  --white: #ffffff;
+  --accent: #fadb61;
+  --card-bg: #f7faff;
+  --text-dark: #1a1a1a;
+
+  --outer-pad: clamp(16px, 4vw, 40px);
+  --timeline-pad: 0px;
+  --scroller-pad: 28px;
+  --year-row: clamp(70px, 10vw, 100px);
+  --marker-row: 100px;
+  --line-h: 6px;
+  --gap-x: clamp(32px, 7vw, 120px);
 }
 
 .page-content {
-    padding-top: var(--header-height-desktop);
+  padding-top: var(--header-height-desktop);
 }
 
 @media (max-width: 1024px) {
-    .page-content {
-        padding-top: var(--header-height-mobile);
-        font-family: "Instrument Sans", sans-serif;
-    }
+  .page-content {
+    padding-top: var(--header-height-mobile);
+    font-family: "Instrument Sans", sans-serif;
+  }
 }
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
