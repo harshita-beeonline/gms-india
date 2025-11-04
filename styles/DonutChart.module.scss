@@ -1,130 +1,26 @@
-// .donut-circle-section {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 40px 80px 0px 80px;
-//   .donutChart {
-//     position: relative;
-//     width: 610px;
-//     height: 610px;
-//     margin: 0 auto;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-//   .donutSvg {
-//     width: 100%;
-//     height: 100%;
-//     transform: rotate(-90deg);
-//   }
-//   .centerHole {
-//     position: absolute;
-//     width: 29px;
-//     height: 290px;
-//     background: #fff;
-//     border-radius: 50%;
-//     z-index: 2;
-//   }
-//   .iconsContainer {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     z-index: 3;
-//   }
-//   .iconWrapper {
-//     position: absolute;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     transform: translate(-50%, -50%);
-//     text-align: center;
-//     width: 90px;
-//   }
-//   .icon {
-//     color: white;
-//     filter: brightness(0) invert(1);
-//   }
-//   .label {
-//     font-weight: 600;
-//     font-style: SemiBold;
-//     font-size: 19.49px;
-//     line-height: 100%;
-//     letter-spacing: 0%;
-//     text-align: center;
-//     color: #ffffff;
-//     word-wrap: break-word;
-//     margin-top: 4px;
-//   }
-// }
-// .all-cards-of-donut {
-//   width: 100%;
-//   padding: 40px 80px;
-//   display: grid;
-//   grid-template-columns: repeat(3, 12fr);
-//   place-items: center;
-//   justify-self: center;
-//   gap: 20px;
-//   .donut-card {
-//     cursor: pointer;
-//     width: 410px;
-//     height: 213px;
-//     border-radius: 10px;
-//     padding: 35px 36px;
-//     background: #fcfcfc;
-//     box-shadow: 0px 10px 15px 0px #00000008;
-//     .card-icon-title {
-//       display: flex;
-//       align-items: center;
-//       gap: 16px;
-//       .card-icon {
-//         width: 73px;
-//         height: 73px;
-//         img {
-//           width: 100%;
-//           height: 100%;
-//           object-fit: contain;
-//         }
-//       }
-//       h4 {
-//         margin: 0px;
-//         font-family: Instrument Sans;
-//         font-weight: 600;
-//         font-style: SemiBold;
-//         font-size: 26px;
-//         line-height: 31px;
-//         letter-spacing: 0%;
-//         color: #14142b;
-//       }
-//     }
-//     p {
-//       font-weight: 400;
-//       font-style: Regular;
-//       font-size: 15.5px;
-//       line-height: 24px;
-//       letter-spacing: 0%;
-//       color: #14142b;
-//       margin: 0px;
-//       margin-top: 15px;
-//     }
-//   }
-// }
-.donut-circle-section {
+.donutMain {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 80px 0px 80px;
+  gap: 60px;
+  padding: 60px 80px;
+  flex-wrap: wrap;
+  background: #fff;
+}
 
-  .donutChart {
-    position: relative;
-    width: 650px;
-    height: 650px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Donut Left Section */
+.donutLeft {
+  position: relative;
+  width: 550px;
+  height: 550px;
+
+  @media (max-width: 1024px) {
+    width: 400px;
+    height: 400px;
+  }
+  @media (max-width: 600px) {
+    width: 320px;
+    height: 320px;
   }
 
   .donutSvg {
@@ -133,120 +29,106 @@
     transform: rotate(-90deg);
   }
 
-  .centerHole {
-    position: absolute;
-    width: 290px;
-    height: 290px;
-    background: #fff;
-    border-radius: 50%;
-    z-index: 2;
-  }
 
-  .iconsContainer {
+
+  .iconSet {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 3;
   }
 
-  .iconWrapper {
+  .iconItem {
     position: absolute;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 90px;
-    transition: all 0.3s ease;
 
-    &:hover {
-      cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
     }
-  }
 
-  .icon {
-    color: white;
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s ease;
-  }
-
-  .label {
-    font-weight: 600;
-    font-style: SemiBold;
-    font-size: 19.49px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-align: center;
-    color: #ffffff;
-    word-wrap: break-word;
-    margin-top: 8px;
+    &.active {
+      transform: translate(-50%, -50%) scale(1.2);
+      filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
+    }
   }
 }
 
-.all-cards-of-donut {
-  width: 100%;
-  padding: 40px 80px;
-  display: grid;
-  grid-template-columns: repeat(3, 12fr);
-  place-items: center;
-  justify-self: center;
-  gap: 20px;
+/* Right Cards Section */
+.donutRight {
+  flex: 1;
+  max-width: 100%;
 
-  .donut-card {
-    cursor: pointer;
-    width: 410px;
-    height: 213px;
-    border-radius: 10px;
-    padding: 35px 36px;
-    background: #fcfcfc;
-    box-shadow: 0px 10px 15px 0px #00000008;
-    transition: all 0.3s ease;
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
 
-    &:hover {
-      transform: translateY(-8px);
-      box-shadow: 0px 15px 25px 0px #0000001a;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
 
-    .card-icon-title {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .card {
+      background: #FCFCFC;
+      font-family: "Instrument Sans", sans-serif;
+      border-radius: 12px;
+      box-shadow: 0px 10px 15px 0px #00000008;
+      padding: 24px 28px;
+      cursor: pointer;
+      transition: all 0.3s ease;
 
-      .card-icon {
-        width: 73px;
-        height: 73px;
+      &.activeCard {
+        background: #eef2ff;
+        border: 1px solid #3a57e8
+      }
+
+      .cardHeader {
+        display: flex;
+        align-items: center;
+        gap: 14px;
 
         img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
+          width: 50px;
+          height: 50px;
+        }
+
+        h4 {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 700;
+          color: #14142B;
         }
       }
 
-      h4 {
-        margin: 0px;
-        font-family: Instrument Sans;
-        font-weight: 600;
-        font-style: SemiBold;
-        font-size: 26px;
-        line-height: 31px;
-        letter-spacing: 0%;
-        color: #14142b;
+      p {
+        font-size: 15px;
+        line-height: 22px;
+        color: #14142B;
+        margin-top: 10px;
       }
     }
+  }
+}
 
-    p {
-      font-weight: 400;
-      font-style: Regular;
-      font-size: 15.5px;
-      line-height: 24px;
-      letter-spacing: 0%;
-      color: #14142b;
-      margin: 0px;
-      margin-top: 15px;
-    }
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .donutMain {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .donutMain {
+    padding: 30px 20px;
   }
 }
