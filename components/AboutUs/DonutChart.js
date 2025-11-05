@@ -31,7 +31,7 @@ const DonutChart = () => {
   }, []);
 
   const segments = [
-    { label: "Bonding / Advocacy", color: "#93A7FF", icon: donut6 },
+    { label: "Bonding Advocacy", color: "#93A7FF", icon: donut6 },
     { label: "Awareness", color: "#04176B", icon: donut1 },
     { label: "Engagement", color: "#031E98", icon: donut2 },
     { label: "Evaluation", color: "#2641B9", icon: donut3 },
@@ -51,12 +51,12 @@ const DonutChart = () => {
       title: "Engagement",
       details: "Connecting through demos, training, and industry events.",
     },
-        {
+    {
       icon: donutcard4,
       title: "Purchase",
       details: "Ensuring smooth procurement with reliable global partnerships.",
     },
-        {
+    {
       icon: donutcard5,
       title: "Product & Support Experience",
       details: "Delivering end-to-end service, training, and maintenance.",
@@ -127,13 +127,18 @@ const DonutChart = () => {
             return (
               <div
                 key={i}
-                className={`${styles.iconItem} ${isActive ? styles.active : ""}`}
+                className={`${styles.iconItem} ${
+                  isActive ? styles.active : ""
+                }`}
                 style={{ top: `${y}%`, left: `${x}%` }}
                 onMouseEnter={() => !isMobile && setActiveIndex(i)}
                 onMouseLeave={() => !isMobile && setActiveIndex(null)}
                 onClick={() => isMobile && setActiveIndex(i)}
               >
                 <Image src={seg.icon} alt={seg.label} />
+                {isActive && (
+                  <span className={styles.iconLabel}>{seg.label}</span>
+                )}
               </div>
             );
           })}
@@ -154,7 +159,12 @@ const DonutChart = () => {
               onClick={() => isMobile && setActiveIndex(i)}
             >
               <div className={styles.cardHeader}>
-                <Image src={card.icon} alt={card.title} height={78} width={78} />
+                <Image
+                  src={card.icon}
+                  alt={card.title}
+                  height={78}
+                  width={78}
+                />
                 <h4>{card.title}</h4>
               </div>
               <p>{card.details}</p>
