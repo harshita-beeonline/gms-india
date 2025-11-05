@@ -219,7 +219,6 @@
                 color: #1c1c1c;
                 margin: 0;
                 width: 100%;
-                max-width: 90%;
               }
 
               .tab-image-box {
@@ -279,10 +278,7 @@
 
         .content-area {
           .tab-content {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-
+           
             h3 {
               font-size: 18px;
               line-height: 130%;
