@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import styles from "../../styles/AboutUsBanner.module.scss";
 import aboutusbanner from '../../public/images/aboutusbanner.png'
+import aboutusbanner_mobile from '../../public/images/aboutusbanner_mobile.png'
 import Image from "next/image";
 
 const AboutUsBanner = () => {
@@ -13,11 +14,11 @@ const AboutUsBanner = () => {
     <div className={styles.bannerSlider}>
       <Swiper
         modules={[Autoplay, Pagination]}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        loop={true}
+        // autoplay={{
+        //   delay: 5000,
+        //   disableOnInteraction: false,
+        // }}
+        // loop={true}
       >
         {/* ✅ Slide 1: Image with left text */}
         <SwiperSlide>
@@ -26,6 +27,11 @@ const AboutUsBanner = () => {
               src={aboutusbanner}
               alt="Banner"
               className={styles.bannerImage}
+            />
+            <Image
+              src={aboutusbanner_mobile}
+              alt="Banner"
+              className={styles.aboutusbanner_mobile}
             />
             <div className={`${styles.textBox} ${styles.leftText}`}>
               <h2>Largest Supplier of Wafers and Photoresists in India</h2>
