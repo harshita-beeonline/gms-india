@@ -186,10 +186,10 @@
       h2 {
         font-size: 24px;
       }
-      .mission-card{
+      .mission-card {
         margin-left: 20px;
       }
-      .vision-card{
+      .vision-card {
         margin-right: 20px;
       }
 
@@ -220,45 +220,13 @@
   }
 }
 
-
-@media (max-width:380px) {
-   .our-mission-vision-section {
-    padding: 20px 0px;
-
-    .our-mission-vision-text-card {
-      h2 {
-        font-size: 24px;
-      }
-      .mission-card{
-        margin-left: 20px;
-      }
-      .vision-card{
-        margin-right: 20px;
-      }
-
-      .mission-card,
-      .vision-card {
-        gap: 12px;
-        height: auto;
-
-        .mission-card-image {
-          width: 150px;
-          height: 150px;
-        }
-
-        .mission-card-text {
-          text-align: start;
-          width: 100%;
-          h6 {
-            font-size: 12px;
-            padding-top: 5px;
-          }
-          p {
-            font-size: 10px;
-            padding-bottom: 5px;
-          }
-        }
-      }
+@media (max-width: 380px) {
+  .mission-card-text {
+    h6 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 10px;
     }
   }
 }
