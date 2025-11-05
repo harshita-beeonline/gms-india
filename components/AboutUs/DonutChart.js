@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import styles from "../../styles/DonutChart.module.scss";
 import Image from "next/image";
 
-// Import donut icons
+// Donut icons
 import donut1 from "../../public/images/donut1.png";
 import donut2 from "../../public/images/donut2.png";
 import donut3 from "../../public/images/donut3.png";
@@ -11,6 +11,7 @@ import donut4 from "../../public/images/donut4.png";
 import donut5 from "../../public/images/donut5.png";
 import donut6 from "../../public/images/donut6.png";
 
+// Card icons
 import donutcard1 from "../../public/images/donutcard1.svg";
 import donutcard2 from "../../public/images/donutcard2.svg";
 import donutcard3 from "../../public/images/donutcard3.svg";
@@ -18,8 +19,56 @@ import donutcard4 from "../../public/images/donutcard4.svg";
 import donutcard5 from "../../public/images/donutcard5.svg";
 import donutcard6 from "../../public/images/donutcard6.svg";
 
+const SEGMENTS = [
+  { key: "advocacy", label: "Bonding Advocacy", color: "#93A7FF", icon: donut6 },
+  { key: "awareness", label: "Awareness", color: "#04176B", icon: donut1 },
+  { key: "engagement", label: "Engagement", color: "#031E98", icon: donut2 },
+  { key: "evaluation", label: "Evaluation", color: "#2641B9", icon: donut3 },
+  { key: "purchase", label: "Purchase", color: "#4360E0", icon: donut4 },
+  { key: "experience", label: "Product & Support Experience", color: "#627EFC", icon: donut5 },
+];
+
+const CARDS = [
+  {
+    key: "awareness",
+    icon: donutcard1,
+    title: "Awareness",
+    details: "Showcasing cutting-edge semiconductor solutions to build visibility and trust.",
+  },
+  {
+    key: "engagement",
+    icon: donutcard2,
+    title: "Engagement",
+    details: "Connecting through demos, training, and industry events.",
+  },
+  {
+    key: "purchase",
+    icon: donutcard4,
+    title: "Purchase",
+    details: "Ensuring smooth procurement with reliable global partnerships.",
+  },
+  {
+    key: "experience",
+    icon: donutcard5,
+    title: "Product & Support Experience",
+    details: "Delivering end-to-end service, training, and maintenance.",
+  },
+  {
+    key: "evaluation",
+    icon: donutcard3,
+    title: "Evaluation",
+    details: "Recommending tailored solutions backed by application support.",
+  },
+  {
+    key: "advocacy",
+    icon: donutcard6,
+    title: "Bonding / Advocacy",
+    details: "Building lasting partnerships that turn customers into advocates.",
+  },
+];
+
 const DonutChart = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeKey, setActiveKey] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
   // Detect screen size
@@ -30,70 +79,28 @@ const DonutChart = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const segments = [
-    { label: "Bonding Advocacy", color: "#93A7FF", icon: donut6 },
-    { label: "Awareness", color: "#04176B", icon: donut1 },
-    { label: "Engagement", color: "#031E98", icon: donut2 },
-    { label: "Evaluation", color: "#2641B9", icon: donut3 },
-    { label: "Purchase", color: "#4360E0", icon: donut4 },
-    { label: "Product & Support Experience", color: "#627EFC", icon: donut5 },
-  ];
-
-  const donutCardsData = [
-    {
-      icon: donutcard1,
-      title: "Awareness",
-      details:
-        "Showcasing cutting-edge semiconductor solutions to build visibility and trust.",
-    },
-    {
-      icon: donutcard2,
-      title: "Engagement",
-      details: "Connecting through demos, training, and industry events.",
-    },
-    {
-      icon: donutcard4,
-      title: "Purchase",
-      details: "Ensuring smooth procurement with reliable global partnerships.",
-    },
-    {
-      icon: donutcard5,
-      title: "Product & Support Experience",
-      details: "Delivering end-to-end service, training, and maintenance.",
-    },
-    {
-      icon: donutcard3,
-      title: "Evaluation",
-      details: "Recommending tailored solutions backed by application support.",
-    },
-    {
-      icon: donutcard6,
-      title: "Bonding / Advocacy",
-      details:
-        "Building lasting partnerships that turn customers into advocates.",
-    },
-  ];
-
+  // Donut geometry
   const cx = 50,
     cy = 50,
     radius = 36,
     strokeWidth = 24,
     dashArray = 2 * Math.PI * radius,
     startAngle = -80,
-    sliceAngle = 360 / segments.length;
+    sliceAngle = 360 / SEGMENTS.length;
 
   return (
     <section className={styles.donutMain}>
       {/* LEFT: Donut */}
       <div className={styles.donutLeft}>
         <svg viewBox="0 0 100 100" className={styles.donutSvg}>
-          {segments.map((seg, i) => {
-            const offset = dashArray * (1 - 1 / segments.length);
+          {SEGMENTS.map((seg, i) => {
+            const offset = dashArray * (1 - 1 / SEGMENTS.length);
             const angle = startAngle + i * sliceAngle;
-            const isActive = activeIndex === i;
+            const isActive = activeKey === seg.key;
+
             return (
               <circle
-                key={i}
+                key={seg.key}
                 cx={cx}
                 cy={cy}
                 r={radius}
@@ -103,9 +110,9 @@ const DonutChart = () => {
                 strokeDasharray={dashArray}
                 strokeDashoffset={offset}
                 transform={`rotate(${angle} ${cx} ${cy})`}
-                onMouseEnter={() => !isMobile && setActiveIndex(i)}
-                onMouseLeave={() => !isMobile && setActiveIndex(null)}
-                onClick={() => isMobile && setActiveIndex(i)}
+                onMouseEnter={() => !isMobile && setActiveKey(seg.key)}
+                onMouseLeave={() => !isMobile && setActiveKey(null)}
+                onClick={() => isMobile && setActiveKey(seg.key)}
                 style={{
                   cursor: "pointer",
                   transition: "all 0.4s ease",
@@ -117,28 +124,24 @@ const DonutChart = () => {
         </svg>
 
         <div className={styles.iconSet}>
-          {segments.map((seg, i) => {
-            const angle = (i * 360) / segments.length - 140;
+          {SEGMENTS.map((seg, i) => {
+            const angle = (i * 360) / SEGMENTS.length - 140;
             const rad = (angle * Math.PI) / 180;
             const x = 50 + Math.cos(rad) * 36;
             const y = 50 + Math.sin(rad) * 36;
-            const isActive = activeIndex === i;
+            const isActive = activeKey === seg.key;
 
             return (
               <div
-                key={i}
-                className={`${styles.iconItem} ${
-                  isActive ? styles.active : ""
-                }`}
+                key={seg.key}
+                className={`${styles.iconItem} ${isActive ? styles.active : ""}`}
                 style={{ top: `${y}%`, left: `${x}%` }}
-                onMouseEnter={() => !isMobile && setActiveIndex(i)}
-                onMouseLeave={() => !isMobile && setActiveIndex(null)}
-                onClick={() => isMobile && setActiveIndex(i)}
+                onMouseEnter={() => !isMobile && setActiveKey(seg.key)}
+                onMouseLeave={() => !isMobile && setActiveKey(null)}
+                onClick={() => isMobile && setActiveKey(seg.key)}
               >
                 <Image src={seg.icon} alt={seg.label} />
-                {isActive && (
-                  <span className={styles.iconLabel}>{seg.label}</span>
-                )}
+                {isActive && <span className={styles.iconLabel}>{seg.label}</span>}
               </div>
             );
           })}
@@ -148,28 +151,24 @@ const DonutChart = () => {
       {/* RIGHT: Cards */}
       <div className={styles.donutRight}>
         <div className={styles.cardsGrid}>
-          {donutCardsData.map((card, i) => (
-            <div
-              key={i}
-              className={`${styles.card} ${
-                activeIndex === i ? styles.activeCard : ""
-              }`}
-              onMouseEnter={() => !isMobile && setActiveIndex(i)}
-              onMouseLeave={() => !isMobile && setActiveIndex(null)}
-              onClick={() => isMobile && setActiveIndex(i)}
-            >
-              <div className={styles.cardHeader}>
-                <Image
-                  src={card.icon}
-                  alt={card.title}
-                  height={78}
-                  width={78}
-                />
-                <h4>{card.title}</h4>
+          {CARDS.map((card) => {
+            const isActive = activeKey === card.key;
+            return (
+              <div
+                key={card.key}
+                className={`${styles.card} ${isActive ? styles.activeCard : ""}`}
+                onMouseEnter={() => !isMobile && setActiveKey(card.key)}
+                onMouseLeave={() => !isMobile && setActiveKey(null)}
+                onClick={() => isMobile && setActiveKey(card.key)}
+              >
+                <div className={styles.cardHeader}>
+                  <Image src={card.icon} alt={card.title} height={78} width={78} />
+                  <h4>{card.title}</h4>
+                </div>
+                <p>{card.details}</p>
               </div>
-              <p>{card.details}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
