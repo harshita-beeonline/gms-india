@@ -1,18 +1,25 @@
 "use client";
 
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Cpu, Sun, Gauge, Building2, Droplet, Leaf } from "lucide-react";
+import Image from "next/image";
+import Established from "../../public/images/2001_icon.svg";
+import Cpu from "../../public/images/2003_icon.svg";
+import Sun from "../../public/images/2009_icon.svg";
+import Gauge from "../../public/images/2018_icon.svg";
+import New_Office from "../../public/images/2020_icon.svg";
+import Cleanroom from "../../public/images/2022_icon.svg";
+import Business from "../../public/images/2025_icon.svg";
 import { motion } from "framer-motion";
 import styles from "../../styles/TimeLine.module.scss";
 
 const timelineEvents = [
-  { year: 2001, title: "Established", icon: Building2, description: "Focus was semiconductor materials and equipment" },
+  { year: 2001, title: "Established", icon: Established, description: "Focus was semiconductor materials and equipment" },
   { year: 2003, title: "MEMS Equipment", icon: Cpu, description: "Received 1st order for MEMS Equipment from Department of Space" },
   { year: 2009, title: "Space Solar", icon: Sun, description: "Received Largest Order for Space Grade Solar Cells from department of Space worth 10M USD" },
   { year: 2018, title: "EV Business", icon: Gauge, description: "Received 1st Order for Wire Bonders from a Private Company" },
-  { year: 2020, title: "New Office", icon: Building2, description: "Moved into bigger office space" },
-  { year: 2022, title: "Cleanroom", icon: Droplet, description: "Setup facility with Lithography, assembly and packaging for prototyping, demonstration and Skill development" },
-  { year: 2025, title: "Cleanroom & Utilities Business", icon: Leaf, description: "Diversified into a new segment" },
+  { year: 2020, title: "New Office", icon: New_Office, description: "Moved into bigger office space" },
+  { year: 2022, title: "Cleanroom", icon: Cleanroom, description: "Setup facility with Lithography, assembly and packaging for prototyping, demonstration and Skill development" },
+  { year: 2025, title: "Cleanroom & Utilities Business", icon: Business, description: "Diversified into a new segment" },
 ];
 
 export default function Timeline() {
@@ -20,7 +27,6 @@ export default function Timeline() {
   const scrollerRef = useRef(null);
   const itemRefs = useRef([]);
 
-  // Center active item for mobile/tablet view
   const centerActive = (i) => {
     const scroller = scrollerRef.current;
     const node = itemRefs.current[i];
@@ -29,7 +35,6 @@ export default function Timeline() {
     scroller.scrollTo({ left, behavior: "smooth" });
   };
 
-  // Center on mount and when active changes
   useLayoutEffect(() => {
     centerActive(active);
   }, []);
@@ -37,7 +42,6 @@ export default function Timeline() {
     centerActive(active);
   }, [active]);
 
-  // Auto-cycle (optional)
   useEffect(() => {
     const prefersReduced =
       typeof window !== "undefined" &&
@@ -55,22 +59,17 @@ export default function Timeline() {
   }, []);
 
   const selected = timelineEvents[active];
-  const Icon = selected.icon;
 
-  // Keyboard nav
   const onKeyNav = (e) => {
     if (e.key === "ArrowRight") setActive((a) => (a + 1) % timelineEvents.length);
-    if (e.key === "ArrowLeft")
-      setActive((a) => (a - 1 + timelineEvents.length) % timelineEvents.length);
+    if (e.key === "ArrowLeft") setActive((a) => (a - 1 + timelineEvents.length) % timelineEvents.length);
   };
 
   return (
     <section className={styles.timelineSection}>
       <div className={styles.timelineContainer}>
-        {/* Blue track line (behind dots) */}
         <div className={styles.track} aria-hidden />
 
-        {/* Dots + labels */}
         <div
           ref={scrollerRef}
           className={styles.scroller}
@@ -82,16 +81,13 @@ export default function Timeline() {
             <div
               key={e.year}
               ref={(el) => (itemRefs.current[i] = el)}
-              className={`${styles.item} ${
-                active === i ? styles.itemActive : ""
-              }`}
+              className={`${styles.item} ${active === i ? styles.itemActive : ""}`}
             >
               <div className={styles.labels}>
                 <div className={styles.title}>{e.title}</div>
                 <div className={styles.year}>{e.year}</div>
               </div>
 
-              {/* Dot */}
               <button
                 type="button"
                 role="tab"
@@ -105,7 +101,6 @@ export default function Timeline() {
           ))}
         </div>
 
-        {/* Centered card (below timeline) */}
         <motion.div
           key={selected.year}
           id={`timeline-panel-${selected.year}`}
@@ -116,7 +111,13 @@ export default function Timeline() {
         >
           <div className={styles.cardInner}>
             <div className={styles.iconWrap}>
-              <Icon size={44} strokeWidth={1.6} />
+              <Image
+                src={selected.icon}
+                alt={selected.title}
+                width={60}
+                height={60}
+                className={styles.timelineIcon}
+              />
             </div>
             <h3 className={styles.cardTitle}>{selected.title}</h3>
             <p className={styles.cardDesc}>{selected.description}</p>

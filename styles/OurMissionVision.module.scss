@@ -76,7 +76,6 @@
   }
 }
 
-
 /* ============================
    Responsive Only Adjustments
 ============================ */
@@ -155,7 +154,7 @@
         width: 100%;
         // flex-direction: column;
         align-items: center;
-        text-align: center;
+        text-align: start;
         // gap: 15px;
         height: auto;
 
@@ -181,29 +180,39 @@
 /* For very small screens (≤480px) */
 @media (max-width: 480px) {
   .our-mission-vision-section {
-    padding: 0px 15px 30px 15px;
+    padding: 20px 0px;
 
     .our-mission-vision-text-card {
       h2 {
         font-size: 24px;
       }
+      .mission-card{
+        margin-left: 20px;
+      }
+      .vision-card{
+        margin-right: 20px;
+      }
 
       .mission-card,
       .vision-card {
         gap: 12px;
-        padding: 10px;
+        height: auto;
 
         .mission-card-image {
-          width: 110px;
-          height: 110px;
+          width: 150px;
+          height: 150px;
         }
 
         .mission-card-text {
+          text-align: start;
+          width: 100%;
           h6 {
             font-size: 16px;
+            padding-top: 5px;
           }
           p {
             font-size: 13px;
+            padding-bottom: 5px;
           }
         }
       }

@@ -101,16 +101,16 @@
   /* ✅ Mobile fix (≤480px) */
   @media (max-width: 480px) {
     .slide {
-      height: 400px; 
+      height: 420px; 
 
       .textBox {
         bottom: 30px;
 
         h2 {
-          font-size: 22px;
-          line-height: 28px;
+          font-size: 28px;
+          line-height: 100%;
           text-align: center;
-          padding: 0 10px; /* for small screen spacing */
+          padding: 0 30px; /* for small screen spacing */
         }
       }
 

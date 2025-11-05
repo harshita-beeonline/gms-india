@@ -123,23 +123,35 @@
   min-height: 210px;
   padding: clamp(20px, 3vw, 40px);
   color: #fff;
-  background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #013776 100%);
   text-align: center;
 }
 .iconWrap {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 12px;
+
+  .timelineIcon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
 }
+
 .cardTitle {
+  font-family: "Instrument Sans", sans-serif;
+  font-style: SemiBold;
   font-weight: 600;
   font-size: clamp(20px, 2vw, 32px);
   margin-bottom: 8px;
 }
 .cardDesc {
   font-size: clamp(14px, 1.3vw, 18px);
-  line-height: 1.4;
+  font-style: Regular;
+  line-height: 100%;
   font-weight: 400;
+  letter-spacing: 2%;
 }
 
 /* ===============================
