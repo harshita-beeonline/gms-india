@@ -5,6 +5,8 @@ import tabimage1 from "../../public/images/tabimage1.png";
 import tabimage2 from "../../public/images/tabimage2.png";
 import tabimage3 from "../../public/images/tabimage3.png";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
 const WhyChooseUs = () => {
   const [activeTab, setActiveTab] = useState("process");
 
@@ -183,24 +185,37 @@ const WhyChooseUs = () => {
             </div>
           ))}
         </div>
+
         <div className={styles["tab-container-right-part"]}>
           <div className={styles["content-area"]}>
-            {tabs.map(
-              (tab) =>
-                activeTab === tab.id && (
-                  <div key={tab.id} className={styles["tab-content"]}>
-                    <h3>{tab.title}</h3>
-                    <div className={styles["tab-text-image"]}>
-                      <p>{tab.content}</p>
-                      <div className={styles["tab-image-box"]}>
-                        <div className={styles["tab-image"]}>
-                          <Image src={tab.img} alt="img" />
+            <AnimatePresence mode="wait">
+              {tabs.map(
+                (tab) =>
+                  activeTab === tab.id && (
+                    <motion.div
+                      key={tab.id}
+                      className={styles["tab-content"]}
+                      initial={{ opacity: 0, x: 40 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -40 }}
+                      transition={{
+                        duration: 0.6,
+                        ease: [0.25, 0.1, 0.25, 1],
+                      }}
+                    >
+                      <h3>{tab.title}</h3>
+                      <div className={styles["tab-text-image"]}>
+                        <p>{tab.content}</p>
+                        <div className={styles["tab-image-box"]}>
+                          <div className={styles["tab-image"]}>
+                            <Image src={tab.img} alt="img" />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                )
-            )}
+                    </motion.div>
+                  )
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>

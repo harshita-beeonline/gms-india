@@ -1,3 +1,6 @@
+/* ===============================
+   Shared variables
+   =============================== */
 .timelineContainer {
   --labelW: 130px;
   --labelH: 52px;
@@ -10,6 +13,9 @@
   margin: 0 auto;
 }
 
+/* ===============================
+   Wrapper
+   =============================== */
 .timelineSection {
   width: 100%;
   padding: clamp(64px, 8vw, 100px) clamp(16px, 3vw, 50px);
@@ -17,6 +23,9 @@
   justify-content: center;
 }
 
+/* ===============================
+   Track line
+   =============================== */
 .track {
   position: absolute;
   left: 0;
@@ -27,17 +36,21 @@
   z-index: 1;
 }
 
+/* ===============================
+   Dots + labels
+   =============================== */
 .scroller {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-between; /* ✅ evenly spaced across full width */
   gap: 0;
   padding: 0 0 clamp(28px, 4vw, 60px);
   overflow: hidden;
 }
 
+/* Each dot item */
 .item {
   position: relative;
   flex: 1;
@@ -73,6 +86,7 @@
   line-height: 1;
 }
 
+/* Dot */
 .dot {
   position: absolute;
   top: var(--lineY);
@@ -96,6 +110,9 @@
   box-shadow: 0 0 0 4px rgba(9, 82, 255, 0.15);
 }
 
+/* ===============================
+   Card
+   =============================== */
 .card {
   display: flex;
   justify-content: center;
@@ -136,6 +153,9 @@
   letter-spacing: 2%;
 }
 
+/* ===============================
+   Mobile / Tablet
+   =============================== */
 @media (max-width: 768px) {
   .track {
     left: 0;
@@ -165,6 +185,7 @@
   }
 }
 
+/* Small phones */
 @media (max-width: 420px) {
   .timelineContainer {
     --labelW: 120px;

@@ -56,7 +56,10 @@
   }
 
   @media (max-width: 1024px) {
+
+    height: auto;
     .slide {
+      height: 600px;
       .bannerImage {
         display: none;
       }
