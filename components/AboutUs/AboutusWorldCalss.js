@@ -6,40 +6,50 @@ import Image from "next/image";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion"; // ✅ add this import
 
 const AboutusWorldCalss = () => {
   const router = useRouter();
+
   const statsData = [
     { value: 20, label: "Years of Experience", suffix: "+" },
     { value: 300, label: "Loyal Customers Across the Globe", suffix: "+" },
   ];
+
   const statsData2 = [
     { value: 10, label: "Industries", suffix: "+" },
     { value: 20, label: "Countries", suffix: "+" },
     { value: 1000, label: "Solutions", suffix: "+" },
   ];
 
-  // 👇 observe the section
   const { ref, inView } = useInView({
-    triggerOnce: true, // run only once
-    threshold: 0.2, // 20% of section visible
+    triggerOnce: true,
+    threshold: 0.2,
   });
 
   return (
     <div className={styles["world-class-page-content"]} ref={ref}>
       <div className={styles["world-class-left-right-content"]}>
-        <div className={styles["world-class-left-content"]}>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className={styles["world-class-bg-video"]}
-          >
-            <source src="/images/earthvideo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        {/* ✅ Animated Left Section */}
+        <motion.div
+          className={styles["world-class-left-content"]}
+          initial={{ opacity: 0, x: -80, rotate: -3, scale: 0.9 }}
+          animate={inView ? { opacity: 1, x: 0, rotate: 0, scale: 1 } : {}}
+          transition={{
+            duration: 1.2,
+            ease: [0.25, 0.1, 0.25, 1],
+          }}
+        >
+          <Image
+            src={worldimage}
+            alt="worldimage"
+            width={600}
+            height={600}
+            priority
+          />
+        </motion.div>
+
+        {/* ✅ Right Content */}
         <div className={styles["world-class-right-content"]}>
           <div className={styles["world-detail-content"]}>
             <h2>World-Class Research & Manufacturing Solutions</h2>
@@ -65,47 +75,51 @@ const AboutusWorldCalss = () => {
             </button>
           </div>
 
-          {/* first row */}
-          <div className={styles["world-first-row"]}>
+          {/* ✅ First row of numbers */}
+          <motion.div
+            className={styles["world-first-row"]}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
             {statsData.map((item, index) => (
               <div className={styles["first-row-data"]} key={index}>
                 <h1>
-                  {inView ? (
-                    <CountUp
-                      start={0}
-                      end={item.value}
-                      duration={5}
-                      suffix={item.suffix}
-                    />
-                  ) : (
-                    `0${item.suffix}`
-                  )}
+                  <CountUp
+                    start={0}
+                    end={inView ? item.value : 0}
+                    duration={2.5}
+                    suffix={item.suffix}
+                    enableScrollSpy={false}
+                  />
                 </h1>
                 <p>{item.label}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* second row */}
-          <div className={styles["world-first-row"]}>
+          {/* ✅ Second row of numbers */}
+          <motion.div
+            className={styles["world-first-row"]}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
             {statsData2.map((item, index) => (
               <div className={styles["first-row-data"]} key={index}>
                 <h1>
-                  {inView ? (
-                    <CountUp
-                      start={0}
-                      end={item.value}
-                      duration={5}
-                      suffix={item.suffix}
-                    />
-                  ) : (
-                    `0${item.suffix}`
-                  )}
+                  <CountUp
+                    start={0}
+                    end={inView ? item.value : 0}
+                    duration={2.5}
+                    suffix={item.suffix}
+                    enableScrollSpy={false}
+                  />
                 </h1>
                 <p>{item.label}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

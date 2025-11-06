@@ -20,21 +20,21 @@ import donutcard5 from "../../public/images/donutcard5.svg";
 import donutcard6 from "../../public/images/donutcard6.svg";
 
 const SEGMENTS = [
-  {
-    key: "advocacy",
-    label: "Bonding Advocacy",
-    color: "#93A7FF",
-    icon: donut6,
-  },
   { key: "awareness", label: "Awareness", color: "#04176B", icon: donut1 },
   { key: "engagement", label: "Engagement", color: "#031E98", icon: donut2 },
-  { key: "evaluation", label: "Evaluation", color: "#2641B9", icon: donut3 },
   { key: "purchase", label: "Purchase", color: "#4360E0", icon: donut4 },
   {
     key: "experience",
     label: "Product & Support Experience",
     color: "#627EFC",
     icon: donut5,
+  },
+  { key: "evaluation", label: "Evaluation", color: "#2641B9", icon: donut3 },
+  {
+    key: "advocacy",
+    label: "Bonding Advocacy",
+    color: "#93A7FF",
+    icon: donut6,
   },
 ];
 
