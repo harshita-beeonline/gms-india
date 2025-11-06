@@ -45,7 +45,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between; /* ✅ evenly spaced across full width */
-  gap: 0;
+  gap: 80px;
   padding: 0 0 clamp(28px, 4vw, 60px);
   overflow: hidden;
 }
@@ -196,3 +196,4 @@
     gap: 24px;
   }
 }
+
