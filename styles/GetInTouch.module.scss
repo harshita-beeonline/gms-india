@@ -117,134 +117,275 @@
         }
       }
     }
-    .getin-touch-right-part{
-        .experts-image{
-            width: 400px;
-            height: 500px;
-            overflow: hidden;
-            img{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+    .getin-touch-right-part {
+      .experts-image {
+        width: 400px;
+        height: 500px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
+      }
     }
   }
 }
-@media (max-width:1280px) {
-.india-first-exclusive-section {
-  height: auto;
-  .india-first-exclusive-content {
-    padding: 80px 20px;
-    h2 {
-      font-size: 42px;
-    }
-    h4 {
-      font-size: 26px;
-    }
-    p {
-      font-size: 20px;
-      line-height: 28px;
-      width: 95%;
-    }
-  }
-}
-.getin-touch-section {
-  .getin-touch-left-right-part {
-    gap: 40px;
-    padding: 30px 20px;
-    .getin-touch-left-part {
+@media (max-width: 1280px) {
+  .india-first-exclusive-section {
+    height: auto;
+    .india-first-exclusive-content {
+      padding: 80px 20px;
       h2 {
-        font-size: 32px;
+        font-size: 42px;
       }
-      .details-and-button {
-        width: 765px;
-        padding: 20px;
+      h4 {
+        font-size: 26px;
+      }
+      p {
+        font-size: 20px;
+        line-height: 28px;
+        width: 95%;
       }
     }
-    .getin-touch-right-part{
-        .experts-image{
-            width: 350px;
-            height: 450px;
+  }
+  .getin-touch-section {
+    .getin-touch-left-right-part {
+      gap: 40px;
+      padding: 30px 20px;
+      .getin-touch-left-part {
+        h2 {
+          font-size: 32px;
         }
-    }
-  }
-}
-}
-@media (max-width:1180px) {
-.getin-touch-section {
-  .getin-touch-left-right-part {
-    gap: 30px;
-    .getin-touch-left-part {
-      .details-and-button {
-        width: 565px;
-        padding: 20px;
+        .details-and-button {
+          width: 765px;
+          padding: 20px;
+        }
+      }
+      .getin-touch-right-part {
+        .experts-image {
+          width: 350px;
+          height: 450px;
+        }
       }
     }
   }
 }
-}
-@media (max-width:1000px) {
-.getin-touch-section {
-  .getin-touch-left-right-part {
-    flex-direction: column;
-    gap: 30px;
-    .getin-touch-left-part {
-      .details-and-button {
-        width: 100%;
+@media (max-width: 1180px) {
+  .getin-touch-section {
+    .getin-touch-left-right-part {
+      gap: 30px;
+      .getin-touch-left-part {
+        .details-and-button {
+          width: 565px;
+          padding: 20px;
+        }
       }
     }
   }
 }
-}
-@media (max-width:768px) {
-.india-first-exclusive-section {
-  height: auto;
-  .india-first-exclusive-content {
-    padding: 40px 20px;
-    gap: 30px;
-    h2 {
-      font-size: 20px;
-    }
-    h4 {
-      font-size: 16px;
-    }
-    p {
-      font-size: 14px;
-      line-height: 22px;
-      width: 100%;
-    }
-    button {
-      width: 217px;
-      margin-top: 0px;
+@media (max-width: 1000px) {
+  .getin-touch-section {
+    .getin-touch-left-right-part {
+      flex-direction: column;
+      gap: 30px;
+      .getin-touch-left-part {
+        .details-and-button {
+          width: 100%;
+        }
+      }
     }
   }
 }
-.getin-touch-section {
-  .getin-touch-left-right-part {
-    flex-direction: column;
-    gap: 30px;
-    padding: 30px 20px;
-    .getin-touch-left-part {
+@media (max-width: 768px) {
+  .india-first-exclusive-section {
+    height: auto;
+    .india-first-exclusive-content {
+      padding: 40px 20px;
+      gap: 30px;
       h2 {
         font-size: 20px;
-        line-height: 24px;
       }
-      .details-and-button {
+      h4 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 22px;
         width: 100%;
-        padding: 20px;
-        p {
-          font-size: 14px;
-          line-height:22px;
-        }
       }
-    }
-    .getin-touch-right-part{
-        .experts-image{
-            width: 354px;
-            height: 400px;
-        }
+      button {
+        width: 217px;
+        margin-top: 0px;
+      }
     }
   }
-} 
+  .getin-touch-section {
+    .getin-touch-left-right-part {
+      flex-direction: column;
+      gap: 30px;
+      padding: 30px 20px;
+      .getin-touch-left-part {
+        h2 {
+          font-size: 20px;
+          line-height: 24px;
+        }
+        .details-and-button {
+          width: 100%;
+          padding: 20px;
+          p {
+            font-size: 14px;
+            line-height: 22px;
+          }
+        }
+      }
+      .getin-touch-right-part {
+        .experts-image {
+          width: 354px;
+          height: 400px;
+        }
+      }
+    }
+  }
+}
+
+.enquire-popup-overlay {
+  position: fixed;
+  bottom: 110px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  z-index: 2000;
+  .enquire-popup-content {
+    background: #ffffff;
+    box-shadow: 0px 0px 12px 0px #0000001c;
+    border: 1px solid #eff0f7;
+    padding: 20px;
+    width: 420px;
+    max-height: 460px;
+    position: relative;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    .enquire-close-btn {
+      position: absolute;
+      top: 0px;
+      right: 18px;
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #3b5ba6;
+    }
+    .footer-inputs-form {
+      margin-top: 20px;
+      .footer-both-inputs {
+        width: 100%;
+        .input-error {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin-bottom: 20px;
+          input {
+            width: 100%;
+            height: 41px;
+            border-radius: 4px;
+            padding: 12px;
+            background: #5c5b5b33;
+            outline: none;
+            border: none;
+            font-family: Instrument Sans;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #403f3f;
+          }
+        }
+        textarea {
+          width: 100%;
+          border-radius: 4px;
+          padding: 12px;
+          background: #5c5b5b33;
+          outline: none;
+          border: none;
+          font-family: Instrument Sans;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 100%;
+          letter-spacing: 0%;
+          color: #403f3f;
+        }
+        .error-message {
+          color: rgb(255, 0, 0);
+          font-size: 12px;
+          margin-top: 4px;
+        }
+      }
+      button {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        height: 44px;
+        padding: 14px 22px;
+        border-radius: 8px;
+        background: #3b5ba6;
+        font-family: Instrument Sans;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #ffffff;
+        border: none;
+        margin-top: 0px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        svg {
+          transition: transform 0.3s ease;
+        }
+        &:hover {
+          background-image: linear-gradient(
+            90deg,
+            #a100ffff 0%,
+            #71c4ffff 100%
+          );
+          color: #ffffff;
+          svg {
+            transform: translateX(5px);
+          }
+          svg path {
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+@media (max-width: 768px) {
+  .enquire-popup-overlay {
+    .enquire-popup-content {
+      padding: 15px;
+      width: 90%;
+      .enquire-close-btn {
+        right: 12px;
+        font-size: 18px;
+      }
+      .footer-inputs-form {
+        .footer-both-inputs {
+          .input-error {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
 }
