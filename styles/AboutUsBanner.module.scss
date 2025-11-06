@@ -55,7 +55,50 @@
     }
   }
 
-  /* ✅ Tablet & small laptop fix (≤820px) */
+  @media (max-width: 1024px) {
+    .slide {
+      .bannerImage {
+        display: none;
+      }
+
+      .aboutusbanner_mobile {
+        display: block !important;
+        width: 100%;
+      }
+
+      .textBox {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+        right: 40px;
+        transform: none;
+        max-width: 100%;
+        text-align: center;
+
+        h2 {
+          font-size: 48px;
+          line-height: 100%;
+          color: #ffffff;
+          text-align: center;
+        }
+      }
+
+      &.imageSlide .leftText {
+        top: auto;
+        left: 20px;
+        right: 20px;
+        bottom: 40px;
+      }
+
+      &.videoSlide .rightText {
+        top: 10%;
+        left: 40px;
+        right: 40px;
+      }
+    }
+  }
+
+
   @media (max-width: 820px) {
     height: auto;
 
@@ -98,10 +141,10 @@
     }
   }
 
-  /* ✅ Mobile fix (≤480px) */
+
   @media (max-width: 480px) {
     .slide {
-      height: 420px; 
+      height: 420px;
 
       .textBox {
         bottom: 30px;
@@ -110,7 +153,7 @@
           font-size: 28px;
           line-height: 100%;
           text-align: center;
-          padding: 0 30px; /* for small screen spacing */
+          padding: 0 30px;
         }
       }
 

@@ -76,11 +76,6 @@
   }
 }
 
-/* ============================
-   Responsive Only Adjustments
-============================ */
-
-/* For large tablets and below (≤1200px) */
 @media (max-width: 1200px) {
   .our-mission-vision-section {
     padding: 0px 60px 40px 60px;
@@ -105,7 +100,6 @@
   }
 }
 
-/* For tablets (≤992px) */
 @media (max-width: 992px) {
   .our-mission-vision-section {
     padding: 0px 40px 40px 40px;
@@ -137,7 +131,6 @@
   }
 }
 
-/* For mobile devices (≤768px) */
 @media (max-width: 768px) {
   .our-mission-vision-section {
     padding: 0px 20px 40px 20px;
@@ -177,7 +170,6 @@
   }
 }
 
-/* For very small screens (≤480px) */
 @media (max-width: 480px) {
   .our-mission-vision-section {
     padding: 20px 0px;
