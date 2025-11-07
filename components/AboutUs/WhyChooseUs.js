@@ -166,26 +166,91 @@ const WhyChooseUs = () => {
     },
   ];
 
+const innerPopVariants = {
+  inactive: { opacity: 0.8, scale: 0.8 },
+  active: {
+    opacity: 1,
+    scale: 1.05, // subtle, gentle lift
+    transition: {
+      duration: 0.35,
+      ease: [0.25, 0.1, 0.25, 1], // smooth cubic easing
+    },
+  },
+};
+
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 60 }, // starts lower & invisible
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.1, 0.25, 1],
+        when: "beforeChildren",
+        staggerChildren: 0.2, // text and image animate sequentially
+      },
+    },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.92 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <div className={styles["why-chooseus-section"]}>
       <h2>Why Choose Us ?</h2>
+
       <div className={styles["tab-container-left-right-part"]}>
         <div className={styles["tab-container-left-part"]}>
-          {tabs.map((tab) => (
-            <div
-              key={tab.id}
-              className={`${styles.tab} ${
-                activeTab === tab.id ? styles.active : ""
-              }`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              <div className={styles.icon}>{tab.icon}</div>
-              <h5>{tab.label}</h5>
-              {activeTab === tab.id && <div className={styles.arrow}></div>}
-            </div>
-          ))}
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab.id;
+
+            return (
+              <div
+                key={tab.id}
+                className={`${styles.tab} ${
+                  activeTab === tab.id ? styles.active : ""
+                }`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                <motion.div
+                  className={styles.icon}
+                  variants={innerPopVariants}
+                  initial="inactive"
+                  animate={isActive ? "active" : "inactive"}
+                >
+                  {tab.icon}
+                </motion.div>
+                {/* LABEL */}
+                <motion.h5
+                  variants={innerPopVariants}
+                  initial="inactive"
+                  animate={isActive ? "active" : "inactive"}
+                >
+                  {tab.label}
+                </motion.h5>
+                {activeTab === tab.id && <div className={styles.arrow}></div>}
+              </div>
+            );
+          })}
         </div>
 
+        {/* RIGHT SIDE */}
         <div className={styles["tab-container-right-part"]}>
           <div className={styles["content-area"]}>
             <AnimatePresence mode="wait">
@@ -195,23 +260,26 @@ const WhyChooseUs = () => {
                     <motion.div
                       key={tab.id}
                       className={styles["tab-content"]}
-                      initial={{ opacity: 0, x: 40 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -40 }}
-                      transition={{
-                        duration: 0.6,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      }}
+                      variants={containerVariants}
+                      initial="hidden"
+                      animate="visible"
                     >
-                      <h3>{tab.title}</h3>
-                      <div className={styles["tab-text-image"]}>
+                      {/* TEXT SECTION */}
+                      <motion.div
+                        className={styles["tab-text"]}
+                        variants={textVariants}
+                      >
+                        <h3>{tab.title}</h3>
                         <p>{tab.content}</p>
-                        <div className={styles["tab-image-box"]}>
-                          <div className={styles["tab-image"]}>
-                            <Image src={tab.img} alt="img" />
-                          </div>
-                        </div>
-                      </div>
+                      </motion.div>
+
+                      {/* IMAGE SECTION */}
+                      <motion.div
+                        className={styles["tab-image-box"]}
+                        variants={imageVariants}
+                      >
+                        <Image src={tab.img} alt="img" />
+                      </motion.div>
                     </motion.div>
                   )
               )}
