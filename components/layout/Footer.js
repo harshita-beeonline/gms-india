@@ -1,33 +1,89 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { usePathname } from "next/navigation";
 import styles from "../../styles/Footer.module.scss";
 import FooterLink from "./FooterLink";
 
 const Footer = () => {
+  const pathname = usePathname();
+  const formRef = useRef(null);
+  const captchaRef = useRef(null);
+  const [isEnquireOpen, setIsEnquireOpen] = useState(false);
+  const [verified, setVerified] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
   const formik = useFormik({
     initialValues: {
-      name: "",
+      last_name: "",
       company: "",
       email: "",
       phone: "",
       description: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Name is required"),
-      company: Yup.string().required("Company is required"),
-      email: Yup.string().email("Invalid email").required("Email is required"),
+      last_name: Yup.string()
+        .matches(
+          /^[A-Za-z'\s]{1,20}$/,
+          "Use only letters/spaces and keep it under 20 characters."
+        )
+        .required("Name is required"),
+      company: Yup.string()
+        .max(20, "Company can be at most 20 characters.")
+        .required("Company is required"),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
       phone: Yup.string()
-        .matches(/^[0-9]{10}$/, "Phone must be 10 digits")
+        .matches(/^[0-9]{10}$/, "Phone must be 10 digits.")
         .required("Phone is required"),
       description: Yup.string().required("Description is required"),
     }),
-    onSubmit: (values) => {
-      console.log("Form submitted:", values);
-    },
+    onSubmit: () => {},
   });
-  const [isEnquireOpen, setIsEnquireOpen] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = formRef.current;
+
+    if (!form) {
+      return;
+    }
+
+    const touchedAll = Object.keys(formik.initialValues).reduce(
+      (acc, key) => ({ ...acc, [key]: true }),
+      {}
+    );
+    formik.setTouched(touchedAll, true);
+
+    const validationErrors = await formik.validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      formik.setErrors(validationErrors);
+      return;
+    }
+
+    if (!verified) {
+      alert("Please complete the CAPTCHA verification.");
+      return;
+    }
+
+    setShowSuccessMessage(true);
+
+    setTimeout(() => {
+      form.submit();
+    }, 500);
+  };
+
+  const closeEnquiry = () => {
+    setIsEnquireOpen(false);
+    setShowSuccessMessage(false);
+    setVerified(false);
+    captchaRef.current?.resetCaptcha();
+    formik.resetForm();
+  };
+
   return (
     <div className={styles["footer-all-content-box"]}>
       <div className={styles["enquire-fixed-button"]}>
@@ -55,27 +111,31 @@ const Footer = () => {
           <div className={styles["enquire-popup-content"]}>
             <button
               className={styles["enquire-close-btn"]}
-              onClick={() => setIsEnquireOpen(false)}
+              onClick={closeEnquiry}
             >
               ✖
             </button>
             <form
-              onSubmit={formik.handleSubmit}
+              ref={formRef}
+              action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+              method="POST"
+              onSubmit={handleSubmit}
+              noValidate
               className={styles["footer-inputs-form"]}
             >
               <div className={styles["footer-both-inputs"]}>
                 <div className={styles["input-error"]}>
                   <input
                     type="text"
-                    name="name"
-                    placeholder="Name"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.name}
+                    name="last_name"
+                    id="last_name"
+                    placeholder="Full Name*"
+                    {...formik.getFieldProps("last_name")}
+                    required
                   />
-                  {formik.touched.name && formik.errors.name && (
+                  {formik.touched.last_name && formik.errors.last_name && (
                     <div className={styles["error-message"]}>
-                      {formik.errors.name}
+                      {formik.errors.last_name}
                     </div>
                   )}
                 </div>
@@ -83,10 +143,11 @@ const Footer = () => {
                   <input
                     type="text"
                     name="company"
-                    placeholder="Company"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.company}
+                    id="company"
+                    placeholder="Company*"
+                    maxLength={20}
+                    {...formik.getFieldProps("company")}
+                    required
                   />
                   {formik.touched.company && formik.errors.company && (
                     <div className={styles["error-message"]}>
@@ -100,10 +161,10 @@ const Footer = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.email}
+                    id="email"
+                    placeholder="Email*"
+                    {...formik.getFieldProps("email")}
+                    required
                   />
                   {formik.touched.email && formik.errors.email && (
                     <div className={styles["error-message"]}>
@@ -115,10 +176,10 @@ const Footer = () => {
                   <input
                     type="text"
                     name="phone"
-                    placeholder="Phone Number"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.phone}
+                    id="phone"
+                    placeholder="Phone Number*"
+                    {...formik.getFieldProps("phone")}
+                    required
                   />
                   {formik.touched.phone && formik.errors.phone && (
                     <div className={styles["error-message"]}>
@@ -131,19 +192,65 @@ const Footer = () => {
                 <div className={styles["input-error"]}>
                   <textarea
                     name="description"
+                    id="description"
                     placeholder="Message"
                     rows="5"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.description}
+                    {...formik.getFieldProps("description")}
+                    required
                   ></textarea>
-                  {formik.touched.description && formik.errors.description && (
-                    <div className={styles["error-message"]}>
-                      {formik.errors.description}
-                    </div>
-                  )}
+                  {formik.touched.description &&
+                    formik.errors.description && (
+                      <div className={styles["error-message"]}>
+                        {formik.errors.description}
+                      </div>
+                    )}
                 </div>
               </div>
+              <input
+                id="00N7F00000Iu6TF"
+                name="00N7F00000Iu6TF"
+                title="Customer Segment"
+                type="hidden"
+                value="About Us"
+              />
+              <input
+                id="lead_source"
+                name="lead_source"
+                title="Lead Source"
+                type="hidden"
+                value="Website"
+              />
+              <input
+                id="00NC5000000QKdV"
+                name="00NC5000000QKdV"
+                type="hidden"
+                value="1"
+              />
+              <input type="hidden" name="oid" value="00D7F000002DPId" />
+              <input
+                type="hidden"
+                name="retURL"
+                value={`https://gms-india.com${pathname}`}
+              />
+
+              {!verified && (
+                <div className={styles["captcha-wrapper"]}>
+                  <HCaptcha
+                    ref={captchaRef}
+                    onVerify={() => {
+                      setVerified(true);
+                    }}
+                    sitekey="662d2fc6-49e5-47f6-b2e1-a7844a3dab7a"
+                  />
+                </div>
+              )}
+
+              {showSuccessMessage && (
+                <div className={styles["success-message"]}>
+                  Enquiry has been saved. We will get back to you soon.
+                </div>
+              )}
+
               <button type="submit">
                 Submit{" "}
                 <svg

@@ -153,6 +153,19 @@
             }
           }
         }
+        .captcha-wrapper {
+          margin-bottom: 16px;
+        }
+        .success-message {
+          margin: 12px 0;
+          padding: 12px;
+          border-radius: 8px;
+          background: #d1fae5;
+          color: #065f46;
+          font-family: Instrument Sans;
+          font-size: 14px;
+          line-height: 150%;
+        }
       }
     }
   }
