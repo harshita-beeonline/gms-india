@@ -342,12 +342,16 @@ export const CreateEnquiryGQL = gql`
     $name: String!
     $email: String!
     $phone: String!
-    $cart: JSON!
+    $cart: JSON
   ) {
-    create_cart_enquiry_item(
-      data: { name: $name, email: $email, phone: $phone, cart: $cart }
-    ) {
-      id
-    }
+    create_backend_enquiry_item(
+      data: {
+        name: $name
+        email: $email
+        phone: $phone
+        preferred_mode_of_contact: "EMAIL"
+        cart: $cart
+      }
+    )
   }
 `;
