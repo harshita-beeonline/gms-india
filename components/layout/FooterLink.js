@@ -46,6 +46,7 @@ const FooterLink = () => {
         </svg>
       ),
       title: "080 2666 5684/5",
+      href: "tel:+918026665684",
     },
     {
       id: "email",
@@ -64,6 +65,7 @@ const FooterLink = () => {
         </svg>
       ),
       title: "info@gms-india.com",
+      href: "mailto:info@gms-india.com",
     },
   ];
   const productList = [
@@ -213,16 +215,36 @@ const FooterLink = () => {
         <div className={styles["footer-links-right-content"]}>
           <div className={styles["footer-details-with-list"]}>
             <h5>Contact</h5>
-            {contactList.map((item) => (
-              <div className={styles["details-list"]} key={item.id}>
-                <Link href={"/"}>
-                  <div className={styles["icon-title"]}>
-                    {item.icon}
-                    <p>{item.title}</p>
+            {contactList.map((item) => {
+              const content = (
+                <>
+                  {item.icon}
+                  <p>{item.title}</p>
+                </>
+              );
+
+              if (item.href) {
+                const isExternal = item.href.startsWith("http");
+                return (
+                  <div className={styles["details-list"]} key={item.id}>
+                    <a
+                      href={item.href}
+                      className={styles["icon-title"]}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                    >
+                      {content}
+                    </a>
                   </div>
-                </Link>
-              </div>
-            ))}
+                );
+              }
+
+              return (
+                <div className={styles["details-list"]} key={item.id}>
+                  <div className={styles["icon-title"]}>{content}</div>
+                </div>
+              );
+            })}
           </div>
           <div className={styles["footer-details-with-list"]}>
             <h5>Our Products</h5>
