@@ -6,58 +6,56 @@ import missionimage from "../../public/images/missionimage.png";
 import visionimage from "../../public/images/visionimage.png";
 import Image from "next/image";
 
-// 🔵 Mission card (slides in from right)
+// 🟦 Mission card → slides in from right
 const missionCardVariants = {
   hidden: { opacity: 0, x: 200 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 1.4,
+      duration: 1.2,
       ease: [0.25, 0.1, 0.25, 1],
-      delay: 0, // starts immediately
     },
   },
 };
 
-// 🔴 Vision card (slides in from left, 1s after Mission)
+// 🟥 Vision card → slides in from left
 const visionCardVariants = {
   hidden: { opacity: 0, x: -200 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 1.4,
+      duration: 1.2,
       ease: [0.25, 0.1, 0.25, 1],
-      delay: 1, // starts 1s after mission
     },
   },
 };
 
-// ✨ Text for Mission (2s after Mission card starts)
+// ✨ Mission text → from right (same direction as its card)
 const missionTextVariants = {
   hidden: { opacity: 0, x: 150 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 1.2,
+      duration: 1,
       ease: [0.33, 1, 0.68, 1],
-      delay: 2, // appears 2s after mission card
+      delay: 1.2, // appears right after both cards
     },
   },
 };
 
-// ✨ Text for Vision (2s after Vision card starts)
+// ✨ Vision text → from left (same direction as its card)
 const visionTextVariants = {
   hidden: { opacity: 0, x: -150 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 1.2,
+      duration: 1,
       ease: [0.33, 1, 0.68, 1],
-      delay: 3, // appears 2s after vision (which starts 1s later)
+      delay: 1.2, // same delay as mission text
     },
   },
 };
@@ -76,12 +74,14 @@ const OurMissionVision = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
+          {/* Image */}
           <div className={styles["circle-image"]}>
             <div className={styles["mission-card-image"]}>
               <Image src={missionimage} alt="Mission" />
             </div>
           </div>
 
+          {/* Text */}
           <motion.div
             className={styles["mission-card-text"]}
             variants={missionTextVariants}
@@ -109,6 +109,7 @@ const OurMissionVision = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
+          {/* Text */}
           <motion.div
             className={styles["mission-card-text"]}
             variants={visionTextVariants}
@@ -124,6 +125,7 @@ const OurMissionVision = () => {
             </p>
           </motion.div>
 
+          {/* Image */}
           <div className={styles["circle-image"]}>
             <div className={styles["mission-card-image"]}>
               <Image src={visionimage} alt="Vision" />
