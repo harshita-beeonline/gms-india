@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../../styles/WhyChooseUs.module.scss";
 import tabimage1 from "../../public/images/tabimage1.png";
 import tabimage2 from "../../public/images/tabimage2.png";
@@ -9,6 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const WhyChooseUs = () => {
   const [activeTab, setActiveTab] = useState("process");
+  const [isMobile, setIsMobile] = useState(false);
+  const tabsRef = useRef(null);
 
   const tabs = [
     {
@@ -166,18 +168,17 @@ const WhyChooseUs = () => {
     },
   ];
 
-const innerPopVariants = {
-  inactive: { opacity: 0.8, scale: 0.8 },
-  active: {
-    opacity: 1,
-    scale: 1.05, // subtle, gentle lift
-    transition: {
-      duration: 0.35,
-      ease: [0.25, 0.1, 0.25, 1], // smooth cubic easing
+  const innerPopVariants = {
+    inactive: { opacity: 0.8, scale: 0.8 },
+    active: {
+      opacity: 1,
+      scale: 1.05, // subtle, gentle lift
+      transition: {
+        duration: 0.35,
+        ease: [0.25, 0.1, 0.25, 1], // smooth cubic easing
+      },
     },
-  },
-};
-
+  };
 
   const containerVariants = {
     hidden: { opacity: 0, y: 60 }, // starts lower & invisible
@@ -211,46 +212,68 @@ const innerPopVariants = {
     },
   };
 
+  // Detect mobile
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 540);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Set default active tab
+  useEffect(() => {
+    if (isMobile) setActiveTab("onestepsolution");
+    else setActiveTab("process");
+  }, [isMobile]);
+
+  // Scroll center tab into view when mobile loads
+  useEffect(() => {
+    if (isMobile && tabsRef.current) {
+      // Wait for DOM to update (to ensure .active is rendered)
+      setTimeout(() => {
+        const activeEl = tabsRef.current.querySelector(`.${styles.active}`);
+        if (activeEl) {
+          const containerWidth = tabsRef.current.offsetWidth;
+          const elementLeft = activeEl.offsetLeft;
+          const elementWidth = activeEl.offsetWidth;
+          const scrollTo = elementLeft - containerWidth / 2 + elementWidth / 2;
+
+          // ✅ FIX: use "auto" instead of "instant"
+          tabsRef.current.scrollTo({ left: scrollTo, behavior: "auto" });
+        }
+      }, 100); // small delay to ensure layout is ready
+    }
+  }, [isMobile, activeTab]);
+
   return (
     <div className={styles["why-chooseus-section"]}>
-      <h2>Why Choose Us ?</h2>
+      <h2>Why Choose Us?</h2>
 
       <div className={styles["tab-container-left-right-part"]}>
-        <div className={styles["tab-container-left-part"]}>
+        {/* LEFT SIDE (Tabs) */}
+        <div
+          className={`${styles["tab-container-left-part"]} ${
+            isMobile ? styles["mobile-slider"] : ""
+          }`}
+          ref={tabsRef}
+        >
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
-
             return (
               <div
                 key={tab.id}
-                className={`${styles.tab} ${
-                  activeTab === tab.id ? styles.active : ""
-                }`}
+                className={`${styles.tab} ${isActive ? styles.active : ""}`}
                 onClick={() => setActiveTab(tab.id)}
               >
-                <motion.div
-                  className={styles.icon}
-                  variants={innerPopVariants}
-                  initial="inactive"
-                  animate={isActive ? "active" : "inactive"}
-                >
-                  {tab.icon}
-                </motion.div>
-                {/* LABEL */}
-                <motion.h5
-                  variants={innerPopVariants}
-                  initial="inactive"
-                  animate={isActive ? "active" : "inactive"}
-                >
-                  {tab.label}
-                </motion.h5>
-                {activeTab === tab.id && <div className={styles.arrow}></div>}
+                <motion.div className={styles.icon}>{tab.icon}</motion.div>
+                <motion.h5>{tab.label}</motion.h5>
+                {isActive && <div className={styles.arrow}></div>}
               </div>
             );
           })}
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE CONTENT */}
         <div className={styles["tab-container-right-part"]}>
           <div className={styles["content-area"]}>
             <AnimatePresence mode="wait">
@@ -260,25 +283,17 @@ const innerPopVariants = {
                     <motion.div
                       key={tab.id}
                       className={styles["tab-content"]}
-                      variants={containerVariants}
-                      initial="hidden"
-                      animate="visible"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.4 }}
                     >
-                      {/* TEXT SECTION */}
-                      <motion.div
-                        className={styles["tab-text"]}
-                        variants={textVariants}
-                      >
+                      <motion.div className={styles["tab-text"]}>
                         <h3>{tab.title}</h3>
-                        <p>{tab.content}</p>
+                        {tab.content}
                       </motion.div>
-
-                      {/* IMAGE SECTION */}
-                      <motion.div
-                        className={styles["tab-image-box"]}
-                        variants={imageVariants}
-                      >
-                        <Image src={tab.img} alt="img" />
+                      <motion.div className={styles["tab-image-box"]}>
+                        <Image src={tab.img} alt={tab.label} />
                       </motion.div>
                     </motion.div>
                   )
