@@ -14,11 +14,11 @@ const AboutUsBanner = () => {
     <div className={styles.bannerSlider}>
       <Swiper
         modules={[Autoplay, Pagination]}
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // }}
-        // loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
       >
         {/* ✅ Slide 1: Image with left text */}
         <SwiperSlide>
