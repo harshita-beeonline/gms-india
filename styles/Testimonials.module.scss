@@ -121,6 +121,12 @@
     }
   }
 }
+@media (max-width:1280px) {
+.slider-window {
+  width: 85%;
+  height: auto;
+}
+}
 @media (max-width: 821px) {
   .testimonial-page-content {
     padding: 40px 15;
