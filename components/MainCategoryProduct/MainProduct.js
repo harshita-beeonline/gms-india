@@ -6,7 +6,9 @@ import Image from "next/image";
 import buttonicon1 from "../../public/images/buttonicon1.svg";
 import buttonicon2 from "../../public/images/buttonicon2.svg";
 import buttonicon3 from "../../public/images/buttonicon3.svg";
-
+import hovericon1 from "../../public/images/hovericon1.svg";
+import hovericon2 from "../../public/images/hovericon2.svg";
+import hovericon3 from "../../public/images/hovericon3.svg";
 const MainProduct = () => {
   const [openInfoDropdown, setOpenInfoDropdown] = useState(null);
   const toggleInfoDropdown = (name) => {
@@ -69,15 +71,18 @@ const MainProduct = () => {
           <p>This model covers all common interconnect technologies.</p>
           <div className={styles["buttons-cart-send-sheet"]}>
             <button className={styles["white-button"]}>
-              <Image src={buttonicon1} alt="img" />
-              Data Sheet
-            </button>
-            <button className={styles["blue-button"]}>
-              <Image src={buttonicon2} alt="img" />
+              <Image src={buttonicon1} alt="img" className={styles["normal-btn"]}/>
+              <Image src={hovericon1} alt="img" className={styles["hover-btn"]}/>
               Add To Cart
             </button>
             <button className={styles["blue-button"]}>
-              <Image src={buttonicon3} alt="img" />
+               <Image src={buttonicon2} alt="img" className={styles["normal-btn"]}/>
+               <Image src={hovericon2} alt="img" className={styles["hover-btn"]}/>
+              Data Sheet
+            </button>
+            <button className={styles["blue-button"]}>
+               <Image src={buttonicon3} alt="img" className={styles["normal-btn"]}/>
+               <Image src={hovericon3} alt="img" className={styles["hover-btn"]}/>
               Send an Enquiry
             </button>
           </div>
