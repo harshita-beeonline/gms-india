@@ -180,7 +180,9 @@
     .enquire-popup-overlay {
       .enquire-popup-content {
         padding: 15px;
-        width: 90%;
+       @media (max-width:576px) {
+         width: 90%;
+       }
         .enquire-close-btn {
           right: 12px;
           font-size: 18px;
