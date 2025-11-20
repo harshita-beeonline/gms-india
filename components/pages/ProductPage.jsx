@@ -1,5 +1,4 @@
 "use client";
-
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -11,7 +10,6 @@ import ProductCard from "../ProductCard";
 import { getAsset, getLegacyAsset } from "../utils";
 import { useAppStore } from "../../store";
 import { frontendClient } from "../../lib/graphql-clients";
-
 const Product = ({ slug }) => {
   const [treeOpen, setTreeOpen] = useState(false);
   return (
@@ -33,25 +31,20 @@ const Product = ({ slug }) => {
     </div>
   );
 };
-
 const ProductElement = ({ slug }) => {
   const appStore = useAppStore();
   const [product, setProduct] = useState();
   const [related_products, setRelatedProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const router = useRouter();
-
   useEffect(() => {
     fetchProduct(slug);
   }, [slug]);
-
   const fetchProduct = async (productSlug) => {
     setLoading(true);
     const { backend_product } = await frontendClient.request(GetProductGQL, {
       slug: productSlug,
     });
-
     if (!backend_product || backend_product.length === 0) {
       router.push("/404");
       return;
@@ -71,7 +64,6 @@ const ProductElement = ({ slug }) => {
     setRelatedProducts(relatedProducts.backend_product);
     setLoading(false);
   };
-
   const addToCart = () => {
     appStore.addToCart({
       id: product?.id || "",
@@ -81,12 +73,10 @@ const ProductElement = ({ slug }) => {
       v2_product: product?.v2_product || false,
     });
   };
-
   const sendEnquiry = () => {
     addToCart();
     router.push("/cart");
   };
-
   if (loading) {
     return (
       <div className="lg:w-3/4 lg:container mx-auto lg:p-10 p-4">
@@ -94,7 +84,6 @@ const ProductElement = ({ slug }) => {
       </div>
     );
   }
-
   if (product === undefined) {
     return (
       <div className="lg:w-3/4 lg:container mx-auto lg:p-10 p-4">
@@ -102,7 +91,6 @@ const ProductElement = ({ slug }) => {
       </div>
     );
   }
-
   return (
     <div className="lg:w-3/4 lg:container mx-auto lg:p-10 p-4">
       <OGP title={product.name} image={getLegacyAsset(product.image)} />
@@ -214,5 +202,4 @@ const ProductElement = ({ slug }) => {
     </div>
   );
 };
-
 export default Product;

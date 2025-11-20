@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../../styles/CoreDomain.module.scss";
-
 const CoreDomain = () => {
   const tabs = [
     {
@@ -51,5 +50,4 @@ const CoreDomain = () => {
     </div>
   );
 };
-
 export default CoreDomain;

@@ -5,7 +5,6 @@ import evclient2 from '../../public/images/evclient2.png';
 import semipartner1 from '../../public/images/semipartner1.png';
 import semipartner2 from '../../public/images/semipartner2.png';
 import Image from "next/image";
-
 const EVClientPartner = () => {
   const companyDataOne = [evclient1,evclient2];
   const companyDataTwo = [semipartner1,semipartner2];
@@ -46,5 +45,4 @@ const EVClientPartner = () => {
     </div>
   );
 };
-
 export default EVClientPartner;

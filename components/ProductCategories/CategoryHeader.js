@@ -6,7 +6,6 @@ import category2 from "../../public/images/category2.svg";
 import category3 from "../../public/images/category3.svg";
 import Image from "next/image";
 import CategoryProduct from "./CategoryProduct";
-
 // Define all categories and their subcategories
 const categories = [
   {
@@ -66,20 +65,16 @@ const categories = [
     ],
   },
 ];
-
 const CategoryHeader = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
-
   const toggleDropdown = (name) => {
     setOpenDropdown(openDropdown === name ? null : name);
     setOpenSubDropdown(null); // Close sub-dropdown when switching main dropdown
   };
-
   const toggleSubDropdown = (name) => {
     setOpenSubDropdown(openSubDropdown === name ? null : name);
   };
-
   return (
     <>
       <div className={styles["category-header-section"]}  onMouseLeave={() => toggleDropdown(false)}>
@@ -148,5 +143,4 @@ const CategoryHeader = () => {
     </>
   );
 };
-
 export default CategoryHeader;

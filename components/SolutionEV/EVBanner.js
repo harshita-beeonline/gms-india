@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../styles/EVBanner.module.scss";
-
 const EVBanner = () => {
   const cardData = [
     {
@@ -93,5 +92,4 @@ const EVBanner = () => {
     </>
   );
 };
-
 export default EVBanner;

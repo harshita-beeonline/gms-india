@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../styles/SemiconductorBanner.module.scss";
-
 const MicroelectronicBanner = () => {
   const cardData = [
     {
@@ -93,5 +92,4 @@ const MicroelectronicBanner = () => {
     </>
   );
 };
-
 export default MicroelectronicBanner;

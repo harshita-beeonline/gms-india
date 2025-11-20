@@ -1,7 +1,6 @@
 import Link from "next/link";
 import OGP from "../OGP";
 import { getAsset } from "../utils";
-
 const ResourceArticlePage = ({ article }) => {
   return (
     <div>
@@ -25,5 +24,4 @@ const ResourceArticlePage = ({ article }) => {
     </div>
   );
 };
-
 export default ResourceArticlePage;

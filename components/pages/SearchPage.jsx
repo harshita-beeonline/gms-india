@@ -1,11 +1,8 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import OGP from "../OGP";
 import ProductCard from "../ProductCard";
-
-
 const SearchPage = ({
     initialQuery,
     products
@@ -41,5 +38,4 @@ const SearchPage = ({
         </div>
     );
 };
-
 export default SearchPage;

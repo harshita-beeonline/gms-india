@@ -14,7 +14,6 @@ const MainProduct = () => {
   const toggleInfoDropdown = (name) => {
     setOpenInfoDropdown(openInfoDropdown === name ? null : name);
   };
-
   const dropdownData = [
     {
       name: "Applications",
@@ -135,5 +134,4 @@ const MainProduct = () => {
     </div>
   );
 };
-
 export default MainProduct;
