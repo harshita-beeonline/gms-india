@@ -105,7 +105,6 @@
             transform: translateY(5px);
           }
         }
-
         .details-list {
           position: relative;
         }
@@ -226,6 +225,9 @@
                 font-size: 14px;
               }
             }
+          }
+          .tooltip {
+            right: 70px;
           }
         }
       }
