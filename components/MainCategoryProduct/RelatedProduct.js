@@ -155,5 +155,4 @@ const RelatedProduct = () => {
     </div>
   );
 };
-
 export default RelatedProduct;

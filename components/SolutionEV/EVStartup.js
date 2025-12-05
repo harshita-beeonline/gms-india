@@ -79,5 +79,4 @@ const EVStartup = () => {
     </div>
   );
 };
-
 export default EVStartup;

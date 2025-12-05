@@ -26,6 +26,7 @@ const FooterLink = () => {
       ),
       title:
         "3rd floor, 1, Sharadanagar, Uttarahalli Main Rd, Vasanthapura, Bengaluru, Karnataka 560061",
+      href:"https://www.google.com/maps?q=3rd+floor,+1,+Sharadanagar,+Uttarahalli+Main+Rd,+Vasanthapura,+Bengaluru,+Karnataka+560061"
     },
     {
       id: "phone",

@@ -13,7 +13,6 @@ import semipartner4 from "../../public/images/semipartner4.png";
 import semipartner5 from "../../public/images/semipartner5.png";
 import semipartner6 from "../../public/images/semipartner6.png";
 import Image from "next/image";
-
 const ClientsPartners = () => {
   const companyDataOne = [
     semiclient1,
@@ -27,8 +26,7 @@ const ClientsPartners = () => {
     semiclient3,
     semiclient4,
     semiclient5,
-    semiclient6,
-    
+    semiclient6,   
   ];
   const companyDataTwo = [
     semipartner1,

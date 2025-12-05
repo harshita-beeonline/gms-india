@@ -10,20 +10,15 @@ import MiniSearch from "../MiniSearch";
 import ProductSkeleton from "../ProductSkeleton";
 import { frontendClient } from "../../lib/graphql-clients";
 import { useAppStore } from "../../store";
-
 const MASTER_CATEGORY_SLUGS = new Set(["equipment", "components", "materials"]);
-
 const deriveMasterSlug = (categoryTree, category) => {
   if (!category) {
     return undefined;
   }
-
   if (MASTER_CATEGORY_SLUGS.has(category.slug)) {
     return category.slug;
   }
-
   const parentMap = new Map();
-
   if (Array.isArray(categoryTree)) {
     categoryTree.forEach((cat) => {
       if (cat?.slug && cat.cat_rel_key?.slug) {
@@ -31,14 +26,11 @@ const deriveMasterSlug = (categoryTree, category) => {
       }
     });
   }
-
   if (category.cat_rel_key?.slug) {
     parentMap.set(category.slug, category.cat_rel_key.slug);
   }
-
   let current = category.slug;
   const visited = new Set();
-
   while (current && !MASTER_CATEGORY_SLUGS.has(current)) {
     if (visited.has(current)) {
       return undefined;
@@ -46,13 +38,10 @@ const deriveMasterSlug = (categoryTree, category) => {
     visited.add(current);
     current = parentMap.get(current);
   }
-
   return current;
 };
-
 const getSuperCategory = (slug) => {
   let restrictedSlug = [slug];
-
   switch (slug) {
     case "equipment":
       restrictedSlug = [
@@ -103,12 +92,10 @@ const getSuperCategory = (slug) => {
     default:
       break;
   }
-
   return {
     restrictedSlug,
   };
 };
-
 const CategoryPage = ({ slug }) => {
   const router = useRouter();
   const [treeOpen, setTreeOpen] = useState(false);
@@ -216,5 +203,4 @@ const CategoryPage = ({ slug }) => {
     </div>
   );
 };
-
 export default CategoryPage;

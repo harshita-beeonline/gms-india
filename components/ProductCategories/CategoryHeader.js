@@ -141,11 +141,9 @@ const CategoryHeader = ({ activeSlug }) => {
     setOpenDropdown(openDropdown === name ? null : name);
     setOpenSubDropdown(null); // Close sub-dropdown when switching main dropdown
   };
-
   const toggleSubDropdown = (name) => {
     setOpenSubDropdown(openSubDropdown === name ? null : name);
   };
-
   return (
     <>
       <div className={styles["category-header-section"]}  onMouseLeave={() => toggleDropdown(false)}>
@@ -230,5 +228,4 @@ const CategoryHeader = ({ activeSlug }) => {
     </>
   );
 };
-
 export default CategoryHeader;

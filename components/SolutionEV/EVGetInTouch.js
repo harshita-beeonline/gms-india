@@ -32,5 +32,4 @@ const EVGetInTouch = () => {
     </div>
   );
 };
-
 export default EVGetInTouch;

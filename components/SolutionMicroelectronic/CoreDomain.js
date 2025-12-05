@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../../styles/CoreDomain.module.scss";
-
 const CoreDomain = () => {
   const tabs = [
     {
@@ -23,9 +22,7 @@ const CoreDomain = () => {
         "We are stepping up to meet the market's pressing need for trustworthy suppliers and work diligently to provide solutions that satisfy your needs and, on occasions, even maximize them.",
     },
   ];
-
   const [activeTab, setActiveTab] = useState(tabs[0].id); // default active: first tab
-
   return (
     <div className={styles["core-domain-section"]}>
       <div className={styles["core-domain-content"]}>
@@ -53,5 +50,4 @@ const CoreDomain = () => {
     </div>
   );
 };
-
 export default CoreDomain;

@@ -6,7 +6,6 @@ import styles from "../../styles/Header.module.scss";
 import newlogo from "../../public/images/newlogo.jpg";
 import { useAppStore } from "../../store";
 import { useRouter } from "next/navigation";
-
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null); // ⬅️ single source of truth
@@ -454,5 +453,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../../styles/EVCoreDomain.module.scss";
-
 const EVCoreDomain = () => {
   const tabs = [
     {
@@ -51,5 +50,4 @@ const EVCoreDomain = () => {
     </div>
   );
 };
-
 export default EVCoreDomain;

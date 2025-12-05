@@ -1,5 +1,4 @@
 "use client";
-
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -8,18 +7,14 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import OGP from "../OGP";
 import { getAsset } from "../utils";
-
 const HomePage = ({ testimonials = [], hero }) => {
   const pathname = usePathname();
   const [verified, setVerified] = useState(false);
-
   /** 19-01-2025 start */
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission temporarily
     const form = event.target;
-
     if (verified) {
       // If CAPTCHA is verified, display success message and submit the form
       setShowSuccessMessage(true); // Show success message
@@ -31,7 +26,6 @@ const HomePage = ({ testimonials = [], hero }) => {
     }
   };
   /** 19-01-2025 end */
-
   return (
     <div className="w-full font-text overflow-x-hidden scroll-smooth">
       <OGP title="Home" image="" />
@@ -689,5 +683,4 @@ const HomePage = ({ testimonials = [], hero }) => {
     </div>
   );
 };
-
 export default HomePage;

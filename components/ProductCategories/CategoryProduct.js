@@ -59,5 +59,4 @@ const CategoryProduct = ({
     </div>
   );
 };
-
 export default CategoryProduct;
