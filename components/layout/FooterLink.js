@@ -1,10 +1,19 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import styles from "../../styles/FooterLink.module.scss";
 import footerlogo from "../../public/images/footerlogo.png";
 import Image from "next/image";
 import Link from "next/link";
 
 const FooterLink = () => {
+const [copied, setCopied] = useState(false);
+
+const isMobileDevice = () => {
+  if (typeof navigator === "undefined") return false;
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+};
+
+
   const contactList = [
     {
       id: "address",
@@ -46,7 +55,7 @@ const FooterLink = () => {
           />
         </svg>
       ),
-      title: "080 2666 5684/5",
+      title: "080 2666 5684",
       href: "tel:+918026665684",
     },
     {
@@ -216,7 +225,7 @@ const FooterLink = () => {
         <div className={styles["footer-links-right-content"]}>
           <div className={styles["footer-details-with-list"]}>
             <h5>Contact</h5>
-            {contactList.map((item) => {
+            {/* {contactList.map((item) => {
               const content = (
                 <>
                   {item.icon}
@@ -245,7 +254,61 @@ const FooterLink = () => {
                   <div className={styles["icon-title"]}>{content}</div>
                 </div>
               );
-            })}
+            })} */}
+{contactList.map((item) => {
+  const isPhone = item.id === "phone";
+  const mobile = isMobileDevice();
+
+  let finalHref = item.href;
+
+  // Desktop → disable tel:
+  if (isPhone && !mobile) {
+    finalHref = undefined;
+  }
+
+  const handlePhoneClick = (e) => {
+    if (isPhone && !mobile) {
+      e.preventDefault();
+      navigator.clipboard.writeText(item.title);
+      setCopied(true);
+
+      // hide tooltip after 1.5 sec
+      setTimeout(() => setCopied(false), 1500);
+    }
+  };
+
+  const content = (
+    <>
+      {item.icon}
+      <p>{item.title}</p>
+
+      {/* Tooltip */}
+      {isPhone && copied && (
+        <span className={styles.tooltip}>Copied!</span>
+      )}
+    </>
+  );
+
+  return (
+    <div className={styles["details-list"]} key={item.id}>
+      {finalHref ? (
+        <a
+          href={finalHref}
+          className={styles["icon-title"]}
+          onClick={handlePhoneClick}
+        >
+          {content}
+        </a>
+      ) : (
+        <div className={styles["icon-title"]} onClick={handlePhoneClick}>
+          {content}
+        </div>
+      )}
+    </div>
+  );
+})}
+
+
           </div>
           <div className={styles["footer-details-with-list"]}>
             <h5>Our Products</h5>
