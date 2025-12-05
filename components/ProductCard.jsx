@@ -38,6 +38,7 @@ const ImageLogic = ({ v2_image, v2_product, name, image }) => {
 
 const ProductCard = (props) => {
   const appStore = useAppStore();
+  const linkBase = props.linkPrefix || "/product";
   const addToCart = () => {
     appStore.addToCart({
       id: props.id,
@@ -63,7 +64,7 @@ const ProductCard = (props) => {
       </div>
       <div>
         <Link
-          href={`/product/${props.slug}`}
+          href={`${linkBase}/${props.slug}`}
           className="text-xl font-bs text-center border-b border-black pb-2 block"
         >
           {props.name}
@@ -76,7 +77,7 @@ const ProductCard = (props) => {
       </div>
       <div className="flex flex-col gap-y-2">
         <Link
-          href={`/product/${props.slug}`}
+          href={`${linkBase}/${props.slug}`}
           className="block rounded-full bg-[#4b8bf5] p-2 text-white text-center hover:bg-sky-700 "
         >
           View Product

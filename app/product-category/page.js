@@ -1,12 +1,7 @@
-import React from 'react'
-import CategoryHeader from '../../components/ProductCategories/CategoryHeader'
+import { redirect } from "next/navigation";
 
-const page = () => {
-  return (
-    <>
-     <CategoryHeader /> 
-    </>
-  )
-}
+const ProductCategoryIndexPage = () => {
+  redirect("/product-category/components");
+};
 
-export default page
+export default ProductCategoryIndexPage;

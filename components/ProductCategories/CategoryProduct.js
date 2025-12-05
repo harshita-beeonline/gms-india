@@ -1,123 +1,59 @@
 import React from "react";
 import styles from "../../styles/CategoryProduct.module.scss";
-import product1 from "../../public/images/product1.png";
-import product2 from "../../public/images/product2.png";
-import product3 from "../../public/images/product3.png";
-import Image from "next/image";
 import Link from "next/link";
-const CategoryProduct = () => {
-  const cardsData = [
-    {
-      link: "/main-product",
-      image: product1,
-      name: "SR300Photo Voltaic Float Zone Silicon wafer0",
-      details:
-        "Photo Voltaic Float Zone(PV-FZ) silicon wafers have High minority carrier ...",
-    },
-    {
-      link: "/main-product",
-      image: product2,
-      name: "Preferred Float Zone Silicon Wafers",
-      details:
-        "Float Zone-Preferred Float Zone(FZ-PFZ) silicon wafer has the lowest resist..",
-    },
-    {
-      link: "/main-product",
-      image: product3,
-      name: "Float Zone Silicon Wafers",
-      details:
-        "Most power electronics devices are manufactured using float zone wafers for...",
-    },
-    {
-      link: "/main-product",
-      image: product1,
-      name: "SR300Photo Voltaic Float Zone Silicon wafer0",
-      details:
-        "Photo Voltaic Float Zone(PV-FZ) silicon wafers have High minority carrier ...",
-    },
-    {
-      link: "/main-product",
-      image: product1,
-      name: "SR300Photo Voltaic Float Zone Silicon wafer0",
-      details:
-        "Photo Voltaic Float Zone(PV-FZ) silicon wafers have High minority carrier ...",
-    },
-    {
-      link: "/main-product",
-      image: product2,
-      name: "Preferred Float Zone Silicon Wafers",
-      details:
-        "Float Zone-Preferred Float Zone(FZ-PFZ) silicon wafer has the lowest resist..",
-    },
-    {
-      link: "/main-product",
-      image: product3,
-      name: "Float Zone Silicon Wafers",
-      details:
-        "Most power electronics devices are manufactured using float zone wafers for...",
-    },
-    {
-      link: "/main-product",
-      image: product1,
-      name: "SR300Photo Voltaic Float Zone Silicon wafer0",
-      details:
-        "Photo Voltaic Float Zone(PV-FZ) silicon wafers have High minority carrier ...",
-    },
-    {
-      link: "/main-product",
-      image: product1,
-      name: "SR300Photo Voltaic Float Zone Silicon wafer0",
-      details:
-        "Photo Voltaic Float Zone(PV-FZ) silicon wafers have High minority carrier ...",
-    },
-    {
-      link: "/main-product",
-      image: product2,
-      name: "Preferred Float Zone Silicon Wafers",
-      details:
-        "Float Zone-Preferred Float Zone(FZ-PFZ) silicon wafer has the lowest resist..",
-    },
-    {
-      link: "/main-product",
-      image: product3,
-      name: "Float Zone Silicon Wafers",
-      details:
-        "Most power electronics devices are manufactured using float zone wafers for...",
-    },
-    {
-      link: "/main-product",
-      image: product1,
-      name: "SR300Photo Voltaic Float Zone Silicon wafer0",
-      details:
-        "Photo Voltaic Float Zone(PV-FZ) silicon wafers have High minority carrier ...",
-    },
-  ];
+const CategoryProduct = ({
+  categoryName = "Equipment",
+  productCount,
+  categoryDescription = "Range of Equipment are mainly to semiconductors and microelectronics fabrication and assembly",
+  products = [],
+  loading = false,
+}) => {
+  const headingCount =
+    productCount !== undefined
+      ? productCount
+      : products?.length || 0;
+
+  const headingName =
+    categoryName && categoryName.length > 0 ? categoryName : "Equipment";
+  const statusStyles = {
+    gridColumn: "1 / -1",
+    textAlign: "center",
+    width: "100%",
+  };
   return (
     <div className={styles["all-category-product-section"]}>
       <div className={styles["category-text-and-cards"]}>
         <h2>
-          Equipment <span>48 products found</span>
+          {headingName} <span>{headingCount} products found</span>
         </h2>
-        <p>
-          Range of Equipment are mainly to semiconductors and microelectronics
-          fabrication and assembly
-        </p>
+        <p>{categoryDescription}</p>
         <div className={styles["category-main-cards-sections"]}>
-          {cardsData.map((item, index) => (
-            <Link href={item.link} key={index}>
-              <div className={styles["product-card"]}>
-                <div className={styles["product-image"]}>
-                  <Image src={item.image} alt="image" />
+          {loading && products.length === 0 && (
+            <p style={statusStyles}>Loading products...</p>
+          )}
+          {!loading && products.length === 0 && (
+            <p style={statusStyles}>No products found.</p>
+          )}
+          {!loading &&
+            products.map((item, index) => (
+              <Link href={item.link || "/main-product"} key={index}>
+                <div className={styles["product-card"]}>
+                  <div className={styles["product-image"]}>
+                    {item.imageUrl ? (
+                      <img src={item.imageUrl} alt={item.name || "image"} />
+                    ) : (
+                      <img src={item.image || ""} alt={item.name || "image"} />
+                    )}
+                  </div>
+                  <h5>{item.name}</h5>
+                  <p>{item.description || item.details}</p>
+                  <button className={styles["view-product-btn"]}>
+                    View Product
+                  </button>
+                  <button className={styles["add-cart-btn"]}>Add to Cart</button>
                 </div>
-                <h5>{item.name}</h5>
-                <p>{item.details}</p>
-                <button className={styles["view-product-btn"]}>
-                  View Product
-                </button>
-                <button className={styles["add-cart-btn"]}>Add to Cart</button>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
         </div>
       </div>
     </div>

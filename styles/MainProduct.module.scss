@@ -131,23 +131,23 @@
       .application-technical-dropdown {
         margin-top: 30px;
 
-        .dropdown-content {
-          .divider {
-            border-bottom: 1px solid #e1e0e0;
-            &:last-child {
-              border-bottom: none;
-            }
+          .dropdown-content {
+            .divider {
+              border-bottom: 1px solid #e1e0e0;
+              &:last-child {
+                border-bottom: none;
+              }
             .dropdwon-list {
               display: flex;
               align-items: center;
               justify-content: space-between;
               padding: 20px 12px;
               cursor: pointer;
-              h6 {
-                font-family: Instrument Sans;
-                font-weight: 600;
-                font-style: SemiBold;
-                font-size: 20px;
+                h6 {
+                  font-family: Instrument Sans;
+                  font-weight: 600;
+                  font-style: SemiBold;
+                  font-size: 20px;
                 margin: 0px;
                 line-height: 100%;
                 letter-spacing: 0%;
@@ -178,6 +178,28 @@
               li::before {
                 content: "• ";
                 padding-right: 5px;
+              }
+            }
+            .dropdown-html {
+              padding: 0 12px 10px 12px;
+              font-family: Instrument Sans;
+              font-weight: 400;
+              font-style: Regular;
+              font-size: 16px;
+              line-height: 28px;
+              letter-spacing: 0%;
+              color: #494545;
+              ul,
+              ol {
+                padding-left: 20px;
+                margin: 0;
+              }
+              li {
+                list-style-type: disc !important;
+                padding-left: 0;
+              }
+              li::before {
+                content: none !important;
               }
             }
           }
