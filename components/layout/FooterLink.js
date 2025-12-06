@@ -266,16 +266,31 @@ const isMobileDevice = () => {
     finalHref = undefined;
   }
 
-  const handlePhoneClick = (e) => {
-    if (isPhone && !mobile) {
+  // const handlePhoneClick = (e) => {
+  //   if (isPhone && !mobile) {
+  //     e.preventDefault();
+  //     navigator.clipboard.writeText(item.title);
+  //     setCopied(true);
+
+  //     // hide tooltip after 1.5 sec
+  //     setTimeout(() => setCopied(false), 1500);
+  //   }
+  // };
+const handlePhoneClick = (e) => {
+  if (isPhone) {
+    if (!mobile) {
+      // Desktop: copy only
       e.preventDefault();
       navigator.clipboard.writeText(item.title);
       setCopied(true);
-
-      // hide tooltip after 1.5 sec
       setTimeout(() => setCopied(false), 1500);
+    } else {
+      // Mobile: force phone dialer explicitly
+      e.preventDefault();
+      window.location.href = `tel:${item.title.replace(/\s+/g, "")}`;
     }
-  };
+  }
+};
 
   const content = (
     <>
