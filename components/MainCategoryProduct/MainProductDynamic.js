@@ -15,7 +15,8 @@ import { getAsset, getLegacyAsset } from "../utils";
 import { useAppStore } from "../../store";
 import { frontendClient } from "../../lib/graphql-clients";
 import ProductCard from "../ProductCard";
-
+import productminiimage from '../../public/images/productminiimage.png';
+import Image from "next/image";
 const placeholderImage =
   "https://gms-backend.centauri-tech.com/assets/f9d2fe8d-3ac1-433e-aaf8-9a8db30b366f";
 
@@ -137,6 +138,9 @@ const MainProductDynamic = ({ slug }) => {
     <div className={styles["main-product-page-section"]}>
       <div className={styles["main-product-left-right-section"]}>
         <div className={styles["main-product-left-section"]}>
+           <div className={styles["product-mini-image"]}>
+            <Image src={productminiimage} alt="img"/>
+           </div>
           <div className={styles["product-main-image"]}>
             <img src={imageSrc} alt={product.name} />
           </div>
