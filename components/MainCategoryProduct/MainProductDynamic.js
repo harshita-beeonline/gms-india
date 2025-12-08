@@ -15,8 +15,7 @@ import { getAsset, getLegacyAsset } from "../utils";
 import { useAppStore } from "../../store";
 import { frontendClient } from "../../lib/graphql-clients";
 import ProductCard from "../ProductCard";
-import productminiimage from '../../public/images/productminiimage.png';
-import Image from "next/image";
+import productminiimage from "../../public/images/productminiimage.png";
 const placeholderImage =
   "https://gms-backend.centauri-tech.com/assets/f9d2fe8d-3ac1-433e-aaf8-9a8db30b366f";
 
@@ -104,6 +103,21 @@ const MainProductDynamic = ({ slug }) => {
     return product.data_sheet ? getLegacyAsset(product.data_sheet) : "";
   };
 
+  const getManufacturerLogoUrl = () => {
+    const manufacturer = product?.manufacturer_id;
+    if (!manufacturer) return "";
+
+    if (manufacturer.image_v2?.id) {
+      return getAsset(manufacturer.image_v2.id);
+    }
+
+    if (manufacturer.image) {
+      return getLegacyAsset(manufacturer.image);
+    }
+
+    return "";
+  };
+
   const dropdownData = [
     {
       name: "Applications",
@@ -133,14 +147,27 @@ const MainProductDynamic = ({ slug }) => {
     ? "Item in Cart"
     : "Add To Cart";
   const imageSrc = getImageUrl() || mainproductimage.src;
+  const manufacturerLogo = getManufacturerLogoUrl();
+  const manufacturerUrl = product.manufacturer_id?.url;
+  const manufacturerName = product.manufacturer_id?.name || "Manufacturer logo";
 
   return (
     <div className={styles["main-product-page-section"]}>
       <div className={styles["main-product-left-right-section"]}>
         <div className={styles["main-product-left-section"]}>
-           <div className={styles["product-mini-image"]}>
-            <Image src={productminiimage} alt="img"/>
-           </div>
+          <div className={styles["product-mini-image"]}>
+            {manufacturerLogo ? (
+              manufacturerUrl ? (
+                <a href={manufacturerUrl} target="_blank" rel="noreferrer">
+                  <img src={manufacturerLogo} alt={manufacturerName} />
+                </a>
+              ) : (
+                <img src={manufacturerLogo} alt={manufacturerName} />
+              )
+            ) : (
+              <img src={productminiimage.src} alt="Brand logo placeholder" />
+            )}
+          </div>
           <div className={styles["product-main-image"]}>
             <img src={imageSrc} alt={product.name} />
           </div>

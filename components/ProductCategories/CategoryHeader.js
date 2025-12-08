@@ -144,6 +144,17 @@ const CategoryHeader = ({ activeSlug }) => {
   const toggleSubDropdown = (name) => {
     setOpenSubDropdown(openSubDropdown === name ? null : name);
   };
+
+  const handleSubCategoryClick = (sub) => {
+    const hasChildren = (sub.items || []).length > 0;
+    if (hasChildren) {
+      toggleSubDropdown(sub.name);
+      return;
+    }
+    if (sub.slug) {
+      router.push(`/product-category/${sub.slug}`);
+    }
+  };
   return (
     <>
       <div className={styles["category-header-section"]}  onMouseLeave={() => toggleDropdown(false)}>
@@ -171,10 +182,7 @@ const CategoryHeader = ({ activeSlug }) => {
                     <div key={sub.slug || sub.name}>
                       <div
                         className={styles["sub-dropdwon-list"]}
-                        onClick={() =>
-                          sub.slug &&
-                          router.push(`/product-category/${sub.slug}`)
-                        }
+                        onClick={() => handleSubCategoryClick(sub)}
                       >
                         <h6>{sub.name}</h6>
                         {sub.items.length > 0 && (
