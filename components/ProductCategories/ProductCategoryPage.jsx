@@ -85,9 +85,16 @@ const normalizeProducts = (rawProducts = []) =>
       slug: p.slug,
       description: p.meta_description || "",
       imageUrl,
-      link: `/main-product/${p.slug}`,
+      link: `/product/${p.slug}`,
     };
   });
+
+const formatSlugLabel = (value = "") =>
+  value
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 
 const ProductCategoryPage = ({ slug }) => {
   const [loading, setLoading] = useState(false);
@@ -127,6 +134,7 @@ const ProductCategoryPage = ({ slug }) => {
       <CategoryHeader activeSlug={slug} />
       <CategoryProduct
         categoryName={category?.name}
+        fallbackName={!loading ? formatSlugLabel(slug) : ""}
         categoryDescription={category?.description}
         productCount={products?.length}
         products={products}

@@ -2,9 +2,10 @@ import React from "react";
 import styles from "../../styles/CategoryProduct.module.scss";
 import Link from "next/link";
 const CategoryProduct = ({
-  categoryName = "Equipment",
+  categoryName = "",
+  fallbackName = "",
   productCount,
-  categoryDescription = "Range of Equipment are mainly to semiconductors and microelectronics fabrication and assembly",
+  categoryDescription = "",
   products = [],
   loading = false,
 }) => {
@@ -14,7 +15,19 @@ const CategoryProduct = ({
       : products?.length || 0;
 
   const headingName =
-    categoryName && categoryName.length > 0 ? categoryName : "Equipment";
+    (categoryName && categoryName.trim().length > 0
+      ? categoryName
+      : fallbackName && fallbackName.trim().length > 0 && !loading
+      ? fallbackName
+      : loading
+      ? "Loading..."
+      : "Category");
+  const descriptionText =
+    categoryDescription && categoryDescription.trim().length > 0 && !loading
+      ? categoryDescription
+      : !loading && fallbackName
+      ? `Explore our ${fallbackName.toLowerCase()} selection.`
+      : "";
   const statusStyles = {
     gridColumn: "1 / -1",
     textAlign: "center",
@@ -26,7 +39,7 @@ const CategoryProduct = ({
         <h2>
           {headingName} <span>{headingCount} products found</span>
         </h2>
-        <p>{categoryDescription}</p>
+        {descriptionText && <p>{descriptionText}</p>}
         <div className={styles["category-main-cards-sections"]}>
           {loading && products.length === 0 && (
             <p style={statusStyles}>Loading products...</p>
@@ -36,7 +49,10 @@ const CategoryProduct = ({
           )}
           {!loading &&
             products.map((item, index) => (
-              <Link href={item.link || "/main-product"} key={index}>
+              <Link
+                href={item.link || `/product/${item.slug || ""}`}
+                key={index}
+              >
                 <div className={styles["product-card"]}>
                   <div className={styles["product-image"]}>
                     {item.imageUrl ? (

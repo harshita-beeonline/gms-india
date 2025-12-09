@@ -1,8 +1,8 @@
-import CategoryPage from "../../../components/pages/CategoryPage";
+import ProductCategoryPage from "../../../components/ProductCategories/ProductCategoryPage";
 
 const CategorySlugPage = ({ params }) => {
   const { slug } = params;
-  return <CategoryPage slug={slug} />;
+  return <ProductCategoryPage slug={slug} />;
 };
 
 export default CategorySlugPage;

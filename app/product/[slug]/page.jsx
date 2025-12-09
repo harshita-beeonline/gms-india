@@ -1,8 +1,8 @@
-import ProductPage from "../../../components/pages/ProductPage";
+import MainProductDynamic from "../../../components/MainCategoryProduct/MainProductDynamic";
 
 const ProductSlugPage = ({ params }) => {
   const { slug } = params;
-  return <ProductPage slug={slug} />;
+  return <MainProductDynamic slug={slug} />;
 };
 
 export default ProductSlugPage;
