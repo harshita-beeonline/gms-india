@@ -1,4 +1,4 @@
-import ResourceArticlePage from "../../../components/pages/ResourceArticlePage";
+import IndividualBlog from "../../../components/BlogPage/IndividualBlog";
 import { backendClient } from "../../../lib/graphql-clients";
 import { getAllSlugs, getArticle } from "../../../components/graphql";
 import { notFound } from "next/navigation";
@@ -9,16 +9,16 @@ export async function generateStaticParams() {
   try {
     const data = await backendClient.request(getAllSlugs);
     const slugs = data?.blog_article || [];
-    return slugs
-      .filter((item) => item?.active === true)
-      .map((item) => ({ slug: item.slug }));
+    return slugs.filter((item) => item?.active === true).map((item) => ({
+      slug: item.slug,
+    }));
   } catch (error) {
-    console.error("[resources] failed to prefetch slugs:", error?.message);
+    console.error("[blog] failed to prefetch slugs:", error?.message);
     return [];
   }
 }
 
-const ResourceArticle = async ({ params }) => {
+const BlogArticlePage = async ({ params }) => {
   const { slug } = params;
   let data = null;
 
@@ -26,17 +26,18 @@ const ResourceArticle = async ({ params }) => {
     data = await backendClient.request(getArticle, { slug });
   } catch (error) {
     console.error(
-      `[resources] failed to fetch article for slug ${slug}:`,
+      `[blog] failed to fetch article for slug ${slug}:`,
       error?.message
     );
   }
+
   const article = data?.blog_article?.[0] || null;
 
   if (!article || article?.active !== true) {
     notFound();
   }
 
-  return <ResourceArticlePage article={article} />;
+  return <IndividualBlog article={article} />;
 };
 
-export default ResourceArticle;
+export default BlogArticlePage;

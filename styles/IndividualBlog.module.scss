@@ -33,7 +33,7 @@
           font-family: Instrument Sans;
           font-weight: 400;
           font-style: Regular;
-          font-size: 14px;
+          font-size: 12px;
           line-height: 100%;
           letter-spacing: 0%;
           vertical-align: middle;
@@ -57,7 +57,7 @@
             font-family: Instrument Sans;
             font-weight: 400;
             font-style: Regular;
-            font-size: 18px;
+            font-size: 16px;
             margin: 0px;
             line-height: 100%;
             letter-spacing: 0%;
@@ -70,13 +70,13 @@
           font-family: Instrument Sans;
           font-weight: 600;
           font-style: SemiBold;
-          font-size: 32px;
+          font-size: 30px;
           margin: 0px;
           line-height: 42px;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #ffffff;
-          margin-top: 30px;
+          margin-top: 20px;
           width: 85%;
         }
       }
@@ -95,7 +95,7 @@
         h5 {
           font-weight: 600;
           font-style: SemiBold;
-          font-size: 16px;
+          font-size: 14px;
           margin: 0px;
           line-height: 100%;
           letter-spacing: 0%;
@@ -107,7 +107,7 @@
         h6 {
           font-weight: 400;
           font-style: Regular;
-          font-size: 16px;
+          font-size: 14px;
           margin: 0px;
           line-height: 100%;
           letter-spacing: 0%;
@@ -119,10 +119,30 @@
       }
       .introduction-right-part {
         width: 65%;
+        img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          margin: 40px auto;
+          padding: 12px;
+          border: 1px solid #d9d9d9;
+          border-radius: 8px;
+        }
+        h2 {
+          font-weight: 600;
+          font-style: SemiBold;
+          font-size: 24px;
+          margin: 0px;
+          line-height: 42px;
+          letter-spacing: 0%;
+          vertical-align: middle;
+          color: #1c1c1c;
+          margin-top: 20px;
+        }
         h4 {
           font-weight: 600;
           font-style: SemiBold;
-          font-size: 28px;
+          font-size: 26px;
           margin: 0px;
           line-height: 100%;
           letter-spacing: 0%;
@@ -133,7 +153,7 @@
         h5 {
           font-weight: 500;
           font-style: Medium;
-          font-size: 24px;
+          font-size: 22px;
           margin: 0px;
           line-height: 100%;
           letter-spacing: 0%;
@@ -145,24 +165,37 @@
         p {
           font-weight: 400;
           font-style: Regular;
-          font-size: 20px;
+          font-size: 18px;
           margin: 0px;
           line-height: 32px;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #403f3f;
-          margin-top: 15px;
+          margin-top: 10px;
         }
         li {
           font-weight: 400;
           font-style: Regular;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 25px;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #403f3f;
-          margin-left: 30px;
+          margin-left: 0;
+          padding-left: 24px;
           margin-top: 8px;
+        }
+        ul,
+        ol {
+          padding-left: 24px;
+          margin-left: 0;
+          list-style-position: outside;
+        }
+        ul {
+          list-style-type: disc;
+        }
+        ol {
+          list-style-type: decimal;
         }
         .intro-blog-image {
           display: flex;
@@ -184,7 +217,7 @@
           font-family: Instrument Sans;
           font-weight: 600;
           font-style: SemiBold;
-          font-size: 24px;
+          font-size: 20px;
           margin: 0px;
           line-height: 100%;
           letter-spacing: 0%;
@@ -196,9 +229,9 @@
           margin-top: 25px;
           li {
             font-family: Instrument Sans;
-            font-weight: 500;
+            font-weight: 400;
             font-style: Medium;
-            font-size: 24px;
+            font-size: 16px;
             line-height: 100%;
             letter-spacing: 0%;
             vertical-align: middle;
@@ -208,7 +241,7 @@
         .other-list-data {
           font-weight: 500;
           font-style: Medium;
-          font-size: 20px;
+          font-size: 18px;
           line-height: 100%;
           letter-spacing: 0%;
           vertical-align: middle;
@@ -399,7 +432,7 @@
           ol {
             margin-top: 20px;
             li {
-              font-size: 18px;
+              font-size: 12px;
             }
           }
           .other-list-data {

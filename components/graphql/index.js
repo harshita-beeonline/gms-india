@@ -21,6 +21,7 @@ export const getAllSlugs = gql`
     blog_article(sort: ["-created_on"]) {
       id
       slug
+      active
     }
   }
 `;
@@ -30,10 +31,15 @@ export const getBlogs = gql`
     blog_article(page: $page, limit: 8, sort: ["-created_on"]) {
       id
       created_on
+      active
       title
       slug
       categories
       image
+      cover_image {
+        id
+        filename_download
+      }
     }
   }
 `;
@@ -49,9 +55,14 @@ export const getArticle = gql`
     ) {
       id
       created_on
+      active
       title
       slug
       image
+      cover_image {
+        id
+        filename_download
+      }
       overview
       meta_description
     }

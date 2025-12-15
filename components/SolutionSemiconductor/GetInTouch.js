@@ -27,7 +27,6 @@ const GetInTouch = () => {
       description: Yup.string().required("Description is required"),
     }),
     onSubmit: (values) => {
-      console.log("Form submitted:", values);
       alert("Thank you! Your message has been sent successfully.");
       setIsPopupOpen(false);
     },
