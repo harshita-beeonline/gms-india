@@ -20,7 +20,7 @@
     "graphql": "^16.8.1",
     "graphql-request": "^5.2.0",
     "lucide-react": "^0.552.0",
-    "next": "14.1.0",
+    "next": "14.2.35",
     "nextjs-progressbar": "^0.0.16",
     "posthog-js": "^1.104.4",
     "pure-react-carousel": "^1.30.1",
