@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "../../styles/CategoryProduct.module.scss";
 import Link from "next/link";
+import viewhovericon from '../../public/images/viewhovericon.svg';
+import hovericon1 from '../../public/images/hovericon1.svg'
+import Image from "next/image";
 const CategoryProduct = ({
   categoryName = "",
   fallbackName = "",
@@ -64,9 +67,10 @@ const CategoryProduct = ({
                   <h5>{item.name}</h5>
                   <p>{item.description || item.details}</p>
                   <button className={styles["view-product-btn"]}>
-                    View Product
+                    <Image src={viewhovericon} alt="img"/>View Product
                   </button>
-                  <button className={styles["add-cart-btn"]}>Add to Cart</button>
+                  <button className={styles["add-cart-btn"]}>
+                    <Image src={hovericon1} alt="img"/>Add to Cart</button>
                 </div>
               </Link>
             ))}
