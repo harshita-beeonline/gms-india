@@ -6,6 +6,7 @@ import { frontendClient } from "../../lib/graphql-clients";
 import { getAsset, getLegacyAsset } from "../utils";
 import CategoryHeader from "./CategoryHeader";
 import CategoryProduct from "./CategoryProduct";
+import { useAppStore } from "../../store";
 
 const getSuperCategory = (slug) => {
   let restrictedSlug = [slug];
@@ -96,10 +97,50 @@ const formatSlugLabel = (value = "") =>
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
 
+const collectDescendantSlugs = (node) => {
+  if (!node) return [];
+  const ownSlug = node.slug ? [node.slug] : [];
+  const childSlugs = Array.isArray(node.category_self_rel)
+    ? node.category_self_rel.flatMap((child) => collectDescendantSlugs(child))
+    : [];
+  return [...ownSlug, ...childSlugs];
+};
+
+const findCategoryBySlug = (nodes = [], slug) => {
+  for (const node of nodes) {
+    if (node?.slug === slug) {
+      return node;
+    }
+    const match = findCategoryBySlug(node?.category_self_rel || [], slug);
+    if (match) {
+      return match;
+    }
+  }
+  return null;
+};
+
+const deriveSlugsFromTree = (tree = [], slug) => {
+  const node = findCategoryBySlug(tree, slug);
+  if (!node) {
+    return [];
+  }
+  return Array.from(new Set(collectDescendantSlugs(node).filter(Boolean)));
+};
+
 const ProductCategoryPage = ({ slug }) => {
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState();
   const [products, setProducts] = useState([]);
+  const { categoryTree, fetchCategoryTree } = useAppStore((state) => ({
+    categoryTree: state.categoryTree,
+    fetchCategoryTree: state.fetchCategoryTree,
+  }));
+
+  useEffect(() => {
+    if (!categoryTree || categoryTree.length === 0) {
+      fetchCategoryTree();
+    }
+  }, [categoryTree, fetchCategoryTree]);
 
   useEffect(() => {
     if (!slug) return;
@@ -108,12 +149,19 @@ const ProductCategoryPage = ({ slug }) => {
       setProducts([]);
       setCategory(undefined);
       const { restrictedSlug } = getSuperCategory(categorySlug);
+      const slugsFromTree = deriveSlugsFromTree(categoryTree, categorySlug);
+      const slugsForQuery = Array.from(
+        new Set([
+          ...(slugsFromTree.length > 0 ? slugsFromTree : [categorySlug]),
+          ...restrictedSlug,
+        ])
+      );
       try {
         const { backend_product, backend_category } =
           await frontendClient.request(getCategoryPageGQL, {
             slug: categorySlug,
             page: 1,
-            slugs: restrictedSlug,
+            slugs: slugsForQuery,
           });
 
         setCategory(backend_category?.[0]);
@@ -127,7 +175,7 @@ const ProductCategoryPage = ({ slug }) => {
     };
 
     fetchProducts(slug);
-  }, [slug]);
+  }, [slug, categoryTree]);
 
   return (
     <>

@@ -206,6 +206,9 @@
       p {
         font-size: 14px;
       }
+      .subcategory-section {
+        display: none;
+      }
       .category-main-cards-sections {
         grid-template-columns: repeat(2, 2fr);
         gap: 20px 15px;

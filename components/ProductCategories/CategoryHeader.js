@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../../styles/CategoryHeader.module.scss";
 import category1 from "../../public/images/category1.svg";
@@ -87,6 +87,7 @@ const CategoryHeader = ({ activeSlug }) => {
   }));
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
+   const containerRef = useRef(null);
 
   // Ensure category tree is loaded
   useEffect(() => {
@@ -148,16 +149,62 @@ const CategoryHeader = ({ activeSlug }) => {
   const handleSubCategoryClick = (sub) => {
     const hasChildren = (sub.items || []).length > 0;
     if (hasChildren) {
-      toggleSubDropdown(sub.name);
-      return;
+      setOpenSubDropdown(sub.name);
+    } else {
+      setOpenSubDropdown(null);
+      setOpenDropdown(null);
     }
     if (sub.slug) {
       router.push(`/product-category/${sub.slug}`);
     }
   };
+
+  useEffect(() => {
+    if (!activeSlug) return;
+    let found = false;
+    categories.forEach((category) => {
+      if (found) return;
+      category.subcategories.forEach((sub) => {
+        if (found) return;
+        if (sub.slug === activeSlug) {
+          setOpenDropdown(category.name);
+          setOpenSubDropdown(sub.name);
+          found = true;
+        }
+        const childMatch = (sub.items || []).some(
+          (child) => child.slug === activeSlug
+        );
+        if (childMatch) {
+          setOpenDropdown(category.name);
+          setOpenSubDropdown(sub.name);
+          found = true;
+        }
+      });
+    });
+  }, [activeSlug, categories]);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!containerRef.current) return;
+      if (!containerRef.current.contains(event.target)) {
+        setOpenDropdown(null);
+        setOpenSubDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, []);
   return (
     <>
-      <div className={styles["category-header-section"]}  onMouseLeave={() => toggleDropdown(false)}>
+      <div
+        className={styles["category-header-section"]}
+        onMouseLeave={() => toggleDropdown(false)}
+        ref={containerRef}
+      >
         <div className={styles["all-category-headings"]}>
           {categories.map((category) => (
             <div key={category.slug || category.name}>

@@ -2,6 +2,16 @@ import React from "react";
 import styles from "../../styles/IndividualBlog.module.scss";
 import { getAsset } from "../utils";
 
+// Strip inline styles coming from the editor to keep page styling consistent.
+const removeInlineStyles = (html = "") =>
+  html.replace(/\s+style\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "");
+
+// Drop images that reference local file-system paths from pasted content.
+const removeInvalidImages = (html = "") =>
+  html.replace(/<span[^>]*>\s*<img[^>]*src\s*=\s*["']?file:[^>"']*\/?>\s*<\/span>/gi, "").replace(/<img[^>]*src\s*=\s*["']?file:[^>"']*\/?>/gi, "");
+
+const sanitizeEditorHtml = (html = "") => removeInvalidImages(removeInlineStyles(html));
+
 const formatDate = (dateStr) => {
   if (!dateStr) return "";
   const d = new Date(dateStr);
@@ -17,6 +27,10 @@ const IndividualBlog = ({ article }) => {
   const heroImageId = article?.cover_image?.id || article?.image;
   const heroImage = heroImageId ? getAsset(heroImageId, 90, 1200) : null;
   const createdOn = formatDate(article?.created_on);
+  const cleanMeta = sanitizeEditorHtml(article?.meta_description || "");
+  const cleanOverview = sanitizeEditorHtml(
+    article?.overview || "<p>Content coming soon.</p>"
+  );
 
   return (
     <div className={styles["individual-blog-section"]}>
@@ -41,7 +55,7 @@ const IndividualBlog = ({ article }) => {
               {createdOn && <h5>{createdOn}</h5>}
             </div>
             <h2>{article?.title || "Blog"}</h2>
-            {article?.meta_description && <p>{article.meta_description}</p>}
+            {cleanMeta && <p>{cleanMeta}</p>}
           </div>
         </div>
       </div>
@@ -54,7 +68,7 @@ const IndividualBlog = ({ article }) => {
           <div className={styles["introduction-right-part"]}>
             <div
               dangerouslySetInnerHTML={{
-                __html: article?.overview || "<p>Content coming soon.</p>",
+                __html: cleanOverview,
               }}
             />
           </div>

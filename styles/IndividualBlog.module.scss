@@ -1,5 +1,6 @@
 .individual-blog-section {
   width: 100%;
+  --blog-space: 20px;
   .individual-blog-banner-part {
     background: linear-gradient(
       270deg,
@@ -90,7 +91,7 @@
     .introduction-left-right-part {
       display: flex;
       .introduction-left-part {
-        margin-top: 30px;
+        margin-top: var(--blog-space);
         width: 35%;
         h5 {
           font-weight: 600;
@@ -114,16 +115,24 @@
           vertical-align: middle;
           color: #6a6868;
           padding-left: 6px;
-          margin-top: 15px;
+          margin-top: var(--blog-space);
         }
       }
       .introduction-right-part {
         width: 65%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--blog-space);
+        > div {
+          display: flex;
+          flex-direction: column;
+          gap: var(--blog-space);
+        }
         img {
           display: block;
           max-width: 100%;
           height: auto;
-          margin: 40px auto;
+          margin: 0 auto;
           padding: 12px;
           border: 1px solid #d9d9d9;
           border-radius: 8px;
@@ -132,46 +141,42 @@
           font-weight: 600;
           font-style: SemiBold;
           font-size: 24px;
-          margin: 0px;
+          margin: 0;
           line-height: 42px;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #1c1c1c;
-          margin-top: 20px;
         }
         h4 {
           font-weight: 600;
           font-style: SemiBold;
           font-size: 26px;
-          margin: 0px;
+          margin: 0;
           line-height: 100%;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #1c1c1c;
-          margin-top: 30px;
         }
         h5 {
           font-weight: 500;
           font-style: Medium;
           font-size: 22px;
-          margin: 0px;
+          margin: 0;
           line-height: 100%;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #1c1c1c;
-          margin-top: 20px;
           padding-bottom: 10px;
         }
         p {
           font-weight: 400;
           font-style: Regular;
           font-size: 18px;
-          margin: 0px;
+          margin: 0;
           line-height: 32px;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #403f3f;
-          margin-top: 10px;
         }
         li {
           font-weight: 400;
@@ -181,15 +186,16 @@
           letter-spacing: 0%;
           vertical-align: middle;
           color: #403f3f;
-          margin-left: 0;
-          padding-left: 24px;
-          margin-top: 8px;
+          margin: 0;
+          padding-left: 0;
         }
         ul,
         ol {
           padding-left: 24px;
-          margin-left: 0;
+          margin: 0;
           list-style-position: outside;
+          display: grid;
+          gap: 10px;
         }
         ul {
           list-style-type: disc;
@@ -201,7 +207,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-top: 30px;
+          margin-top: 0;
           .intro-blog-main-image {
             width: 594px;
             height: 564px;
@@ -218,15 +224,13 @@
           font-weight: 600;
           font-style: SemiBold;
           font-size: 20px;
-          margin: 0px;
+          margin: 0;
           line-height: 100%;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #1c1c1c;
-          margin-top: 20px;
         }
         ol {
-          margin-top: 25px;
           li {
             font-family: Instrument Sans;
             font-weight: 400;
@@ -248,7 +252,6 @@
           color: #403f3f;
         }
         .order-list-data {
-          margin-top: 0px;
           li {
             font-weight: 400;
             font-style: Regular;
@@ -257,14 +260,13 @@
             letter-spacing: 0%;
             vertical-align: middle;
             color: #403f3f;
-            margin-top: 0px;
           }
         }
         .intro-blog-image {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-top: 30px;
+          margin-top: 0;
           .intro-blog-main-image2 {
             width: 584px;
             height: 383px;
@@ -349,6 +351,7 @@
 }
 @media (max-width: 768px) {
   .individual-blog-section {
+    --blog-space: 16px;
     .individual-blog-banner-part {
       padding: 20px;
       .banner-left-right-part {
@@ -414,10 +417,9 @@
           li {
             font-size: 12px;
             line-height: 18px;
-            margin-left: 15px;
           }
           .intro-blog-image {
-            margin-top: 0px;
+            margin-top: 0;
             .intro-blog-main-image {
               width: 341px;
               height: 325px;
@@ -430,7 +432,6 @@
             font-size: 18px;
           }
           ol {
-            margin-top: 20px;
             li {
               font-size: 12px;
             }
@@ -445,7 +446,7 @@
             }
           }
           .intro-blog-image {
-            margin-top: 30px;
+            margin-top: 0;
             .intro-blog-main-image2 {
               width: 333px;
               height: 218px;
