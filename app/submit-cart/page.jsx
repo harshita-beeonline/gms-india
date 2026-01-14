@@ -41,7 +41,10 @@ const SubmitCartPage = () => {
         name: data.fullName,
         email: data.email,
         phone: data.phone,
-        cart: appStore.cartItems,
+        cart: {
+          items: appStore.cartItems,
+          message: data.message || "",
+        },
       });
       appStore.clearCart();
       setFormStatus(FORM_STATUS.SUBMITTED);

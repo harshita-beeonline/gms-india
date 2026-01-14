@@ -13,6 +13,7 @@ const Header = () => {
   const router = useRouter();
   const handleToggle = (name) =>
     setActiveDropdown((prev) => (prev === name ? null : name));
+  const closeDropdown = () => setActiveDropdown(null);
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
@@ -31,10 +32,15 @@ const Header = () => {
         </Link>
       </div>
       {/* ── centre – primary nav ─────────────────────────── */}
-      <nav className={styles["header-list-title"]}>
+      <nav
+        className={styles["header-list-title"]}
+        onMouseLeave={closeDropdown}
+      >
         <ul>
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/" onMouseEnter={closeDropdown}>
+              Home
+            </Link>
           </li>
           <li>
             <span
@@ -180,7 +186,9 @@ const Header = () => {
           </li>
 
           <li>
-            <Link href="/resources">Resources</Link>
+            <Link href="/resources" onMouseEnter={closeDropdown}>
+              Resources
+            </Link>
           </li>
         </ul>
       </nav>

@@ -7,21 +7,11 @@ import { useAppStore } from "../../store";
 
 const CartItem = ({ item, index }) => {
   const [note, setNote] = useState("");
-  const [loading, setLoading] = useState(false);
   const appStore = useAppStore();
 
   const removeFromCart = (event, id) => {
     event.preventDefault();
     appStore.removeFromCart(id);
-  };
-
-  const handleNoteSubmit = (event, id) => {
-    event.preventDefault();
-    appStore.addNote(id, note);
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
   };
 
   useEffect(() => {
@@ -39,20 +29,18 @@ const CartItem = ({ item, index }) => {
         </Link>
         <img width={100} className="block" alt={item.name} src={item.image} />
       </div>
-      <form
-        onSubmit={(event) => handleNoteSubmit(event, item.id)}
-        className="flex flex-col lg:flex-row gap-x-3 justify-between mt-2"
-      >
+      <div className="flex flex-col lg:flex-row gap-x-3 justify-between mt-2">
         <div>
           <label>Write your note regarding the product here</label>
           <textarea
-            required
             rows={4}
             name="note"
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             value={note}
             onChange={(event) => {
-              setNote(event.target.value);
+              const newNote = event.target.value;
+              setNote(newNote);
+              appStore.addNote(item.id, newNote);
             }}
           />
         </div>
@@ -63,16 +51,8 @@ const CartItem = ({ item, index }) => {
           >
             Remove Product
           </button>
-          <button
-            type="submit"
-            className={`inline-block mt-2 py-3 px-2 rounded-md text-slate-200  ${
-              loading ? "bg-green-600" : "hover:bg-indigo-900 bg-gms"
-            }`}
-          >
-            {loading ? "Submitted" : "Submit"}
-          </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
