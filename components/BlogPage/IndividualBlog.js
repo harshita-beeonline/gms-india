@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../../styles/IndividualBlog.module.scss";
 import { getAsset } from "../utils";
 
@@ -16,11 +17,47 @@ const formatDate = (dateStr) => {
   if (!dateStr) return "";
   const d = new Date(dateStr);
   if (Number.isNaN(d.getTime())) return "";
-  return d.toLocaleDateString(undefined, {
+  return new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
-  });
+    timeZone: "UTC",
+  }).format(d);
+};
+
+const stripHtml = (value = "") => value.replace(/<[^>]*>/g, "");
+
+const slugify = (value = "") =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/&amp;|&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+const buildSectionToc = (html = "") => {
+  const used = new Map();
+  const items = [];
+  const updatedHtml = html.replace(
+    /<h2([^>]*)>(.*?)<\/h2>/gis,
+    (match, attrs, inner) => {
+      const text = stripHtml(inner).replace(/\s+/g, " ").trim();
+      if (!text) return match;
+      const existingIdMatch = attrs.match(/id\s*=\s*["']([^"']+)["']/i);
+      let id = existingIdMatch ? existingIdMatch[1] : slugify(text);
+      if (!id) id = `section-${items.length + 1}`;
+      if (!existingIdMatch) {
+        const seen = used.get(id) || 0;
+        used.set(id, seen + 1);
+        if (seen > 0) id = `${id}-${seen + 1}`;
+      }
+      items.push({ id, text, level: 2 });
+      if (existingIdMatch) return match;
+      return `<h2${attrs} id="${id}" data-scroll-offset="0">${inner}</h2>`;
+    }
+  );
+
+  return { items, html: updatedHtml };
 };
 
 const IndividualBlog = ({ article }) => {
@@ -31,6 +68,99 @@ const IndividualBlog = ({ article }) => {
   const cleanOverview = sanitizeEditorHtml(
     article?.overview || "<p>Content coming soon.</p>"
   );
+  const { items: tocItems, html: overviewWithIds } =
+    buildSectionToc(cleanOverview);
+  const [activeSectionId, setActiveSectionId] = useState(
+    tocItems[0]?.id || ""
+  );
+  const tocRef = useRef(null);
+  const contentRef = useRef(null);
+  const hasIntroduction = tocItems.some(
+    (item) => item.text.toLowerCase() === "introduction"
+  );
+
+  useEffect(() => {
+    if (!tocItems.length) return;
+    const ids = tocItems.map((item) => item.id);
+    const syncFromHash = () => {
+      const hashId = window.location.hash.replace("#", "");
+      if (hashId && ids.includes(hashId)) {
+        setActiveSectionId(hashId);
+      }
+    };
+
+    const handleScroll = () => {
+      const offset = 140;
+      let currentId = ids[0];
+      const container = contentRef.current;
+      if (container) {
+        const nearBottom =
+          container.scrollTop + container.clientHeight >=
+          container.scrollHeight - 2;
+        if (nearBottom) {
+          setActiveSectionId(ids[ids.length - 1]);
+          return;
+        }
+      }
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const containerTop = contentRef.current
+          ? contentRef.current.getBoundingClientRect().top
+          : 0;
+        const top = el.getBoundingClientRect().top - containerTop;
+        if (top - offset <= 0) {
+          currentId = id;
+        } else {
+          break;
+        }
+      }
+      setActiveSectionId(currentId);
+    };
+
+    syncFromHash();
+    handleScroll();
+    const scrollTarget = contentRef.current || window;
+    scrollTarget.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("hashchange", syncFromHash);
+    return () => {
+      scrollTarget.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, [tocItems]);
+
+  useEffect(() => {
+    if (!activeSectionId || !tocRef.current) return;
+    const link = tocRef.current.querySelector(
+      `a[href="#${activeSectionId}"]`
+    );
+    if (link) {
+      link.scrollIntoView({ block: "nearest" });
+    }
+  }, [activeSectionId]);
+
+  const handleSectionClick = (event, id) => {
+    event.preventDefault();
+    setActiveSectionId(id);
+    const container = contentRef.current;
+    const target = document.getElementById(id);
+    if (container && target) {
+      const containerRect = container.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const desiredTop = Math.max(
+        container.scrollTop + (targetRect.top - containerRect.top),
+        0
+      );
+      const maxTop = Math.max(
+        container.scrollHeight - container.clientHeight,
+        0
+      );
+      const nextTop = Math.min(desiredTop, maxTop);
+      container.scrollTo({ top: nextTop, behavior: "smooth" });
+    } else if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <div className={styles["individual-blog-section"]}>
@@ -62,13 +192,37 @@ const IndividualBlog = ({ article }) => {
       <div className={styles["individual-blog-introduction-part"]}>
         <div className={styles["introduction-left-right-part"]}>
           <div className={styles["introduction-left-part"]}>
-            <h5>Overview</h5>
+            {!hasIntroduction && <h5>Overview</h5>}
             {article?.categories && <h6>{article.categories}</h6>}
+            {tocItems.length > 0 && (
+              <div className={styles["section-toc"]}>
+                <ul ref={tocRef}>
+                  {tocItems.map((item) => (
+                    <li key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        className={
+                          item.id === activeSectionId
+                            ? styles.tocLinkActive
+                            : styles.tocLink
+                        }
+                        onClick={(event) => handleSectionClick(event, item.id)}
+                      >
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
-          <div className={styles["introduction-right-part"]}>
+          <div
+            className={styles["introduction-right-part"]}
+            ref={contentRef}
+          >
             <div
               dangerouslySetInnerHTML={{
-                __html: cleanOverview,
+                __html: overviewWithIds,
               }}
             />
           </div>

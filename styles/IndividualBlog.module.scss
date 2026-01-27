@@ -84,14 +84,19 @@
     }
   }
   .individual-blog-introduction-part {
-    padding: 10px 80px 60px 80px;
+    padding: 40px 80px 60px 80px;
     @media (max-width: 1380px) {
       padding: 10px 20px 60px 20px;
     }
     .introduction-left-right-part {
       display: flex;
+      align-items: flex-start;
       .introduction-left-part {
-        margin-top: var(--blog-space);
+        position: sticky;
+        top: 120px;
+        align-self: flex-start;
+        height: fit-content;
+        margin-top: 0;
         width: 35%;
         h5 {
           font-weight: 600;
@@ -117,12 +122,68 @@
           padding-left: 6px;
           margin-top: var(--blog-space);
         }
+        .section-toc {
+          max-height: calc(100vh - 220px);
+          overflow: auto;
+          padding-right: 6px;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+          }
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 8px;
+          }
+          .tocLink {
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            vertical-align: middle;
+            color: #6a6868;
+            padding: 6px;
+            display: block;
+            text-decoration: none;
+          }
+          .tocLinkActive {
+            font-weight: 600;
+            font-style: SemiBold;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            vertical-align: middle;
+            color: #3b5ba6;
+            padding: 6px;
+            display: block;
+            border-left: 2px solid #3b5ba6;
+            text-decoration: none;
+          }
+          .tocLink:hover {
+            color: #3b5ba6;
+          }
+        }
       }
       .introduction-right-part {
         width: 65%;
         display: flex;
         flex-direction: column;
         gap: var(--blog-space);
+        max-height: calc(100vh - 200px);
+        overflow: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 40vh;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+        }
         > div {
           display: flex;
           flex-direction: column;
@@ -146,6 +207,7 @@
           letter-spacing: 0%;
           vertical-align: middle;
           color: #1c1c1c;
+          scroll-margin-top: 140px;
         }
         h4 {
           font-weight: 600;
@@ -188,7 +250,7 @@
           line-height: 25px;
           letter-spacing: 0%;
           vertical-align: middle;
-          color: #403f3f;
+          color: #1c1c1c;
           margin: 0;
           padding-left: 0;
         }
@@ -314,10 +376,17 @@
       .introduction-left-right-part {
         flex-direction: column;
         .introduction-left-part {
+          position: static;
           width: 100%;
+          .section-toc {
+            display: none;
+          }
         }
         .introduction-right-part {
           width: 100%;
+          max-height: none;
+          overflow: visible;
+          scroll-behavior: auto;
         }
       }
     }
@@ -404,9 +473,17 @@
         .introduction-left-part {
           margin-top: 20px;
           width: 100%;
+          position: static;
+          height: auto;
+          .section-toc {
+            display: none;
+          }
         }
         .introduction-right-part {
           width: 100%;
+          max-height: none;
+          overflow: visible;
+          scroll-behavior: auto;
           h4 {
             font-size: 20px;
           }
@@ -418,7 +495,7 @@
             line-height: 20px;
           }
           li {
-            font-size: 12px;
+            font-size: 14px;
             line-height: 18px;
           }
           .intro-blog-image {
@@ -436,7 +513,8 @@
           }
           ol {
             li {
-              font-size: 12px;
+              font-size: 14px;
+              line-height: 18px;
             }
           }
           .other-list-data {
@@ -444,7 +522,7 @@
           }
           .order-list-data {
             li {
-              font-size: 12px;
+              font-size: 14px;
               line-height: 18px;
             }
           }
