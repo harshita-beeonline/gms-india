@@ -142,7 +142,7 @@
           font-style: SemiBold;
           font-size: 24px;
           margin: 0;
-          line-height: 42px;
+          line-height: 30px;
           letter-spacing: 0%;
           vertical-align: middle;
           color: #1c1c1c;
@@ -177,6 +177,9 @@
           letter-spacing: 0%;
           vertical-align: middle;
           color: #403f3f;
+          span {
+            font-size: 16px;
+          }
         }
         li {
           font-weight: 400;
@@ -236,8 +239,8 @@
             font-weight: 400;
             font-style: Medium;
             font-size: 16px;
-            line-height: 100%;
-            letter-spacing: 0%;
+            line-height: 32px;
+            letter-spacing: normal;
             vertical-align: middle;
             color: #1c1c1c;
           }
