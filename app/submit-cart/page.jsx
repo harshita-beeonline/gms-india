@@ -37,15 +37,54 @@ const SubmitCartPage = () => {
     event.preventDefault();
     setFormStatus(FORM_STATUS.LOADING);
     try {
-      await frontendClient.request(CreateEnquiryGQL, {
-        name: data.fullName,
+      const cartItemsText = appStore.cartItems
+        .map((item) => item.name)
+        .join("\n");
+      const descriptionWithItems = [
+        data.message || "",
+        cartItemsText ? `\n\nCart Items:\n${cartItemsText}` : "",
+      ]
+        .join("")
+        .trim();
+      const salesforcePayload = new URLSearchParams({
+        last_name: data.fullName,
         email: data.email,
         phone: data.phone,
-        cart: {
-          items: appStore.cartItems,
-          message: data.message || "",
-        },
-      });
+        description: descriptionWithItems,
+        "00N7F00000Iu6TF": "Cart from Website",
+        lead_source: "Website",
+        "00NC5000000QKdV": "1",
+        oid: "00D7F000002DPId",
+        retURL: `https://gms-india.com${pathname}`,
+        "00NC5000000QPWz": cartItemsText,
+      }).toString();
+      const results = await Promise.allSettled([
+        frontendClient.request(CreateEnquiryGQL, {
+          name: data.fullName,
+          email: data.email,
+          phone: data.phone,
+          cart: {
+            items: appStore.cartItems,
+            message: data.message || "",
+          },
+        }),
+        fetch(
+          "https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8",
+          {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: salesforcePayload,
+          }
+        ),
+      ]);
+
+      const backendResult = results[0];
+      if (backendResult.status !== "fulfilled") {
+        throw backendResult.reason;
+      }
       appStore.clearCart();
       setFormStatus(FORM_STATUS.SUBMITTED);
       setTimeout(() => {
