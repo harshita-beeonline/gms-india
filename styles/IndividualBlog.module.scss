@@ -177,7 +177,7 @@
         max-height: calc(100vh - 200px);
         overflow: auto;
         scroll-behavior: smooth;
-        padding-bottom: 40vh;
+        padding-bottom: 0;
         scrollbar-width: none;
         -ms-overflow-style: none;
         &::-webkit-scrollbar {
