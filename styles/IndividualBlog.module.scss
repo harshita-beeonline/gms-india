@@ -267,6 +267,26 @@
         ol {
           list-style-type: decimal;
         }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 8px 0;
+          display: block;
+          overflow-x: auto;
+        }
+        th,
+        td {
+          border: 1px solid #d9d9d9;
+          padding: 12px 14px;
+          text-align: left;
+          vertical-align: top;
+          word-break: break-word;
+        }
+        th {
+          font-weight: 600;
+          background: #f5f7fb;
+          color: #1c1c1c;
+        }
         .intro-blog-image {
           display: flex;
           align-items: center;

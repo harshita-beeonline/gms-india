@@ -27,6 +27,26 @@ const formatDate = (dateStr) => {
 
 const stripHtml = (value = "") => value.replace(/<[^>]*>/g, "");
 
+const decodeHtmlEntities = (value = "") => {
+  let decoded = value;
+  for (let i = 0; i < 2; i += 1) {
+    decoded = decoded
+      .replace(/&nbsp;/gi, " ")
+      .replace(/&ndash;/gi, String.fromCharCode(8211))
+      .replace(/&mdash;/gi, String.fromCharCode(8212))
+      .replace(/&quot;/gi, '"')
+      .replace(/&#39;|&apos;/gi, "'")
+      .replace(/&amp;/gi, "&")
+      .replace(/&#(\d+);/g, (_, code) =>
+        String.fromCharCode(Number.parseInt(code, 10))
+      )
+      .replace(/&#x([0-9a-f]+);/gi, (_, code) =>
+        String.fromCharCode(Number.parseInt(code, 16))
+      );
+  }
+  return decoded;
+};
+
 const slugify = (value = "") =>
   value
     .toLowerCase()
@@ -41,7 +61,9 @@ const buildSectionToc = (html = "") => {
   const updatedHtml = html.replace(
     /<h2([^>]*)>(.*?)<\/h2>/gis,
     (match, attrs, inner) => {
-      const text = stripHtml(inner).replace(/\s+/g, " ").trim();
+      const text = decodeHtmlEntities(stripHtml(inner))
+        .replace(/\s+/g, " ")
+        .trim();
       if (!text) return match;
       const existingIdMatch = attrs.match(/id\s*=\s*["']([^"']+)["']/i);
       let id = existingIdMatch ? existingIdMatch[1] : slugify(text);
