@@ -1,6 +1,6 @@
 import OGP from "../../components/OGP";
 import MainBlog from "../../components/BlogPage/MainBlog";
-import BlogCards from "../../components/BlogPage/BlogCards";
+import ResourcesInfinite from "../../components/BlogPage/ResourcesInfinite";
 import { backendClient } from "../../lib/graphql-clients";
 import { getBlogs } from "../../components/graphql";
 
@@ -24,7 +24,7 @@ const ResourcesPage = async ({ searchParams }) => {
     <>
       <OGP title="Resources" />
       <MainBlog />
-      <BlogCards articles={articles} basePath="/resources" />
+      <ResourcesInfinite initialArticles={articles} initialPage={page} />
     </>
   );
 };

@@ -28,7 +28,12 @@ export const getAllSlugs = gql`
 
 export const getBlogs = gql`
   query BlogArticle($page: Int!) {
-    blog_article(page: $page, limit: 8, sort: ["-created_on"]) {
+    blog_article(
+      filter: { active: { _eq: true } }
+      page: $page
+      limit: 9
+      sort: ["-created_on"]
+    ) {
       id
       created_on
       active
